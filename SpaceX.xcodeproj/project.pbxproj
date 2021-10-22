@@ -12,6 +12,9 @@
 		B56B5DF02721C0CC006A5524 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56B5DEF2721C0CC006A5524 /* ViewController.swift */; };
 		B56B5DF52721C0D7006A5524 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B56B5DF42721C0D7006A5524 /* Assets.xcassets */; };
 		B56B5DF82721C0D7006A5524 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B56B5DF62721C0D7006A5524 /* LaunchScreen.storyboard */; };
+		B56B5E2827223C1B006A5524 /* SpaceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56B5E2727223C1B006A5524 /* SpaceService.swift */; };
+		B56B5E2A27225202006A5524 /* Rockets.json in Resources */ = {isa = PBXBuildFile; fileRef = B56B5E2927225202006A5524 /* Rockets.json */; };
+		B56B5E2D27225C10006A5524 /* Rocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56B5E2C27225C10006A5524 /* Rocket.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,9 @@
 		B56B5DF42721C0D7006A5524 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B56B5DF72721C0D7006A5524 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B56B5DF92721C0D7006A5524 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B56B5E2727223C1B006A5524 /* SpaceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceService.swift; sourceTree = "<group>"; };
+		B56B5E2927225202006A5524 /* Rockets.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Rockets.json; sourceTree = "<group>"; };
+		B56B5E2C27225C10006A5524 /* Rocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rocket.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,8 +61,10 @@
 			isa = PBXGroup;
 			children = (
 				B56B5E23272205C7006A5524 /* Application */,
-				B56B5E24272205CB006A5524 /* Resources */,
+				B56B5E2627223C09006A5524 /* Services */,
 				B56B5E25272205DA006A5524 /* Screens */,
+				B56B5E2B27225BFE006A5524 /* Model */,
+				B56B5E24272205CB006A5524 /* Resources */,
 			);
 			path = SpaceX;
 			sourceTree = "<group>";
@@ -86,6 +94,23 @@
 				B56B5DEF2721C0CC006A5524 /* ViewController.swift */,
 			);
 			path = Screens;
+			sourceTree = "<group>";
+		};
+		B56B5E2627223C09006A5524 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B56B5E2927225202006A5524 /* Rockets.json */,
+				B56B5E2727223C1B006A5524 /* SpaceService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		B56B5E2B27225BFE006A5524 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B56B5E2C27225C10006A5524 /* Rocket.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,6 +172,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B56B5DF82721C0D7006A5524 /* LaunchScreen.storyboard in Resources */,
+				B56B5E2A27225202006A5524 /* Rockets.json in Resources */,
 				B56B5DF52721C0D7006A5524 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -160,6 +186,8 @@
 			files = (
 				B56B5DF02721C0CC006A5524 /* ViewController.swift in Sources */,
 				B56B5DEC2721C0CB006A5524 /* AppDelegate.swift in Sources */,
+				B56B5E2827223C1B006A5524 /* SpaceService.swift in Sources */,
+				B56B5E2D27225C10006A5524 /* Rocket.swift in Sources */,
 				B56B5DEE2721C0CC006A5524 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
