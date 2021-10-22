@@ -19,7 +19,7 @@ class SpaceService: SpaceServiceProtocol {
     
     var rockets = [Rocket]()
     
-    func fetch() {
+    private func fetch() {
         
         guard let path = Bundle.main.url(forResource: "Rockets", withExtension: "json"),
               let data = try? Data(contentsOf: path)
