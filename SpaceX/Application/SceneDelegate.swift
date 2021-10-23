@@ -17,8 +17,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
         window = UIWindow(frame: UIScreen.main.bounds)
         guard let scene = (scene as? UIWindowScene) else { return }
+        
+        let factory = ScreenFactory()
         window?.windowScene = scene
-        window?.rootViewController = ViewController()
+        window?.rootViewController = factory.createRocketsScreen()
         window?.makeKeyAndVisible()
     }
 

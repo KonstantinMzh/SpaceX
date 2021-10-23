@@ -46,7 +46,12 @@ class SpaceService: SpaceServiceProtocol {
     }
     
     func getRocketByIndex(_ index: Int) -> Rocket {
-        rockets[index]
+//        rockets[index]
+        Rocket(id: "", name: "", rocketDescription: "", firstFlight: "")
+    }
+    
+    init() {
+        fetch()
     }
     
 }

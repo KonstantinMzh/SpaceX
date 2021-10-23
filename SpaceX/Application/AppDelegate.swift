@@ -18,8 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if #available(iOS 13, *) {
             
         } else {
+            
+            let factory = ScreenFactory()
             window = UIWindow(frame: UIScreen.main.bounds)
-            window?.rootViewController = ViewController()
+            window?.rootViewController = factory.createRocketsScreen()
             window?.makeKeyAndVisible()
         }
 
