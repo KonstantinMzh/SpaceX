@@ -107,7 +107,7 @@ class PickerViewController: UIViewController {
         view.addSubview(child.view)
         
         NSLayoutConstraint.activate([
-            child.view.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
+            child.view.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 60),
             child.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             child.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             child.view.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor)

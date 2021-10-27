@@ -21,8 +21,14 @@ class RocketInfoPresenter: RocketInfoPresenterProtocol {
     weak var viewController: RocketInfoViewController?
      
     func getRocketByIndex(_ index: Int) {
-        let rocket = spaceService.getRocketByIndex(index)
-        print(rocket)
+        spaceService.getRocketByIndex(index) { [weak self] result in
+            switch result {
+            case .failure(let error):
+                print(error.localizedDescription)
+            case .success(let rocket):
+                self?.viewController?.updateUIForRocket(rocket)
+            }
+        }
     }
     
     func getRocketsTitles() -> [String] {

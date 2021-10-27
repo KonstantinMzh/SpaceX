@@ -52,10 +52,10 @@ class PickerCollectionCell: UICollectionViewCell {
         ])
     }
     
-//    override func prepareForReuse() {
-//        super.prepareForReuse()
-//        isChoosed = false
-//    }
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        isChoosed = false
+    }
     
     func prepareCell(_ title: String) {
         label.text = title

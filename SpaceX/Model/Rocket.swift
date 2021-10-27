@@ -15,7 +15,7 @@ struct Rocket: Codable {
     let rocketDescription: String
     let firstFlight: String
     
-    var firstFlightDate: Date! {
+    var firstFlightDate: Date? {
         let formatter = DateFormatter()
         formatter.dateFormat = "YYYY-MM-DD"
         let date = formatter.date(from: self.firstFlight)
@@ -35,6 +35,6 @@ struct Rocket: Codable {
 extension Rocket: CustomStringConvertible {
     
     var description: String {
-        return name
+        return rocketDescription
     }
 }
