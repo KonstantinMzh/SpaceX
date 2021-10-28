@@ -8,20 +8,20 @@
 import Foundation
 
 
-protocol SpaceServiceProtocol {
+public protocol SpaceServiceProtocol {
     func getRocketsTitles() -> [String]
     func getRocketsCount() -> Int
-    func getRocketByIndex(_ index: Int) -> Rocket
+    func getRocketByIndex(_ index: Int, completion: @escaping (Result<Rocket, Error>) -> Void)
 }
 
 
-class SpaceService: SpaceServiceProtocol {
+public class SpaceService: SpaceServiceProtocol {
     
     var rockets = [Rocket]()
     
     private func fetch() {
         
-        guard let path = Bundle.main.url(forResource: "Rockets", withExtension: "json"),
+        guard let path = Bundle.module.url(forResource: "Rockets", withExtension: "json"),
               let data = try? Data(contentsOf: path)
         else { return }
         
@@ -29,7 +29,7 @@ class SpaceService: SpaceServiceProtocol {
         guard var rockets = try? decoder.decode([Rocket].self, from: data) else { return }
         
         rockets.sort {
-            $0.firstFlightDate > $1.firstFlightDate
+            $0.firstFlightDate ?? Date() > $1.firstFlightDate ?? Date()
         }
         
         self.rockets = rockets
@@ -37,16 +37,20 @@ class SpaceService: SpaceServiceProtocol {
         
     }
     
-    func getRocketsTitles() -> [String] {
+    public func getRocketsTitles() -> [String] {
         rockets.map { $0.name }
     }
     
-    func getRocketsCount() -> Int {
+    public func getRocketsCount() -> Int {
         rockets.count
     }
     
-    func getRocketByIndex(_ index: Int) -> Rocket {
-        rockets[index]
+    public func getRocketByIndex(_ index: Int, completion: (Result<Rocket, Error>) -> Void) {
+        completion(.success(rockets[index]))
+    }
+    
+    public init() {
+        fetch()
     }
     
 }
