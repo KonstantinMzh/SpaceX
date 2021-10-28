@@ -8,14 +8,14 @@
 import Foundation
 
 
-struct Rocket: Codable {
+public struct Rocket: Codable {
     
-    let id: String
-    let name: String
-    let rocketDescription: String
-    let firstFlight: String
+    public let id: String
+    public let name: String
+    public let rocketDescription: String
+    public let firstFlight: String
     
-    var firstFlightDate: Date! {
+    public var firstFlightDate: Date? {
         let formatter = DateFormatter()
         formatter.dateFormat = "YYYY-MM-DD"
         let date = formatter.date(from: self.firstFlight)
@@ -34,7 +34,7 @@ struct Rocket: Codable {
 
 extension Rocket: CustomStringConvertible {
     
-    var description: String {
-        return name
+    public var description: String {
+        return rocketDescription
     }
 }

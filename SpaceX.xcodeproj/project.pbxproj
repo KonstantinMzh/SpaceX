@@ -7,45 +7,109 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B516EB03272A1283007E1F65 /* SpaceSDK in Frameworks */ = {isa = PBXBuildFile; productRef = B516EB02272A1283007E1F65 /* SpaceSDK */; };
+		B516EB2F272A302A007E1F65 /* XCSpaceXSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = B516EB2E272A302A007E1F65 /* XCSpaceXSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B516EB32272A302A007E1F65 /* XCSpaceXSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B516EB2C272A302A007E1F65 /* XCSpaceXSDK.framework */; };
+		B516EB33272A302A007E1F65 /* XCSpaceXSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B516EB2C272A302A007E1F65 /* XCSpaceXSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B56B5DEC2721C0CB006A5524 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56B5DEB2721C0CB006A5524 /* AppDelegate.swift */; };
 		B56B5DEE2721C0CC006A5524 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56B5DED2721C0CC006A5524 /* SceneDelegate.swift */; };
-		B56B5DF02721C0CC006A5524 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56B5DEF2721C0CC006A5524 /* ViewController.swift */; };
 		B56B5DF52721C0D7006A5524 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B56B5DF42721C0D7006A5524 /* Assets.xcassets */; };
 		B56B5DF82721C0D7006A5524 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B56B5DF62721C0D7006A5524 /* LaunchScreen.storyboard */; };
-		B56B5E2827223C1B006A5524 /* SpaceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56B5E2727223C1B006A5524 /* SpaceService.swift */; };
-		B56B5E2A27225202006A5524 /* Rockets.json in Resources */ = {isa = PBXBuildFile; fileRef = B56B5E2927225202006A5524 /* Rockets.json */; };
-		B56B5E2D27225C10006A5524 /* Rocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56B5E2C27225C10006A5524 /* Rocket.swift */; };
+		B58F9F4B2728FA53007B8849 /* DateFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58F9F4A2728FA53007B8849 /* DateFormatters.swift */; };
+		B5AB5A3227238E520015CEA4 /* PickerCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AB5A3127238E520015CEA4 /* PickerCollectionCell.swift */; };
+		B5AB5A35272390800015CEA4 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AB5A34272390800015CEA4 /* Colors.swift */; };
+		B5D3609A2722FFED00F033DA /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D360992722FFED00F033DA /* PickerViewController.swift */; };
+		B5D360A02723067500F033DA /* RocketInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D3609F2723067500F033DA /* RocketInfoViewController.swift */; };
+		B5D360A22723069000F033DA /* RocketInfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D360A12723069000F033DA /* RocketInfoPresenter.swift */; };
+		B5D360A82723141500F033DA /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D360A72723141500F033DA /* Factory.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		B516EB30272A302A007E1F65 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B56B5DE02721C0CB006A5524 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B516EB2B272A302A007E1F65;
+			remoteInfo = XCSpaceXSDK;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B516EB23272A2F9F007E1F65 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B516EB33272A302A007E1F65 /* XCSpaceXSDK.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		B516EB00272A1180007E1F65 /* SpaceSDK */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SpaceSDK; sourceTree = "<group>"; };
+		B516EB2C272A302A007E1F65 /* XCSpaceXSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XCSpaceXSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B516EB2E272A302A007E1F65 /* XCSpaceXSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XCSpaceXSDK.h; sourceTree = "<group>"; };
 		B56B5DE82721C0CB006A5524 /* SpaceX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B56B5DEB2721C0CB006A5524 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B56B5DED2721C0CC006A5524 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B56B5DEF2721C0CC006A5524 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B56B5DF42721C0D7006A5524 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B56B5DF72721C0D7006A5524 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B56B5DF92721C0D7006A5524 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B56B5E2727223C1B006A5524 /* SpaceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceService.swift; sourceTree = "<group>"; };
-		B56B5E2927225202006A5524 /* Rockets.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Rockets.json; sourceTree = "<group>"; };
-		B56B5E2C27225C10006A5524 /* Rocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rocket.swift; sourceTree = "<group>"; };
+		B58F9F4A2728FA53007B8849 /* DateFormatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatters.swift; sourceTree = "<group>"; };
+		B5AB5A3127238E520015CEA4 /* PickerCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerCollectionCell.swift; sourceTree = "<group>"; };
+		B5AB5A34272390800015CEA4 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		B5D360992722FFED00F033DA /* PickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
+		B5D3609F2723067500F033DA /* RocketInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketInfoViewController.swift; sourceTree = "<group>"; };
+		B5D360A12723069000F033DA /* RocketInfoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketInfoPresenter.swift; sourceTree = "<group>"; };
+		B5D360A72723141500F033DA /* Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		B56B5DE52721C0CB006A5524 /* Frameworks */ = {
+		B516EB29272A302A007E1F65 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B56B5DE52721C0CB006A5524 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B516EB32272A302A007E1F65 /* XCSpaceXSDK.framework in Frameworks */,
+				B516EB03272A1283007E1F65 /* SpaceSDK in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B516EB01272A1283007E1F65 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B516EB2D272A302A007E1F65 /* XCSpaceXSDK */ = {
+			isa = PBXGroup;
+			children = (
+				B516EB2E272A302A007E1F65 /* XCSpaceXSDK.h */,
+			);
+			path = XCSpaceXSDK;
+			sourceTree = "<group>";
+		};
 		B56B5DDF2721C0CB006A5524 = {
 			isa = PBXGroup;
 			children = (
+				B516EB00272A1180007E1F65 /* SpaceSDK */,
 				B56B5DEA2721C0CB006A5524 /* SpaceX */,
+				B516EB2D272A302A007E1F65 /* XCSpaceXSDK */,
 				B56B5DE92721C0CB006A5524 /* Products */,
+				B516EB01272A1283007E1F65 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -53,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				B56B5DE82721C0CB006A5524 /* SpaceX.app */,
+				B516EB2C272A302A007E1F65 /* XCSpaceXSDK.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -63,6 +128,8 @@
 				B56B5E23272205C7006A5524 /* Application */,
 				B56B5E2627223C09006A5524 /* Services */,
 				B56B5E25272205DA006A5524 /* Screens */,
+				B5D3609D2723065200F033DA /* PickerContainer */,
+				B5AB5A33272390780015CEA4 /* Enums */,
 				B56B5E2B27225BFE006A5524 /* Model */,
 				B56B5E24272205CB006A5524 /* Resources */,
 			);
@@ -74,6 +141,7 @@
 			children = (
 				B56B5DEB2721C0CB006A5524 /* AppDelegate.swift */,
 				B56B5DED2721C0CC006A5524 /* SceneDelegate.swift */,
+				B5D360A72723141500F033DA /* Factory.swift */,
 				B56B5DF62721C0D7006A5524 /* LaunchScreen.storyboard */,
 			);
 			path = Application;
@@ -91,7 +159,7 @@
 		B56B5E25272205DA006A5524 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				B56B5DEF2721C0CC006A5524 /* ViewController.swift */,
+				B5D360932722851100F033DA /* Rockets */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -99,8 +167,6 @@
 		B56B5E2627223C09006A5524 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				B56B5E2927225202006A5524 /* Rockets.json */,
-				B56B5E2727223C1B006A5524 /* SpaceService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -108,14 +174,69 @@
 		B56B5E2B27225BFE006A5524 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B56B5E2C27225C10006A5524 /* Rocket.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
+		B5AB5A33272390780015CEA4 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				B5AB5A34272390800015CEA4 /* Colors.swift */,
+				B58F9F4A2728FA53007B8849 /* DateFormatters.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		B5D360932722851100F033DA /* Rockets */ = {
+			isa = PBXGroup;
+			children = (
+				B5D3609F2723067500F033DA /* RocketInfoViewController.swift */,
+				B5D360A12723069000F033DA /* RocketInfoPresenter.swift */,
+			);
+			path = Rockets;
+			sourceTree = "<group>";
+		};
+		B5D3609D2723065200F033DA /* PickerContainer */ = {
+			isa = PBXGroup;
+			children = (
+				B5D360992722FFED00F033DA /* PickerViewController.swift */,
+				B5AB5A3127238E520015CEA4 /* PickerCollectionCell.swift */,
+			);
+			path = PickerContainer;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		B516EB27272A302A007E1F65 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B516EB2F272A302A007E1F65 /* XCSpaceXSDK.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		B516EB2B272A302A007E1F65 /* XCSpaceXSDK */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B516EB34272A302A007E1F65 /* Build configuration list for PBXNativeTarget "XCSpaceXSDK" */;
+			buildPhases = (
+				B516EB27272A302A007E1F65 /* Headers */,
+				B516EB28272A302A007E1F65 /* Sources */,
+				B516EB29272A302A007E1F65 /* Frameworks */,
+				B516EB2A272A302A007E1F65 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = XCSpaceXSDK;
+			productName = XCSpaceXSDK;
+			productReference = B516EB2C272A302A007E1F65 /* XCSpaceXSDK.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		B56B5DE72721C0CB006A5524 /* SpaceX */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B56B5DFC2721C0D7006A5524 /* Build configuration list for PBXNativeTarget "SpaceX" */;
@@ -123,12 +244,17 @@
 				B56B5DE42721C0CB006A5524 /* Sources */,
 				B56B5DE52721C0CB006A5524 /* Frameworks */,
 				B56B5DE62721C0CB006A5524 /* Resources */,
+				B516EB23272A2F9F007E1F65 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				B516EB31272A302A007E1F65 /* PBXTargetDependency */,
 			);
 			name = SpaceX;
+			packageProductDependencies = (
+				B516EB02272A1283007E1F65 /* SpaceSDK */,
+			);
 			productName = SpaceX;
 			productReference = B56B5DE82721C0CB006A5524 /* SpaceX.app */;
 			productType = "com.apple.product-type.application";
@@ -143,6 +269,9 @@
 				LastSwiftUpdateCheck = 1300;
 				LastUpgradeCheck = 1300;
 				TargetAttributes = {
+					B516EB2B272A302A007E1F65 = {
+						CreatedOnToolsVersion = 13.0;
+					};
 					B56B5DE72721C0CB006A5524 = {
 						CreatedOnToolsVersion = 13.0;
 					};
@@ -162,17 +291,24 @@
 			projectRoot = "";
 			targets = (
 				B56B5DE72721C0CB006A5524 /* SpaceX */,
+				B516EB2B272A302A007E1F65 /* XCSpaceXSDK */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		B516EB2A272A302A007E1F65 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B56B5DE62721C0CB006A5524 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				B56B5DF82721C0D7006A5524 /* LaunchScreen.storyboard in Resources */,
-				B56B5E2A27225202006A5524 /* Rockets.json in Resources */,
 				B56B5DF52721C0D7006A5524 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -180,19 +316,38 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		B516EB28272A302A007E1F65 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B56B5DE42721C0CB006A5524 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B56B5DF02721C0CC006A5524 /* ViewController.swift in Sources */,
+				B5D3609A2722FFED00F033DA /* PickerViewController.swift in Sources */,
+				B5AB5A35272390800015CEA4 /* Colors.swift in Sources */,
+				B5D360A22723069000F033DA /* RocketInfoPresenter.swift in Sources */,
+				B5AB5A3227238E520015CEA4 /* PickerCollectionCell.swift in Sources */,
+				B58F9F4B2728FA53007B8849 /* DateFormatters.swift in Sources */,
+				B5D360A82723141500F033DA /* Factory.swift in Sources */,
+				B5D360A02723067500F033DA /* RocketInfoViewController.swift in Sources */,
 				B56B5DEC2721C0CB006A5524 /* AppDelegate.swift in Sources */,
-				B56B5E2827223C1B006A5524 /* SpaceService.swift in Sources */,
-				B56B5E2D27225C10006A5524 /* Rocket.swift in Sources */,
 				B56B5DEE2721C0CC006A5524 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B516EB31272A302A007E1F65 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B516EB2B272A302A007E1F65 /* XCSpaceXSDK */;
+			targetProxy = B516EB30272A302A007E1F65 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		B56B5DF62721C0D7006A5524 /* LaunchScreen.storyboard */ = {
@@ -206,6 +361,68 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		B516EB35272A302A007E1F65 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = JSV24Z5UNP;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = mzh.XCSpaceXSDK;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		B516EB36272A302A007E1F65 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = JSV24Z5UNP;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = mzh.XCSpaceXSDK;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		B56B5DFA2721C0D7006A5524 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -341,7 +558,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = mzh.SpaceX;
+				PRODUCT_BUNDLE_IDENTIFIER = "mzh.objc-example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -368,7 +585,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = mzh.SpaceX;
+				PRODUCT_BUNDLE_IDENTIFIER = "mzh.objc-example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -379,6 +596,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		B516EB34272A302A007E1F65 /* Build configuration list for PBXNativeTarget "XCSpaceXSDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B516EB35272A302A007E1F65 /* Debug */,
+				B516EB36272A302A007E1F65 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B56B5DE32721C0CB006A5524 /* Build configuration list for PBXProject "SpaceX" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -398,6 +624,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B516EB02272A1283007E1F65 /* SpaceSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SpaceSDK;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B56B5DE02721C0CB006A5524 /* Project object */;
 }
