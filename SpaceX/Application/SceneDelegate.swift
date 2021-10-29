@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let factory = ScreenFactory()
         window?.windowScene = scene
-        window?.rootViewController = factory.createRocketsScreen()
+        window?.rootViewController = factory.createTabBar()
         window?.makeKeyAndVisible()
         
     }

@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             let factory = ScreenFactory()
             window = UIWindow(frame: UIScreen.main.bounds)
-            window?.rootViewController = factory.createRocketsScreen()
+            window?.rootViewController = factory.createTabBar()
             window?.makeKeyAndVisible()
         }
         
