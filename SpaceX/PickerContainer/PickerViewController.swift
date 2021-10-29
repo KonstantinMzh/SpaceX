@@ -17,9 +17,8 @@ class PickerViewController: UIViewController {
     private var collection: [String] = []
     weak var delegate: PickerDelegate?
     weak var viewController: PickerViewController?
-    var selectedItem = 0 {
+    private var selectedItem = 0 {
         didSet {
-
             collectionView.scrollToItem(at: IndexPath(item: selectedItem, section: 0), at: .centeredHorizontally, animated: true)
             let oldSelectedCell = collectionView.cellForItem(at: IndexPath(item: oldValue, section: 0)) as? PickerCollectionCell
             oldSelectedCell?.isChoosed = false
@@ -51,6 +50,11 @@ class PickerViewController: UIViewController {
     func setCollection(_ collection: [String]) {
         self.collection = collection
         collectionView.reloadData()
+
+        if self.collection.count > 0 {
+            selectedItem = 0
+        }
+        
     }
     
     func didSelectAtIndex(_ index: Int) {
@@ -87,14 +91,6 @@ class PickerViewController: UIViewController {
             collectionView.heightAnchor.constraint(equalToConstant: 60)
         ])
         
-
-    }
-    
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        selectedItem = 0
 
     }
     
@@ -142,3 +138,4 @@ extension PickerViewController: UICollectionViewDelegate {
     
     
 }
+
