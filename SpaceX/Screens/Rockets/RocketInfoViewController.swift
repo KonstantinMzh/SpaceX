@@ -51,7 +51,7 @@ class RocketInfoViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        picker?.setCollection(presenter?.getRocketsTitles() ?? [])
+        presenter?.fetchRockets()
 
     }
     
@@ -69,9 +69,14 @@ class RocketInfoViewController: UIViewController {
         ])
     }
     
+    func updatePicker(rocketTitles: [String]) {
+        picker?.setCollection(rocketTitles)
+    }
+    
     func updateUIForRocket(_ rocket: Rocket) {
+        
         rocketNameLabel.text = rocket.name
-        rocketDescriptionLabel.text = rocket.rocketDescription
+        rocketDescriptionLabel.text = rocket.description
         
         if let date = rocket.firstFlightDate {
             let dateDescription = DateFormatters.simpleDayMonthYear.getDescriptionFromDate(date)

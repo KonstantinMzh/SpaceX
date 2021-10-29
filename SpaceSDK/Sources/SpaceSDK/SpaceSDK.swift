@@ -9,48 +9,39 @@ import Foundation
 
 
 public protocol SpaceServiceProtocol {
-    func getRocketsTitles() -> [String]
-    func getRocketsCount() -> Int
-    func getRocketByIndex(_ index: Int, completion: @escaping (Result<Rocket, Error>) -> Void)
+    func fetchRockets(completion: @escaping (Result<[Rocket], SpaceError>) -> Void)
+    func fetchLaunches(completion: @escaping (Result<[Launch], SpaceError>) -> Void)
+    func fetchRocketById(_ id: String, completion: @escaping (Result<Rocket, SpaceError>) -> Void)
 }
 
 
 public class SpaceService: SpaceServiceProtocol {
     
-    var rockets = [Rocket]()
+    let networkManager: NetworkManagerProtocol
+
     
-    private func fetch() {
-        
-        guard let path = Bundle.module.url(forResource: "Rockets", withExtension: "json"),
-              let data = try? Data(contentsOf: path)
-        else { return }
-        
-        let decoder = JSONDecoder()
-        guard var rockets = try? decoder.decode([Rocket].self, from: data) else { return }
-        
-        rockets.sort {
-            $0.firstFlightDate ?? Date() > $1.firstFlightDate ?? Date()
+    public func fetchRockets(completion: @escaping (Result<[Rocket], SpaceError>) -> Void) {
+        networkManager.fetch(endpoint: .rockets) { result in
+            completion(result)
         }
-        
-        self.rockets = rockets
-        print(self.rockets)
-        
     }
     
-    public func getRocketsTitles() -> [String] {
-        rockets.map { $0.name }
+    public func fetchLaunches(completion: @escaping (Result<[Launch], SpaceError>) -> Void) {
+        networkManager.fetch(endpoint: .launches) { result in
+            completion(result)
+        }
     }
     
-    public func getRocketsCount() -> Int {
-        rockets.count
+    public func fetchRocketById(_ id: String, completion: @escaping (Result<Rocket, SpaceError>) -> Void) {
+        networkManager.fetch(endpoint: .rocket(id)) { result in
+            completion(result)
+        }
     }
+
     
-    public func getRocketByIndex(_ index: Int, completion: (Result<Rocket, Error>) -> Void) {
-        completion(.success(rockets[index]))
-    }
     
     public init() {
-        fetch()
+        networkManager = NetworkManager()
     }
     
 }

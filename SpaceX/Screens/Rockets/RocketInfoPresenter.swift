@@ -11,31 +11,45 @@ import SpaceSDK
 
 protocol RocketInfoPresenterProtocol: PickerDelegate {
     func getRocketByIndex(_ index: Int)
-    func getRocketsTitles() -> [String]
+    func fetchRockets()
 }
 
 
 class RocketInfoPresenter: RocketInfoPresenterProtocol {
     
+    
     //MARK: - Properties
+    private var rockets: [Rocket] = [] {
+        didSet {
+            let titles = rockets.map { $0.name }
+            viewController?.updatePicker(rocketTitles: titles)
+        }
+    }
+    
     let spaceService: SpaceServiceProtocol
     weak var viewController: RocketInfoViewController?
      
     func getRocketByIndex(_ index: Int) {
-        spaceService.getRocketByIndex(index) { [weak self] result in
+        
+        if let rocket = rockets[safe: index] {
+            viewController?.updateUIForRocket(rocket)
+        } else {
+            viewController?.showSimpleAlert(withTitle: "Ошибка", message: "Не удалось загрузить данные для ракеты")
+        }
+
+    }
+    
+    func fetchRockets() {
+        spaceService.fetchRockets { [weak self] result in
             switch result {
             case .failure(let error):
-                print(error.localizedDescription)
-            case .success(let rocket):
-                self?.viewController?.updateUIForRocket(rocket)
+                self?.viewController?.showSimpleAlert(withTitle: "Ошибка", message: error.localizedDescription)
+            case .success(let rockets):
+                self?.rockets = rockets
             }
         }
     }
-    
-    func getRocketsTitles() -> [String] {
-        return spaceService.getRocketsTitles()
-    }
-    
+
     
     //MARK: - Init
     init(viewController: RocketInfoViewController,

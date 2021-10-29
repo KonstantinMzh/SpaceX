@@ -22,6 +22,8 @@
 		B5D360A02723067500F033DA /* RocketInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D3609F2723067500F033DA /* RocketInfoViewController.swift */; };
 		B5D360A22723069000F033DA /* RocketInfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D360A12723069000F033DA /* RocketInfoPresenter.swift */; };
 		B5D360A82723141500F033DA /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D360A72723141500F033DA /* Factory.swift */; };
+		B5FF045D272BA74200C1D103 /* Collection+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FF045C272BA74200C1D103 /* Collection+Extension.swift */; };
+		B5FF045F272BA77800C1D103 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FF045E272BA77800C1D103 /* UIViewController+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +67,8 @@
 		B5D3609F2723067500F033DA /* RocketInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketInfoViewController.swift; sourceTree = "<group>"; };
 		B5D360A12723069000F033DA /* RocketInfoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketInfoPresenter.swift; sourceTree = "<group>"; };
 		B5D360A72723141500F033DA /* Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
+		B5FF045C272BA74200C1D103 /* Collection+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extension.swift"; sourceTree = "<group>"; };
+		B5FF045E272BA77800C1D103 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,11 +130,10 @@
 			isa = PBXGroup;
 			children = (
 				B56B5E23272205C7006A5524 /* Application */,
-				B56B5E2627223C09006A5524 /* Services */,
+				B5FF045B272BA6E300C1D103 /* Extensions */,
 				B56B5E25272205DA006A5524 /* Screens */,
 				B5D3609D2723065200F033DA /* PickerContainer */,
 				B5AB5A33272390780015CEA4 /* Enums */,
-				B56B5E2B27225BFE006A5524 /* Model */,
 				B56B5E24272205CB006A5524 /* Resources */,
 			);
 			path = SpaceX;
@@ -164,20 +167,6 @@
 			path = Screens;
 			sourceTree = "<group>";
 		};
-		B56B5E2627223C09006A5524 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
-		B56B5E2B27225BFE006A5524 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		B5AB5A33272390780015CEA4 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
@@ -203,6 +192,15 @@
 				B5AB5A3127238E520015CEA4 /* PickerCollectionCell.swift */,
 			);
 			path = PickerContainer;
+			sourceTree = "<group>";
+		};
+		B5FF045B272BA6E300C1D103 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B5FF045C272BA74200C1D103 /* Collection+Extension.swift */,
+				B5FF045E272BA77800C1D103 /* UIViewController+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -328,6 +326,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5D3609A2722FFED00F033DA /* PickerViewController.swift in Sources */,
+				B5FF045F272BA77800C1D103 /* UIViewController+Extension.swift in Sources */,
 				B5AB5A35272390800015CEA4 /* Colors.swift in Sources */,
 				B5D360A22723069000F033DA /* RocketInfoPresenter.swift in Sources */,
 				B5AB5A3227238E520015CEA4 /* PickerCollectionCell.swift in Sources */,
@@ -336,6 +335,7 @@
 				B5D360A02723067500F033DA /* RocketInfoViewController.swift in Sources */,
 				B56B5DEC2721C0CB006A5524 /* AppDelegate.swift in Sources */,
 				B56B5DEE2721C0CC006A5524 /* SceneDelegate.swift in Sources */,
+				B5FF045D272BA74200C1D103 /* Collection+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
