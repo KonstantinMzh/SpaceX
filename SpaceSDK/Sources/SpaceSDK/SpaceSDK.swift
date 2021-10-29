@@ -38,8 +38,7 @@ public class SpaceService: SpaceServiceProtocol {
         }
     }
 
-    
-    
+
     public init() {
         networkManager = NetworkManager()
     }
