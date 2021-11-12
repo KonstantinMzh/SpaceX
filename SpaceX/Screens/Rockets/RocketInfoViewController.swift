@@ -7,7 +7,7 @@
 
 import UIKit
 import SpaceSDK
-
+import Gallery
 
 class RocketInfoViewController: UIViewController {
     
@@ -40,6 +40,7 @@ class RocketInfoViewController: UIViewController {
         return label
     }()
     
+    let gallery = Gallery()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,12 +62,22 @@ class RocketInfoViewController: UIViewController {
         stackView.addArrangedSubview(rocketNameLabel)
         stackView.addArrangedSubview(rocketDescriptionLabel)
         stackView.addArrangedSubview(firstFlightLabel)
+        stackView.addArrangedSubview(gallery)
         
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 50),
             stackView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
             stackView.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor)
         ])
+
+        gallery.translatesAutoresizingMaskIntoConstraints = false
+        stackView.addArrangedSubview(gallery)
+        NSLayoutConstraint.activate([
+            gallery.heightAnchor.constraint(equalToConstant: 150)
+        ])
+        
+        gallery.images = []
+        
     }
     
     func updatePicker(rocketTitles: [String]) {
@@ -82,6 +93,8 @@ class RocketInfoViewController: UIViewController {
             let dateDescription = DateFormatters.simpleDayMonthYear.getDescriptionFromDate(date)
             firstFlightLabel.text = dateDescription
         }
+        
+        gallery.images = rocket.images
     }
     
 }

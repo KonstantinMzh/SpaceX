@@ -62,8 +62,17 @@ class NetworkManager: NetworkManagerProtocol {
     }
 
     init() {
-        configuration = URLSessionConfiguration()
-        session = URLSession.shared
+        configuration = URLSessionConfiguration.ephemeral
+        
+        if #available(iOS 13.0, *) {
+            let cache = URLCache(memoryCapacity: 0 * 1024 * 1024, diskCapacity: 0 * 1024 * 1024, directory: nil)
+            configuration.urlCache = cache
+        } else {
+            let cache = URLCache(memoryCapacity: 0 * 1024 * 1024, diskCapacity: 0 * 1024 * 1024, diskPath: nil)
+            configuration.urlCache = cache
+        }
+        
+        session = URLSession(configuration: configuration)
     }
 
 }

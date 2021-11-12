@@ -14,6 +14,7 @@ public struct Rocket: Codable {
     public let name: String
     public let rocketDescription: String
     public let firstFlight: String
+    public let images: [String]
     
     public var firstFlightDate: Date? {
         let formatter = DateFormatter()
@@ -27,6 +28,7 @@ public struct Rocket: Codable {
         case name
         case rocketDescription = "description"
         case firstFlight = "first_flight"
+        case images = "flickr_images"
     }
 
 }

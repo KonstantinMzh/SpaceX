@@ -18,6 +18,7 @@
 		B58F9F4B2728FA53007B8849 /* DateFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58F9F4A2728FA53007B8849 /* DateFormatters.swift */; };
 		B5AB5A3227238E520015CEA4 /* PickerCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AB5A3127238E520015CEA4 /* PickerCollectionCell.swift */; };
 		B5AB5A35272390800015CEA4 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AB5A34272390800015CEA4 /* Colors.swift */; };
+		B5BF66D9273CB8290024E2F4 /* Gallery in Frameworks */ = {isa = PBXBuildFile; productRef = B5BF66D8273CB8290024E2F4 /* Gallery */; };
 		B5D3609A2722FFED00F033DA /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D360992722FFED00F033DA /* PickerViewController.swift */; };
 		B5D360A02723067500F033DA /* RocketInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D3609F2723067500F033DA /* RocketInfoViewController.swift */; };
 		B5D360A22723069000F033DA /* RocketInfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D360A12723069000F033DA /* RocketInfoPresenter.swift */; };
@@ -63,6 +64,7 @@
 		B58F9F4A2728FA53007B8849 /* DateFormatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatters.swift; sourceTree = "<group>"; };
 		B5AB5A3127238E520015CEA4 /* PickerCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerCollectionCell.swift; sourceTree = "<group>"; };
 		B5AB5A34272390800015CEA4 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		B5BF66D7273CAAD90024E2F4 /* Gallery */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Gallery; sourceTree = "<group>"; };
 		B5D360992722FFED00F033DA /* PickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
 		B5D3609F2723067500F033DA /* RocketInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketInfoViewController.swift; sourceTree = "<group>"; };
 		B5D360A12723069000F033DA /* RocketInfoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketInfoPresenter.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 			files = (
 				B516EB32272A302A007E1F65 /* XCSpaceXSDK.framework in Frameworks */,
 				B516EB03272A1283007E1F65 /* SpaceSDK in Frameworks */,
+				B5BF66D9273CB8290024E2F4 /* Gallery in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +112,7 @@
 		B56B5DDF2721C0CB006A5524 = {
 			isa = PBXGroup;
 			children = (
+				B5BF66D7273CAAD90024E2F4 /* Gallery */,
 				B516EB00272A1180007E1F65 /* SpaceSDK */,
 				B56B5DEA2721C0CB006A5524 /* SpaceX */,
 				B516EB2D272A302A007E1F65 /* XCSpaceXSDK */,
@@ -252,6 +256,7 @@
 			name = SpaceX;
 			packageProductDependencies = (
 				B516EB02272A1283007E1F65 /* SpaceSDK */,
+				B5BF66D8273CB8290024E2F4 /* Gallery */,
 			);
 			productName = SpaceX;
 			productReference = B56B5DE82721C0CB006A5524 /* SpaceX.app */;
@@ -629,6 +634,10 @@
 		B516EB02272A1283007E1F65 /* SpaceSDK */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SpaceSDK;
+		};
+		B5BF66D8273CB8290024E2F4 /* Gallery */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Gallery;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
