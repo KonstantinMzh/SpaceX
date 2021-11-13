@@ -1,5 +1,4 @@
 import UIKit
-import ImageLoader
 
 class GalleryCell: UICollectionViewCell {
     

@@ -34,6 +34,7 @@ enum RequestBuilder {
             
         case .launch(let id):
             urlComponent.path = "/\(apiVersion)/launches/\(id)"
+
         }
         
         guard let url = urlComponent.url else { throw SpaceError.urlError }

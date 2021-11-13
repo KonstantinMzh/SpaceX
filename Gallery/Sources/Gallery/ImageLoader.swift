@@ -6,8 +6,6 @@ public protocol ImageLoaderProtocol {
 
 public class ImageLoader: ImageLoaderProtocol {
     
-    let storage = NSCache<NSString, UIImage>()
-        
     static public func loadImageFromURL(_ url: String, completion: @escaping (Result<UIImage, Error>) -> ())  {
         guard let imageURL = URL(string: url) else { return }
         
@@ -22,6 +20,7 @@ public class ImageLoader: ImageLoaderProtocol {
         }
         dataTask.resume()
     }
+    
 }
 
 extension UIImageView {

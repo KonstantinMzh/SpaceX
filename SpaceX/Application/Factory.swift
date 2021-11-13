@@ -18,8 +18,7 @@ final class ScreenFactory {
         let tabBarController = UITabBarController()
         let rocketsViewController = createRocketsScreen()
         
-        let dummyViewController2 = UIViewController()
-        dummyViewController2.view.backgroundColor = .systemBlue
+        let dummyViewController2 = createLaunchesScreen()
         
         let dummyViewController3 = UIViewController()
         dummyViewController3.view.backgroundColor = .systemYellow
@@ -54,6 +53,13 @@ final class ScreenFactory {
         rocketViewController.picker = pickerViewController
         pickerViewController.delegate = rocketPresenter
         return pickerViewController
+    }
+    
+    func createLaunchesScreen() -> LaunchesViewController {
+        let viewController = LaunchesViewController()
+        let launchesPresenter: LaunchesPresenterProtocol = LaunchesPresenter(viewController: viewController, rocketService: applicationFactory.spaceService)
+        viewController.presenter = launchesPresenter
+        return viewController
     }
     
 }

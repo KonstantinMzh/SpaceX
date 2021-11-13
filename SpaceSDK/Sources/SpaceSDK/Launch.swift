@@ -10,6 +10,16 @@ import Foundation
 
 public struct Launch: Codable {
     
+    public let name: String
+    public let upcoming: Bool
     public let details: String?
-    
+    public let date: TimeInterval
+
+    enum CodingKeys: String, CodingKey {
+        case name
+        case upcoming
+        case details
+        case date = "date_unix"
+    }
 }
+

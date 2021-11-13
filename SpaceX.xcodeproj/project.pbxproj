@@ -19,6 +19,12 @@
 		B5AB5A3227238E520015CEA4 /* PickerCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AB5A3127238E520015CEA4 /* PickerCollectionCell.swift */; };
 		B5AB5A35272390800015CEA4 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AB5A34272390800015CEA4 /* Colors.swift */; };
 		B5BF66D9273CB8290024E2F4 /* Gallery in Frameworks */ = {isa = PBXBuildFile; productRef = B5BF66D8273CB8290024E2F4 /* Gallery */; };
+		B5C1CD96273E0DAD00ED2691 /* LaunchesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C1CD95273E0DAD00ED2691 /* LaunchesViewController.swift */; };
+		B5C1CD98273E0DB500ED2691 /* LaunchesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C1CD97273E0DB500ED2691 /* LaunchesPresenter.swift */; };
+		B5C1CDC7273EAAF600ED2691 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C1CDC6273EAAF600ED2691 /* Date+Extension.swift */; };
+		B5C1CDCA273EE81B00ED2691 /* FutureLaunchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C1CDC9273EE81B00ED2691 /* FutureLaunchCell.swift */; };
+		B5C1CDD32740433C00ED2691 /* LaunchDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C1CDD22740433C00ED2691 /* LaunchDelegate.swift */; };
+		B5C1CDD52740606800ED2691 /* OldLaunchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C1CDD42740606800ED2691 /* OldLaunchCell.swift */; };
 		B5D3609A2722FFED00F033DA /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D360992722FFED00F033DA /* PickerViewController.swift */; };
 		B5D360A02723067500F033DA /* RocketInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D3609F2723067500F033DA /* RocketInfoViewController.swift */; };
 		B5D360A22723069000F033DA /* RocketInfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D360A12723069000F033DA /* RocketInfoPresenter.swift */; };
@@ -65,6 +71,12 @@
 		B5AB5A3127238E520015CEA4 /* PickerCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerCollectionCell.swift; sourceTree = "<group>"; };
 		B5AB5A34272390800015CEA4 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		B5BF66D7273CAAD90024E2F4 /* Gallery */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Gallery; sourceTree = "<group>"; };
+		B5C1CD95273E0DAD00ED2691 /* LaunchesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesViewController.swift; sourceTree = "<group>"; };
+		B5C1CD97273E0DB500ED2691 /* LaunchesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesPresenter.swift; sourceTree = "<group>"; };
+		B5C1CDC6273EAAF600ED2691 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		B5C1CDC9273EE81B00ED2691 /* FutureLaunchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FutureLaunchCell.swift; sourceTree = "<group>"; };
+		B5C1CDD22740433C00ED2691 /* LaunchDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchDelegate.swift; sourceTree = "<group>"; };
+		B5C1CDD42740606800ED2691 /* OldLaunchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldLaunchCell.swift; sourceTree = "<group>"; };
 		B5D360992722FFED00F033DA /* PickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
 		B5D3609F2723067500F033DA /* RocketInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketInfoViewController.swift; sourceTree = "<group>"; };
 		B5D360A12723069000F033DA /* RocketInfoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketInfoPresenter.swift; sourceTree = "<group>"; };
@@ -135,8 +147,9 @@
 			children = (
 				B56B5E23272205C7006A5524 /* Application */,
 				B5FF045B272BA6E300C1D103 /* Extensions */,
+				B5C1CDD12740433100ED2691 /* Protocols */,
 				B56B5E25272205DA006A5524 /* Screens */,
-				B5D3609D2723065200F033DA /* PickerContainer */,
+				B5C1CDC8273EE80D00ED2691 /* UIComponents */,
 				B5AB5A33272390780015CEA4 /* Enums */,
 				B56B5E24272205CB006A5524 /* Resources */,
 			);
@@ -167,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				B5D360932722851100F033DA /* Rockets */,
+				B5C1CD94273E0DA000ED2691 /* Launches */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -178,6 +192,33 @@
 				B58F9F4A2728FA53007B8849 /* DateFormatters.swift */,
 			);
 			path = Enums;
+			sourceTree = "<group>";
+		};
+		B5C1CD94273E0DA000ED2691 /* Launches */ = {
+			isa = PBXGroup;
+			children = (
+				B5C1CD95273E0DAD00ED2691 /* LaunchesViewController.swift */,
+				B5C1CD97273E0DB500ED2691 /* LaunchesPresenter.swift */,
+			);
+			path = Launches;
+			sourceTree = "<group>";
+		};
+		B5C1CDC8273EE80D00ED2691 /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				B5C1CDC9273EE81B00ED2691 /* FutureLaunchCell.swift */,
+				B5C1CDD42740606800ED2691 /* OldLaunchCell.swift */,
+				B5D3609D2723065200F033DA /* PickerContainer */,
+			);
+			path = UIComponents;
+			sourceTree = "<group>";
+		};
+		B5C1CDD12740433100ED2691 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				B5C1CDD22740433C00ED2691 /* LaunchDelegate.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		B5D360932722851100F033DA /* Rockets */ = {
@@ -203,6 +244,7 @@
 			children = (
 				B5FF045C272BA74200C1D103 /* Collection+Extension.swift */,
 				B5FF045E272BA77800C1D103 /* UIViewController+Extension.swift */,
+				B5C1CDC6273EAAF600ED2691 /* Date+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -330,16 +372,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5C1CDD32740433C00ED2691 /* LaunchDelegate.swift in Sources */,
 				B5D3609A2722FFED00F033DA /* PickerViewController.swift in Sources */,
+				B5C1CD96273E0DAD00ED2691 /* LaunchesViewController.swift in Sources */,
 				B5FF045F272BA77800C1D103 /* UIViewController+Extension.swift in Sources */,
+				B5C1CDD52740606800ED2691 /* OldLaunchCell.swift in Sources */,
 				B5AB5A35272390800015CEA4 /* Colors.swift in Sources */,
 				B5D360A22723069000F033DA /* RocketInfoPresenter.swift in Sources */,
 				B5AB5A3227238E520015CEA4 /* PickerCollectionCell.swift in Sources */,
 				B58F9F4B2728FA53007B8849 /* DateFormatters.swift in Sources */,
 				B5D360A82723141500F033DA /* Factory.swift in Sources */,
+				B5C1CDCA273EE81B00ED2691 /* FutureLaunchCell.swift in Sources */,
 				B5D360A02723067500F033DA /* RocketInfoViewController.swift in Sources */,
 				B56B5DEC2721C0CB006A5524 /* AppDelegate.swift in Sources */,
 				B56B5DEE2721C0CC006A5524 /* SceneDelegate.swift in Sources */,
+				B5C1CDC7273EAAF600ED2691 /* Date+Extension.swift in Sources */,
+				B5C1CD98273E0DB500ED2691 /* LaunchesPresenter.swift in Sources */,
 				B5FF045D272BA74200C1D103 /* Collection+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -45,15 +45,12 @@ class RocketInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = Colors.background
-    
         configure()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
         presenter?.fetchRockets()
-
     }
     
     
@@ -90,7 +87,7 @@ class RocketInfoViewController: UIViewController {
         rocketDescriptionLabel.text = rocket.description
         
         if let date = rocket.firstFlightDate {
-            let dateDescription = DateFormatters.simpleDayMonthYear.getDescriptionFromDate(date)
+            let dateDescription = DateFormatters.simpleDayMonthYear.getDescription(date)
             firstFlightLabel.text = dateDescription
         }
         
