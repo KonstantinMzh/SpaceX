@@ -10,8 +10,10 @@ import Foundation
 
 public protocol SpaceServiceProtocol {
     func fetchRockets(completion: @escaping (Result<[Rocket], SpaceError>) -> Void)
-    func fetchLaunches(completion: @escaping (Result<[Launch], SpaceError>) -> Void)
     func fetchRocketById(_ id: String, completion: @escaping (Result<Rocket, SpaceError>) -> Void)
+    
+    func fetchLaunches(completion: @escaping (Result<[Launch], SpaceError>) -> Void)
+
 }
 
 

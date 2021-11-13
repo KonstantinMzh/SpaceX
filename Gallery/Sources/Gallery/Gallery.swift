@@ -1,5 +1,4 @@
 import UIKit
-import ImageLoader
 
 
 public class Gallery: UIView {
