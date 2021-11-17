@@ -34,7 +34,15 @@ enum Colors {
         }
     }()
     
-    static let accentOrange: UIColor = UIColor.orange
+    static let mainAccent: UIColor = {
+        if #available(iOS 13.0, *) {
+            return UIColor.systemIndigo
+        } else {
+            return UIColor.systemBlue
+        }
+    }()
+    
+    static let white: UIColor = .white
     
     static let gray: UIColor = {
         if #available(iOS 13.0, *) {

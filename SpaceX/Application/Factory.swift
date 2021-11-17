@@ -16,7 +16,7 @@ final class ScreenFactory {
     
     func createTabBar() -> UITabBarController {
         let tabBarController = UITabBarController()
-        let rocketsViewController = createRocketsScreen()
+        let rocketsViewController = createEquipmentScreen()
         
         let dummyViewController2 = createLaunchesScreen()
         
@@ -28,21 +28,31 @@ final class ScreenFactory {
         
         let item1 = tabBarController.tabBar.items?[safe: 0]
         item1?.image = UIImage(named: "rocket")
-        item1?.title = "Ракеты"
+        item1?.title = "Rockets"
         
         let item2 = tabBarController.tabBar.items?[safe: 1]
         item2?.image = UIImage(named: "launch")
-        item2?.title = "Запуски"
+        item2?.title = "Launches"
         
         let item3 = tabBarController.tabBar.items?[safe: 2]
         item3?.image = UIImage(named: "detail")
-        item3?.title = "О SpaceX"
+        item3?.title = "SpaceX"
         
-        tabBarController.tabBar.tintColor = .systemOrange
+        tabBarController.tabBar.tintColor = Colors.mainAccent
         
         return tabBarController
     }
         
+    func createEquipmentScreen() -> UINavigationController {
+        let navigationController = UINavigationController()
+        let viewController = EquipmentsViewController()
+        let presenter: EquipmentsPresenterProtocol = EquipmentsPresenter(viewController: viewController,
+                                                                         factory: self)
+        viewController.presenter = presenter
+        navigationController.pushViewController(viewController, animated: false)
+        return navigationController
+    }
+    
     func createRocketsScreen() -> PickerViewController {
         let pickerViewController = PickerViewController()
         let rocketViewController = RocketInfoViewController()

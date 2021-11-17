@@ -29,6 +29,8 @@ class OldLaunchCell: UITableViewCell {
     }
     
     func setCell() {
+        selectionStyle = .none
+
         contentView.addSubview(launchNameLabel)
         
         NSLayoutConstraint.activate([
