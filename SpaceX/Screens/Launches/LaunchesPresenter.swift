@@ -32,8 +32,13 @@ class LaunchesPresenter: LaunchesPresenterProtocol {
             case.failure(let error):
                 self?.viewController?.showSimpleAlert(withTitle: "Ошибка", message: error.localizedDescription)
             case .success(let launches):
-                self?.futureLaunches = launches.filter { $0.upcoming }
-                self?.oldLaunches = launches.filter { !$0.upcoming }
+                self?.futureLaunches = launches
+                    .filter { $0.date > Date().timeIntervalSince1970 }
+                    .sorted { $0.date < $1.date }
+                
+                self?.oldLaunches = launches
+                    .filter { $0.date < Date()
+                    .timeIntervalSince1970 }.sorted { $0.date < $1.date }
                 self?.viewController?.updateUI()
             }
         }

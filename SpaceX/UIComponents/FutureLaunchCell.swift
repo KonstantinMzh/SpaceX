@@ -41,6 +41,8 @@ class FutureLaunchCell: UITableViewCell {
     }
     
     func setCell() {
+        selectionStyle = .none
+        
         contentView.addSubview(launchNameLabel)
         contentView.addSubview(timerLabel)
         
@@ -65,6 +67,7 @@ class FutureLaunchCell: UITableViewCell {
     }
     
     func prepareForLaunch(_ launch: Launch) {
+        print(Date(timeIntervalSince1970: launch.date))
         launchNameLabel.text = launch.name
         launchDate = launch.date
         updateTimer()
@@ -75,6 +78,7 @@ class FutureLaunchCell: UITableViewCell {
 
         let diffTimeInterval = launchDate - Date().timeIntervalSince1970
          
+//        print(diffTimeInterval)
         if diffTimeInterval <= 0 {
             delegate?.launchHappened()
             return

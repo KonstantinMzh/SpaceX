@@ -61,6 +61,7 @@ class LaunchesViewController: UIViewController {
     
     func createTimer() {
         displayLink = CADisplayLink(target: self, selector: #selector(updateLink))
+        displayLink?.preferredFramesPerSecond = 10
         displayLink?.add(to: .main, forMode: .common)
     }
     
@@ -70,7 +71,6 @@ class LaunchesViewController: UIViewController {
     }
     
     @objc func updateLink() {
-
         let indexPaths = tableView.indexPathsForVisibleRows?.filter { $0.section == 0 }
         for indexPath in indexPaths ?? [] {
             if let cell = tableView.cellForRow(at: indexPath) as? FutureLaunchCell {

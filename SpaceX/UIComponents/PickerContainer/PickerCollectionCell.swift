@@ -23,7 +23,7 @@ class PickerCollectionCell: UICollectionViewCell {
     
     var isChoosed: Bool = false {
         didSet {
-            contentView.backgroundColor = isChoosed ? Colors.accentOrange : Colors.gray
+            contentView.backgroundColor = isChoosed ? Colors.mainAccent : Colors.gray
             label.textColor = isChoosed ? Colors.contrastText : Colors.contrast
         }
     }
