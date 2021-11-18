@@ -13,15 +13,16 @@ class ValueView: UIView {
     var measurementUnit: MeasurementUnit?
     
     //MARK: - UI components
-    let valueLabel: UILabel = {
+    private let valueLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .right
         label.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
+        label.textColor = Colors.label
         return label
     }()
     
-    let measurementUnitLabel: UILabel = {
+    private let measurementUnitLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .left
@@ -43,7 +44,7 @@ class ValueView: UIView {
     }
     
     //MARK: - Configuration
-    func configure() {
+    private func configure() {
         addSubview(valueLabel)
         addSubview(measurementUnitLabel)
         
@@ -56,12 +57,12 @@ class ValueView: UIView {
         NSLayoutConstraint.activate([
             valueLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
             valueLabel.widthAnchor.constraint(equalToConstant: 60),
-            valueLabel.trailingAnchor.constraint(equalTo: measurementUnitLabel.leadingAnchor, constant: -2)
+            valueLabel.trailingAnchor.constraint(equalTo: measurementUnitLabel.leadingAnchor, constant: -4)
         ])
     }
     
     override var intrinsicContentSize: CGSize {
-        CGSize(width: 92, height: 24)
+        CGSize(width: 94, height: 24)
     }
     
     func setMeasurementUnit(_ measurementUnit: MeasurementUnit?) {
@@ -69,7 +70,7 @@ class ValueView: UIView {
     }
     
     func setValue(_ value: String) {
-        valueLabel.textColor = .black
+        valueLabel.textColor = Colors.label
         valueLabel.text = value
     }
     
