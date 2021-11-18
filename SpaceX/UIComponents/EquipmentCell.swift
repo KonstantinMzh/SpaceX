@@ -11,8 +11,6 @@ import UIKit
 class EquipmentCell: UITableViewCell {
     
     static let id = "equipmentCell"
-    let attributedString = NSMutableAttributedString(string: "КАПСУЛЫ", attributes: [.kern: 4])
-
 
     let coverImageView: UIImageView = {
         let imageView = UIImageView()
@@ -75,7 +73,7 @@ class EquipmentCell: UITableViewCell {
     func prepareForEquipment(_ equipment: Equipment) {
         coverImageView.image = UIImage(named: equipment.coverName)
         let name = equipment.name.uppercased()
-        attributedString.mutableString.setString(name)
+        let attributedString = NSMutableAttributedString(string: name, attributes: [.kern: 4])
         equipmentNameLabel.attributedText = attributedString
     }
     

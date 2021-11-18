@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B510153327467F09008084F5 /* ValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B510153227467F09008084F5 /* ValueView.swift */; };
+		B510153727467FFF008084F5 /* MeasurementUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B510153627467FFF008084F5 /* MeasurementUnit.swift */; };
 		B516EB03272A1283007E1F65 /* SpaceSDK in Frameworks */ = {isa = PBXBuildFile; productRef = B516EB02272A1283007E1F65 /* SpaceSDK */; };
 		B516EB2F272A302A007E1F65 /* XCSpaceXSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = B516EB2E272A302A007E1F65 /* XCSpaceXSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B516EB32272A302A007E1F65 /* XCSpaceXSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B516EB2C272A302A007E1F65 /* XCSpaceXSDK.framework */; };
@@ -19,6 +21,9 @@
 		B57274132741D29E00CD534F /* dragon.json in Resources */ = {isa = PBXBuildFile; fileRef = B57274122741D29E00CD534F /* dragon.json */; };
 		B572741927452F9000CD534F /* EquipmentDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B572741827452F9000CD534F /* EquipmentDetailViewController.swift */; };
 		B572741B27452FB200CD534F /* EquipmentDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B572741A27452FB200CD534F /* EquipmentDetailPresenter.swift */; };
+		B58E2CA027460947002D6D10 /* EquipmentElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58E2C9F27460947002D6D10 /* EquipmentElements.swift */; };
+		B58E2CA427460A4A002D6D10 /* StageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58E2CA327460A4A002D6D10 /* StageView.swift */; };
+		B58E2CA62746700F002D6D10 /* StageRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58E2CA52746700F002D6D10 /* StageRowView.swift */; };
 		B58F9F4B2728FA53007B8849 /* DateFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58F9F4A2728FA53007B8849 /* DateFormatters.swift */; };
 		B5AB5A3227238E520015CEA4 /* PickerCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AB5A3127238E520015CEA4 /* PickerCollectionCell.swift */; };
 		B5AB5A35272390800015CEA4 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AB5A34272390800015CEA4 /* Colors.swift */; };
@@ -66,6 +71,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B510153227467F09008084F5 /* ValueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueView.swift; sourceTree = "<group>"; };
+		B510153627467FFF008084F5 /* MeasurementUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementUnit.swift; sourceTree = "<group>"; };
 		B516EB00272A1180007E1F65 /* SpaceSDK */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SpaceSDK; sourceTree = "<group>"; };
 		B516EB2C272A302A007E1F65 /* XCSpaceXSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XCSpaceXSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B516EB2E272A302A007E1F65 /* XCSpaceXSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XCSpaceXSDK.h; sourceTree = "<group>"; };
@@ -80,6 +87,9 @@
 		B57274142741D2C300CD534F /* rocket.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = rocket.json; sourceTree = "<group>"; };
 		B572741827452F9000CD534F /* EquipmentDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentDetailViewController.swift; sourceTree = "<group>"; };
 		B572741A27452FB200CD534F /* EquipmentDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentDetailPresenter.swift; sourceTree = "<group>"; };
+		B58E2C9F27460947002D6D10 /* EquipmentElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentElements.swift; sourceTree = "<group>"; };
+		B58E2CA327460A4A002D6D10 /* StageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageView.swift; sourceTree = "<group>"; };
+		B58E2CA52746700F002D6D10 /* StageRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageRowView.swift; sourceTree = "<group>"; };
 		B58F9F4A2728FA53007B8849 /* DateFormatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatters.swift; sourceTree = "<group>"; };
 		B5AB5A3127238E520015CEA4 /* PickerCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerCollectionCell.swift; sourceTree = "<group>"; };
 		B5AB5A34272390800015CEA4 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -222,6 +232,8 @@
 				B5201ECE2741A64300C6194E /* EquipmentsType.swift */,
 				B57274142741D2C300CD534F /* rocket.json */,
 				B57274122741D29E00CD534F /* dragon.json */,
+				B58E2C9F27460947002D6D10 /* EquipmentElements.swift */,
+				B510153627467FFF008084F5 /* MeasurementUnit.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -241,6 +253,9 @@
 				B5C1CDC9273EE81B00ED2691 /* FutureLaunchCell.swift */,
 				B5C1CDD42740606800ED2691 /* OldLaunchCell.swift */,
 				B5C1CDDD2740835E00ED2691 /* EquipmentCell.swift */,
+				B58E2CA327460A4A002D6D10 /* StageView.swift */,
+				B58E2CA52746700F002D6D10 /* StageRowView.swift */,
+				B510153227467F09008084F5 /* ValueView.swift */,
 				B5D3609D2723065200F033DA /* PickerContainer */,
 			);
 			path = UIComponents;
@@ -424,7 +439,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5C1CDD32740433C00ED2691 /* LaunchDelegate.swift in Sources */,
+				B58E2CA427460A4A002D6D10 /* StageView.swift in Sources */,
 				B5C1CDDC27406C8800ED2691 /* EquipmentsPresenter.swift in Sources */,
+				B510153727467FFF008084F5 /* MeasurementUnit.swift in Sources */,
 				B5D3609A2722FFED00F033DA /* PickerViewController.swift in Sources */,
 				B5C1CD96273E0DAD00ED2691 /* LaunchesViewController.swift in Sources */,
 				B5201ECF2741A64300C6194E /* EquipmentsType.swift in Sources */,
@@ -440,13 +457,16 @@
 				B5D360A02723067500F033DA /* RocketInfoViewController.swift in Sources */,
 				B56B5DEC2721C0CB006A5524 /* AppDelegate.swift in Sources */,
 				B5C1CDDE2740835E00ED2691 /* EquipmentCell.swift in Sources */,
+				B510153327467F09008084F5 /* ValueView.swift in Sources */,
 				B56B5DEE2721C0CC006A5524 /* SceneDelegate.swift in Sources */,
+				B58E2CA027460947002D6D10 /* EquipmentElements.swift in Sources */,
 				B5C1CDC7273EAAF600ED2691 /* Date+Extension.swift in Sources */,
 				B5C1CD98273E0DB500ED2691 /* LaunchesPresenter.swift in Sources */,
 				B572741B27452FB200CD534F /* EquipmentDetailPresenter.swift in Sources */,
 				B5FF045D272BA74200C1D103 /* Collection+Extension.swift in Sources */,
 				B572741927452F9000CD534F /* EquipmentDetailViewController.swift in Sources */,
 				B5C1CDDA27406C7D00ED2691 /* EquipmentsViewController.swift in Sources */,
+				B58E2CA62746700F002D6D10 /* StageRowView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

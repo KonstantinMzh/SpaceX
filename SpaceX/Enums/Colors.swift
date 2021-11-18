@@ -52,4 +52,12 @@ enum Colors {
         }
     }()
     
+    static let secondaryLabel: UIColor = {
+        if #available(iOS 13.0, *) {
+            return UIColor.secondaryLabel
+        } else {
+            return UIColor(red: 0.52, green: 0.52, blue: 0.55, alpha: 1.00)
+        }
+    }()
+    
 }
