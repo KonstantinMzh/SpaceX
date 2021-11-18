@@ -16,7 +16,7 @@ final class ScreenFactory {
     
     func createTabBar() -> UITabBarController {
         let tabBarController = UITabBarController()
-        let rocketsViewController = createEquipmentScreen()
+        let rocketsViewController = createEquipmentDetailScreen()
         
         let dummyViewController2 = createLaunchesScreen()
         
@@ -69,6 +69,13 @@ final class ScreenFactory {
         let viewController = LaunchesViewController()
         let launchesPresenter: LaunchesPresenterProtocol = LaunchesPresenter(viewController: viewController, rocketService: applicationFactory.spaceService)
         viewController.presenter = launchesPresenter
+        return viewController
+    }
+    
+    func createEquipmentDetailScreen() -> EquipmentDetailViewController {
+        let viewController = EquipmentDetailViewController()
+        let presenter: EquipmentDetailPresenterProtocol = EquipmentDetailPresenter(viewController: viewController)
+        viewController.presenter = presenter
         return viewController
     }
     
