@@ -24,9 +24,9 @@ class EquipmentDetailPresenter: EquipmentDetailPresenterProtocol {
             case .failure(let error):
                 self?.viewController?.showSimpleAlert(withTitle: "Ошибка", message: error.localizedDescription)
             case .success(let rockets):
-                let stages = rockets.map { $0.secondStage }
+                let stages = rockets.map { $0.firstStage }
                 for stage in stages {
-                    print(stage)
+                    print(stage.getThrusts())
                 }
             }
         }

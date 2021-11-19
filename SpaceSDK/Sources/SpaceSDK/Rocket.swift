@@ -46,9 +46,9 @@ public struct Stage: Codable {
     public let engines: Int?
     public let fuelAmountTons: Double?
     public let burnTimeSec: Int?
-    public let thrustVacuum: Thrust?
-    public let thrustSeaLevel: Thrust?
-    public let thrust: Thrust?
+    let thrustVacuum: Thrust?
+    let thrustSeaLevel: Thrust?
+    let thrust: Thrust?
 
     enum CodingKeys: String, CodingKey {
         case reusable = "reusable"
@@ -60,6 +60,10 @@ public struct Stage: Codable {
         case thrust = "thrust"
     }
     
+    public func getThrusts() -> [Thrust] {
+        return [thrust, thrustVacuum, thrustSeaLevel].compactMap { $0 }
+    }
+    
 }
 
 public struct Thrust: Codable {
@@ -67,4 +71,9 @@ public struct Thrust: Codable {
     public let kN: Int
     public let lbf: Int
 
+}
+
+
+struct AAA {
+    let string: String
 }
