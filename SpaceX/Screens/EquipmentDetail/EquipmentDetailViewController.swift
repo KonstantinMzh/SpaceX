@@ -49,6 +49,7 @@ class EquipmentDetailViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         presenter?.fetchRockets()
+        picker?.title = "Rockets"
     }
     
     

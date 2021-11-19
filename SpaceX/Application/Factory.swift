@@ -16,7 +16,7 @@ final class ScreenFactory {
     
     func createTabBar() -> UITabBarController {
         let tabBarController = UITabBarController()
-        let rocketsViewController = createEquipmentDetailScreen()
+        let rocketsViewController = createEquipmentScreen()
         
         let dummyViewController2 = createLaunchesScreen()
         

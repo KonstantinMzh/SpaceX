@@ -41,7 +41,7 @@ class EquipmentsPresenter: EquipmentsPresenterProtocol {
     
     //MARK: - Navigation
     func pushRocketsScreen() {
-        let rocketsViewController = factory.createRocketsScreen()
+        let rocketsViewController = factory.createEquipmentDetailScreen()
         viewController?.navigationController?.pushViewController(rocketsViewController, animated: true)
     }
     
