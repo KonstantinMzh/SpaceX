@@ -9,7 +9,7 @@ import UIKit
 
 
 protocol StageSelectorDelegate: AnyObject {
-    func optionDidChoosed(_ option: Int)
+    func optionDidSelected(_ option: Int)
 }
 
 class StageSelector: UIView {
@@ -19,7 +19,7 @@ class StageSelector: UIView {
     var options: [String]
     var choosedOption: Int {
         didSet {
-            delegate?.optionDidChoosed(choosedOption)
+            delegate?.optionDidSelected(choosedOption)
             unselectButtonWithIndex(oldValue)
             selectButtonWithIndex(choosedOption)
         }

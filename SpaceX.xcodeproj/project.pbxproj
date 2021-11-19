@@ -30,6 +30,7 @@
 		B5BF66D9273CB8290024E2F4 /* Gallery in Frameworks */ = {isa = PBXBuildFile; productRef = B5BF66D8273CB8290024E2F4 /* Gallery */; };
 		B5C162262746CFE100CC2B08 /* StageRowWithTwoValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C162252746CFE100CC2B08 /* StageRowWithTwoValues.swift */; };
 		B5C1622927470FA100CC2B08 /* StageSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C1622827470FA100CC2B08 /* StageSelector.swift */; };
+		B5C1622B274742C300CC2B08 /* StageProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C1622A274742C300CC2B08 /* StageProperty.swift */; };
 		B5C1CD96273E0DAD00ED2691 /* LaunchesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C1CD95273E0DAD00ED2691 /* LaunchesViewController.swift */; };
 		B5C1CD98273E0DB500ED2691 /* LaunchesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C1CD97273E0DB500ED2691 /* LaunchesPresenter.swift */; };
 		B5C1CDC7273EAAF600ED2691 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C1CDC6273EAAF600ED2691 /* Date+Extension.swift */; };
@@ -98,6 +99,7 @@
 		B5BF66D7273CAAD90024E2F4 /* Gallery */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Gallery; sourceTree = "<group>"; };
 		B5C162252746CFE100CC2B08 /* StageRowWithTwoValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageRowWithTwoValues.swift; sourceTree = "<group>"; };
 		B5C1622827470FA100CC2B08 /* StageSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageSelector.swift; sourceTree = "<group>"; };
+		B5C1622A274742C300CC2B08 /* StageProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageProperty.swift; sourceTree = "<group>"; };
 		B5C1CD95273E0DAD00ED2691 /* LaunchesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesViewController.swift; sourceTree = "<group>"; };
 		B5C1CD97273E0DB500ED2691 /* LaunchesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesPresenter.swift; sourceTree = "<group>"; };
 		B5C1CDC6273EAAF600ED2691 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 				B57274122741D29E00CD534F /* dragon.json */,
 				B58E2C9F27460947002D6D10 /* EquipmentElements.swift */,
 				B510153627467FFF008084F5 /* MeasurementUnit.swift */,
+				B5C1622A274742C300CC2B08 /* StageProperty.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -459,6 +462,7 @@
 				B5D3609A2722FFED00F033DA /* PickerViewController.swift in Sources */,
 				B5C1CD96273E0DAD00ED2691 /* LaunchesViewController.swift in Sources */,
 				B5201ECF2741A64300C6194E /* EquipmentsType.swift in Sources */,
+				B5C1622B274742C300CC2B08 /* StageProperty.swift in Sources */,
 				B5FF045F272BA77800C1D103 /* UIViewController+Extension.swift in Sources */,
 				B5C1CDE1274084B600ED2691 /* Equipment.swift in Sources */,
 				B5C1CDD52740606800ED2691 /* OldLaunchCell.swift in Sources */,

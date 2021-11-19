@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import SpaceSDK
 
 class EquipmentDetailViewController: UIViewController {
     
@@ -23,14 +23,20 @@ class EquipmentDetailViewController: UIViewController {
     func configure() {
         view.backgroundColor = Colors.background
         
-        let stageView = StageSelector(options: ["Option 1", "Option 2"])
+        
+        
+    }
+        
+    func addStage(_ stage: Stage) {
+        let stageView = StageView()
+        stageView.prepareForStage(stage)
         stageView.translatesAutoresizingMaskIntoConstraints = false
-        stageView.delegate = self
         view.addSubview(stageView)
         
         NSLayoutConstraint.activate([
             stageView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            stageView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            stageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            stageView.widthAnchor.constraint(equalToConstant: 325)
         ])
     }
     
@@ -39,7 +45,7 @@ class EquipmentDetailViewController: UIViewController {
 
 extension EquipmentDetailViewController: StageSelectorDelegate {
     
-    func optionDidChoosed(_ option: Int) {
+    func optionDidSelected(_ option: Int) {
         print(option)
     }
 }

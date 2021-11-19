@@ -10,11 +10,11 @@ import UIKit
 
 class StageRowWithOneValue: UIView {
     
-    let measurementUnit: MeasurementUnit?
-    let key: String
+    private let measurementUnit: MeasurementUnit?
+    private let key: String
     
     //MARK: - UI components
-    lazy var keyLabel: UILabel = {
+    private lazy var keyLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = key
@@ -58,6 +58,11 @@ class StageRowWithOneValue: UIView {
             valueView.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
         
+    }
+    
+    
+    override var intrinsicContentSize: CGSize {
+        CGSize(width: 0, height: 24)
     }
     
     

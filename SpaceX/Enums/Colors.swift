@@ -69,5 +69,20 @@ enum Colors {
         }
     }()
     
+    static let gray6: UIColor = {
+        if #available(iOS 13.0, *) {
+            return UIColor.systemGray6
+        } else {
+            return UIColor(red: 0.95, green: 0.95, blue: 0.97, alpha: 1.00)
+        }
+    }()
+    
+    static let gray5: UIColor = {
+        if #available(iOS 13.0, *) {
+            return UIColor.systemGray5
+        } else {
+            return UIColor(red: 0.90, green: 0.90, blue: 0.92, alpha: 1.00)
+        }
+    }()
     
 }
