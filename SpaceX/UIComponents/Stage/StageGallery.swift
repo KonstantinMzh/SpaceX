@@ -18,6 +18,12 @@ class StageGallery: UIView {
         }
     }
     
+    var offset: CGFloat = 1 {
+        didSet {
+            setForOffset()
+        }
+    }
+    
     var stagesViews: [StageView] = []
     
     //MARK: - UI Components
@@ -94,6 +100,8 @@ class StageGallery: UIView {
             stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
         ])
+        
+        offset = 1
     }
     
     
@@ -110,8 +118,15 @@ class StageGallery: UIView {
             stackView.addArrangedSubview(stageView)
             stagesViews.append(stageView)
         }
+        
+        setForOffset()
     }
     
+    
+    private func setForOffset() {
+        let stageView = stagesViews[safe: 0]
+        stageView?.offset = offset
+    }
     
 }
 
@@ -122,20 +137,19 @@ extension StageGallery: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
         let offsetX = scrollView.contentOffset.x
-        let stageView = stagesViews[safe: 0]
-
+        
         switch offsetX {
         case ..<0:
             scrollViewHeightAnchor?.constant = 260
-            stageView?.offset = 1
+            offset = 1
             
         case 0..<200:
             scrollViewHeightAnchor?.constant = 260 - offsetX * 0.2
-            stageView?.offset = (200 - offsetX)/200
+            offset = (200 - offsetX)/200
             
         case 200...:
             scrollViewHeightAnchor?.constant = 220
-            stageView?.offset = 0
+            offset = 0
             
         default:
             break

@@ -13,7 +13,7 @@ class EquipmentHeaderRow: UIView {
     let nameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
+        label.font = UIFont.systemFont(ofSize: 22, weight: .bold)
         return label
     }()
     
@@ -39,7 +39,7 @@ class EquipmentHeaderRow: UIView {
         addSubview(activeState)
 
         NSLayoutConstraint.activate([
-            nameLabel.topAnchor.constraint(equalTo: topAnchor),
+            nameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 30),
             nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16)
         ])
@@ -48,7 +48,6 @@ class EquipmentHeaderRow: UIView {
             activeState.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 5),
             activeState.bottomAnchor.constraint(equalTo: bottomAnchor),
             activeState.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-//            activeState.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16)
         ])
     }
     
