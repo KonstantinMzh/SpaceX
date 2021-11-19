@@ -29,6 +29,7 @@
 		B5AB5A35272390800015CEA4 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AB5A34272390800015CEA4 /* Colors.swift */; };
 		B5BF66D9273CB8290024E2F4 /* Gallery in Frameworks */ = {isa = PBXBuildFile; productRef = B5BF66D8273CB8290024E2F4 /* Gallery */; };
 		B5C162262746CFE100CC2B08 /* StageRowWithTwoValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C162252746CFE100CC2B08 /* StageRowWithTwoValues.swift */; };
+		B5C1622927470FA100CC2B08 /* StageSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C1622827470FA100CC2B08 /* StageSelector.swift */; };
 		B5C1CD96273E0DAD00ED2691 /* LaunchesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C1CD95273E0DAD00ED2691 /* LaunchesViewController.swift */; };
 		B5C1CD98273E0DB500ED2691 /* LaunchesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C1CD97273E0DB500ED2691 /* LaunchesPresenter.swift */; };
 		B5C1CDC7273EAAF600ED2691 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C1CDC6273EAAF600ED2691 /* Date+Extension.swift */; };
@@ -96,6 +97,7 @@
 		B5AB5A34272390800015CEA4 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		B5BF66D7273CAAD90024E2F4 /* Gallery */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Gallery; sourceTree = "<group>"; };
 		B5C162252746CFE100CC2B08 /* StageRowWithTwoValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageRowWithTwoValues.swift; sourceTree = "<group>"; };
+		B5C1622827470FA100CC2B08 /* StageSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageSelector.swift; sourceTree = "<group>"; };
 		B5C1CD95273E0DAD00ED2691 /* LaunchesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesViewController.swift; sourceTree = "<group>"; };
 		B5C1CD97273E0DB500ED2691 /* LaunchesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesPresenter.swift; sourceTree = "<group>"; };
 		B5C1CDC6273EAAF600ED2691 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				B58E2CA327460A4A002D6D10 /* StageView.swift */,
+				B5C1622827470FA100CC2B08 /* StageSelector.swift */,
 				B58E2CA52746700F002D6D10 /* StageRowWithOneValue.swift */,
 				B5C162252746CFE100CC2B08 /* StageRowWithTwoValues.swift */,
 				B510153227467F09008084F5 /* ValueView.swift */,
@@ -462,6 +465,7 @@
 				B5AB5A35272390800015CEA4 /* Colors.swift in Sources */,
 				B5D360A22723069000F033DA /* RocketInfoPresenter.swift in Sources */,
 				B5AB5A3227238E520015CEA4 /* PickerCollectionCell.swift in Sources */,
+				B5C1622927470FA100CC2B08 /* StageSelector.swift in Sources */,
 				B58F9F4B2728FA53007B8849 /* DateFormatters.swift in Sources */,
 				B5D360A82723141500F033DA /* Factory.swift in Sources */,
 				B5C1CDCA273EE81B00ED2691 /* FutureLaunchCell.swift in Sources */,
@@ -517,7 +521,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -527,6 +531,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = mzh.XCSpaceXSDK;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -548,7 +553,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -558,6 +563,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = mzh.XCSpaceXSDK;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

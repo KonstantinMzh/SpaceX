@@ -42,6 +42,7 @@ enum Colors {
         }
     }()
     
+    static let black: UIColor = .black
     static let white: UIColor = .white
     
     static let gray: UIColor = {
@@ -67,5 +68,6 @@ enum Colors {
             return UIColor.white
         }
     }()
+    
     
 }

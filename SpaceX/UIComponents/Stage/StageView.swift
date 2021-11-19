@@ -10,13 +10,11 @@ import UIKit
 
 class StageView: UIView {
     
-    
     var offset: CGFloat = 0 {
         didSet {
             offsetChanged(offset)
         }
     }
-    
     
     
     //MARK: - Init
