@@ -18,11 +18,14 @@ class StageGallery: UIView {
         }
     }
     
+    var stagesViews: [StageView] = []
     
     //MARK: - UI Components
     let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.showsHorizontalScrollIndicator = false
+        scrollView.showsVerticalScrollIndicator = false
         return scrollView
     }()
     
@@ -99,10 +102,13 @@ class StageGallery: UIView {
             view.removeFromSuperview()
         }
         
+        stagesViews.removeAll()
+        
         for stage in stages {
             let stageView = StageView()
             stageView.prepareForStage(stage)
             stackView.addArrangedSubview(stageView)
+            stagesViews.append(stageView)
         }
     }
     
@@ -115,15 +121,21 @@ extension StageGallery: UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
-        switch scrollView.contentOffset.x {
+        let offsetX = scrollView.contentOffset.x
+        let stageView = stagesViews[safe: 0]
+
+        switch offsetX {
         case ..<0:
             scrollViewHeightAnchor?.constant = 260
+            stageView?.offset = 1
             
         case 0..<200:
-            scrollViewHeightAnchor?.constant = 260 - scrollView.contentOffset.x * 0.2
-
+            scrollViewHeightAnchor?.constant = 260 - offsetX * 0.2
+            stageView?.offset = (200 - offsetX)/200
+            
         case 200...:
             scrollViewHeightAnchor?.constant = 220
+            stageView?.offset = 0
             
         default:
             break

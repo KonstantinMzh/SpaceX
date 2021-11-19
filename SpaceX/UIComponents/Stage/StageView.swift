@@ -44,6 +44,7 @@ class StageView: UIView {
     }()
     
     var stageBottomConstraint: NSLayoutConstraint?
+    var selectorTopAnchor: NSLayoutConstraint?
     
     //MARK: - Init
     init() {
@@ -73,16 +74,18 @@ class StageView: UIView {
             stackView.topAnchor.constraint(equalTo: topAnchor, constant: 21),
             stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -18)
-            
         ])
         
         stageBottomConstraint = stackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -50)
         stageBottomConstraint?.isActive = true
         
         NSLayoutConstraint.activate([
-            thrustSelector.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 7),
+            
             thrustSelector.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -50)
         ])
+        
+        selectorTopAnchor = thrustSelector.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 7)
+        selectorTopAnchor?.isActive = true
         
         let stageProperties: [StageProperty] = [.fuelAmount, .burnTime, .enginesNumber, .reusable]
         
@@ -129,7 +132,9 @@ class StageView: UIView {
     
     //MARK: - Offset Handler
     private func offsetChanged(_ newOffset: CGFloat) {
-        
+        thrustSelector.alpha = newOffset
+        stageBottomConstraint?.constant = -(20 + newOffset * 30)
+        selectorTopAnchor?.constant = newOffset * 7
     }
     
 }
