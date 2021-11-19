@@ -46,6 +46,9 @@
 		B5D360A02723067500F033DA /* RocketInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D3609F2723067500F033DA /* RocketInfoViewController.swift */; };
 		B5D360A22723069000F033DA /* RocketInfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D360A12723069000F033DA /* RocketInfoPresenter.swift */; };
 		B5D360A82723141500F033DA /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D360A72723141500F033DA /* Factory.swift */; };
+		B5FB3B272747E29E008BD440 /* DescriptionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FB3B262747E29E008BD440 /* DescriptionRow.swift */; };
+		B5FB3B2B2747E4F7008BD440 /* ActiveStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FB3B2A2747E4F7008BD440 /* ActiveStateView.swift */; };
+		B5FB3B2D2747E671008BD440 /* EquipmentHeaderRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FB3B2C2747E671008BD440 /* EquipmentHeaderRow.swift */; };
 		B5FF045D272BA74200C1D103 /* Collection+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FF045C272BA74200C1D103 /* Collection+Extension.swift */; };
 		B5FF045F272BA77800C1D103 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FF045E272BA77800C1D103 /* UIViewController+Extension.swift */; };
 /* End PBXBuildFile section */
@@ -116,6 +119,9 @@
 		B5D3609F2723067500F033DA /* RocketInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketInfoViewController.swift; sourceTree = "<group>"; };
 		B5D360A12723069000F033DA /* RocketInfoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketInfoPresenter.swift; sourceTree = "<group>"; };
 		B5D360A72723141500F033DA /* Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
+		B5FB3B262747E29E008BD440 /* DescriptionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionRow.swift; sourceTree = "<group>"; };
+		B5FB3B2A2747E4F7008BD440 /* ActiveStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveStateView.swift; sourceTree = "<group>"; };
+		B5FB3B2C2747E671008BD440 /* EquipmentHeaderRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentHeaderRow.swift; sourceTree = "<group>"; };
 		B5FF045C272BA74200C1D103 /* Collection+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extension.swift"; sourceTree = "<group>"; };
 		B5FF045E272BA77800C1D103 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -277,6 +283,9 @@
 				B5C1CDD42740606800ED2691 /* OldLaunchCell.swift */,
 				B5C1CDDD2740835E00ED2691 /* EquipmentCell.swift */,
 				B5D3609D2723065200F033DA /* PickerContainer */,
+				B5FB3B262747E29E008BD440 /* DescriptionRow.swift */,
+				B5FB3B2A2747E4F7008BD440 /* ActiveStateView.swift */,
+				B5FB3B2C2747E671008BD440 /* EquipmentHeaderRow.swift */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -466,9 +475,11 @@
 				B5D3609A2722FFED00F033DA /* PickerViewController.swift in Sources */,
 				B5C1CD96273E0DAD00ED2691 /* LaunchesViewController.swift in Sources */,
 				B5201ECF2741A64300C6194E /* EquipmentsType.swift in Sources */,
+				B5FB3B2D2747E671008BD440 /* EquipmentHeaderRow.swift in Sources */,
 				B5C1622B274742C300CC2B08 /* StageProperty.swift in Sources */,
 				B5FF045F272BA77800C1D103 /* UIViewController+Extension.swift in Sources */,
 				B5C1CDE1274084B600ED2691 /* Equipment.swift in Sources */,
+				B5FB3B272747E29E008BD440 /* DescriptionRow.swift in Sources */,
 				B5C1CDD52740606800ED2691 /* OldLaunchCell.swift in Sources */,
 				B5AB5A35272390800015CEA4 /* Colors.swift in Sources */,
 				B5D360A22723069000F033DA /* RocketInfoPresenter.swift in Sources */,
@@ -477,6 +488,7 @@
 				B58F9F4B2728FA53007B8849 /* DateFormatters.swift in Sources */,
 				B5D360A82723141500F033DA /* Factory.swift in Sources */,
 				B5C1CDCA273EE81B00ED2691 /* FutureLaunchCell.swift in Sources */,
+				B5FB3B2B2747E4F7008BD440 /* ActiveStateView.swift in Sources */,
 				B5C162262746CFE100CC2B08 /* StageRowWithTwoValues.swift in Sources */,
 				B5D360A02723067500F033DA /* RocketInfoViewController.swift in Sources */,
 				B56B5DEC2721C0CB006A5524 /* AppDelegate.swift in Sources */,

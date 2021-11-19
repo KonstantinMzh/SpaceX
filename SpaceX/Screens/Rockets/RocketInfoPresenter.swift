@@ -62,7 +62,7 @@ class RocketInfoPresenter: RocketInfoPresenterProtocol {
 
 
 //MARK: - Picker Delegate
-extension RocketInfoPresenter {
+extension RocketInfoPresenter: PickerDelegate {
     func didSelectAtIndex(_ index: Int) {
         getRocketByIndex(index)
     }

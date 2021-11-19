@@ -16,6 +16,7 @@ public struct Rocket: Codable {
     public let firstFlight: String
     public let images: [String]
     public let stages: Int
+    public let active: Bool
     let firstStage: Stage
     let secondStage: Stage
     
@@ -29,6 +30,7 @@ public struct Rocket: Codable {
     enum CodingKeys: String, CodingKey {
         case id
         case name
+        case active
         case rocketDescription = "description"
         case firstFlight = "first_flight"
         case images = "flickr_images"

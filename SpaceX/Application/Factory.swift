@@ -56,8 +56,8 @@ final class ScreenFactory {
     func createRocketsScreen() -> PickerViewController {
         let pickerViewController = PickerViewController()
         let rocketViewController = RocketInfoViewController()
-        let rocketPresenter: RocketInfoPresenterProtocol = RocketInfoPresenter(viewController: rocketViewController,
-                                                                               rocketService: applicationFactory.spaceService)
+        let rocketPresenter = RocketInfoPresenter(viewController: rocketViewController,
+                                                  rocketService: applicationFactory.spaceService)
         rocketViewController.presenter = rocketPresenter
         pickerViewController.addContentController(rocketViewController)
         rocketViewController.picker = pickerViewController
@@ -72,11 +72,20 @@ final class ScreenFactory {
         return viewController
     }
     
-    func createEquipmentDetailScreen() -> EquipmentDetailViewController {
-        let viewController = EquipmentDetailViewController()
-        let presenter: EquipmentDetailPresenterProtocol = EquipmentDetailPresenter(viewController: viewController, rocketService: applicationFactory.spaceService)
-        viewController.presenter = presenter
-        return viewController
+    func createEquipmentDetailScreen() -> PickerViewController {
+        let pickerViewController = PickerViewController()
+        let equipmentViewController = EquipmentDetailViewController()
+
+        let presenter = EquipmentDetailPresenter(viewController: equipmentViewController,
+                                                                                   rocketService: applicationFactory.spaceService)
+
+        equipmentViewController.presenter = presenter
+        pickerViewController.addContentController(equipmentViewController)
+        equipmentViewController.picker = pickerViewController
+        pickerViewController.delegate = presenter
+        
+        
+        return pickerViewController
     }
     
 }

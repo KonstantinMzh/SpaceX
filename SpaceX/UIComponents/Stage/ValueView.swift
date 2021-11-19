@@ -56,13 +56,13 @@ class ValueView: UIView {
         
         NSLayoutConstraint.activate([
             valueLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-            valueLabel.widthAnchor.constraint(equalToConstant: 60),
+            valueLabel.widthAnchor.constraint(equalToConstant: 80),
             valueLabel.trailingAnchor.constraint(equalTo: measurementUnitLabel.leadingAnchor, constant: -4)
         ])
     }
     
     override var intrinsicContentSize: CGSize {
-        CGSize(width: 94, height: 24)
+        CGSize(width: 114, height: 24)
     }
     
     func setMeasurementUnit(_ measurementUnit: MeasurementUnit?) {

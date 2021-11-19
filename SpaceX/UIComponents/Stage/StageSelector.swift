@@ -89,7 +89,7 @@ class StageSelector: UIView {
     
     private func selectButtonWithIndex(_ index: Int) {
         guard let button = buttons[safe: index] else { return }
-        button.backgroundColor = Colors.black
+        button.backgroundColor = Colors.mainAccent
         button.setTitleColor(Colors.white, for: .normal)
     }
     

@@ -17,6 +17,13 @@ class EquipmentDetailPresenter: EquipmentDetailPresenterProtocol {
     
     weak var viewController: EquipmentDetailViewController?
     let spaceService: SpaceServiceProtocol
+    
+    private var equipments: [Rocket] = [] {
+        didSet {
+            let titles = equipments.map { $0.name }
+            viewController?.updatePicker(titles)
+        }
+    }
 
     func fetchRockets() {
         spaceService.fetchRockets { [weak self] result in
@@ -24,10 +31,19 @@ class EquipmentDetailPresenter: EquipmentDetailPresenterProtocol {
             case .failure(let error):
                 self?.viewController?.showSimpleAlert(withTitle: "Ошибка", message: error.localizedDescription)
             case .success(let rockets):
-                guard let stages = rockets.first?.getStages() else { return }
-                self?.viewController?.addStage(stages)
+                self?.equipments = rockets
             }
         }
+    }
+    
+    private func getEquipmentByIndex(_ index: Int) {
+        
+        if let rocket = equipments[safe: index] {
+            viewController?.updateUIForEntity(rocket)
+        } else {
+            viewController?.showSimpleAlert(withTitle: "Ошибка", message: "Не удалось загрузить данные")
+        }
+
     }
 
 
@@ -37,4 +53,12 @@ class EquipmentDetailPresenter: EquipmentDetailPresenterProtocol {
         self.spaceService = rocketService
     }
     
+}
+
+
+//MARK: - Picker Delegate
+extension EquipmentDetailPresenter: PickerDelegate {
+    func didSelectAtIndex(_ index: Int) {
+        getEquipmentByIndex(index)
+    }
 }
