@@ -74,7 +74,7 @@ final class ScreenFactory {
     
     func createEquipmentDetailScreen() -> EquipmentDetailViewController {
         let viewController = EquipmentDetailViewController()
-        let presenter: EquipmentDetailPresenterProtocol = EquipmentDetailPresenter(viewController: viewController)
+        let presenter: EquipmentDetailPresenterProtocol = EquipmentDetailPresenter(viewController: viewController, rocketService: applicationFactory.spaceService)
         viewController.presenter = presenter
         return viewController
     }

@@ -15,6 +15,9 @@ public struct Rocket: Codable {
     public let rocketDescription: String
     public let firstFlight: String
     public let images: [String]
+    public let stages: Int
+    public let firstStage: Stage
+    public let secondStage: Stage
     
     public var firstFlightDate: Date? {
         let formatter = DateFormatter()
@@ -29,14 +32,39 @@ public struct Rocket: Codable {
         case rocketDescription = "description"
         case firstFlight = "first_flight"
         case images = "flickr_images"
+        case stages
+        case firstStage = "first_stage"
+        case secondStage = "second_stage"
     }
 
 }
 
 
-extension Rocket: CustomStringConvertible {
+public struct Stage: Codable {
     
-    public var description: String {
-        return rocketDescription
+    public let reusable: Bool?
+    public let engines: Int?
+    public let fuelAmountTons: Double?
+    public let burnTimeSec: Int?
+    public let thrustVacuum: Thrust?
+    public let thrustSeaLevel: Thrust?
+    public let thrust: Thrust?
+
+    enum CodingKeys: String, CodingKey {
+        case reusable = "reusable"
+        case engines = "engines"
+        case fuelAmountTons = "fuel_amount_tons"
+        case burnTimeSec = "burn_time_sec"
+        case thrustVacuum = "thrust_vacuum"
+        case thrustSeaLevel = "thrust_sea_level"
+        case thrust = "thrust"
     }
+    
+}
+
+public struct Thrust: Codable {
+    
+    public let kN: Int
+    public let lbf: Int
+
 }

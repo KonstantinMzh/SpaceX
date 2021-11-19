@@ -17,6 +17,7 @@ class EquipmentDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
+        presenter?.fetchRockets()
     }
     
     func configure() {

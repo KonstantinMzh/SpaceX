@@ -84,7 +84,7 @@ class RocketInfoViewController: UIViewController {
     func updateUIForRocket(_ rocket: Rocket) {
         
         rocketNameLabel.text = rocket.name
-        rocketDescriptionLabel.text = rocket.description
+        rocketDescriptionLabel.text = rocket.rocketDescription
         
         if let date = rocket.firstFlightDate {
             let dateDescription = DateFormatters.simpleDayMonthYear.getDescription(date)
