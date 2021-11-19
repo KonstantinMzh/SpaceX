@@ -109,11 +109,14 @@ class EquipmentDetailViewController: UIViewController {
     }
     
     func updateUIForEntity(_ entity: Rocket) {
+        self.scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
+        
         headerRow.nameLabel.text = entity.name
         headerRow.activeState.isActive = entity.active
         descriptionRow.descriptionLabel.text = entity.rocketDescription
         gallery.images = entity.images
         stageGallery.stages = entity.getStages()
+        
     }
     
 }
