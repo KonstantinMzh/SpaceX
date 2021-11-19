@@ -43,6 +43,8 @@ class StageView: UIView {
         return selector
     }()
     
+    var stageBottomConstraint: NSLayoutConstraint?
+    
     //MARK: - Init
     init() {
         super.init(frame: .zero)
@@ -70,9 +72,12 @@ class StageView: UIView {
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: topAnchor, constant: 21),
             stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -18),
-            stackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -50)
+            stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -18)
+            
         ])
+        
+        stageBottomConstraint = stackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -50)
+        stageBottomConstraint?.isActive = true
         
         NSLayoutConstraint.activate([
             thrustSelector.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 7),
@@ -89,14 +94,23 @@ class StageView: UIView {
         }
                 
         stackView.addArrangedSubview(thrustsRow)
-        
-
+    
+    }
+    
+    override var intrinsicContentSize: CGSize {
+        CGSize(width: 324, height: 0)
     }
     
     
     func prepareForStage(_ stage: Stage) {
         thrusts = stage.getThrusts()
         thrustSelector.isHidden = thrusts.count < 2
+        
+        if thrusts.count < 2 {
+            stageBottomConstraint?.constant = -20
+        } else {
+            stageBottomConstraint?.constant = -50
+        }
         
         rows[safe: 0]?.setValue("\(stage.fuelAmountTons ?? 0)")
         rows[safe: 1]?.setValue("\(stage.burnTimeSec ?? 0)")

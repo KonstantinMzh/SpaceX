@@ -31,6 +31,7 @@
 		B5C162262746CFE100CC2B08 /* StageRowWithTwoValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C162252746CFE100CC2B08 /* StageRowWithTwoValues.swift */; };
 		B5C1622927470FA100CC2B08 /* StageSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C1622827470FA100CC2B08 /* StageSelector.swift */; };
 		B5C1622B274742C300CC2B08 /* StageProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C1622A274742C300CC2B08 /* StageProperty.swift */; };
+		B5C1622D2747516000CC2B08 /* StageGallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C1622C2747516000CC2B08 /* StageGallery.swift */; };
 		B5C1CD96273E0DAD00ED2691 /* LaunchesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C1CD95273E0DAD00ED2691 /* LaunchesViewController.swift */; };
 		B5C1CD98273E0DB500ED2691 /* LaunchesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C1CD97273E0DB500ED2691 /* LaunchesPresenter.swift */; };
 		B5C1CDC7273EAAF600ED2691 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C1CDC6273EAAF600ED2691 /* Date+Extension.swift */; };
@@ -100,6 +101,7 @@
 		B5C162252746CFE100CC2B08 /* StageRowWithTwoValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageRowWithTwoValues.swift; sourceTree = "<group>"; };
 		B5C1622827470FA100CC2B08 /* StageSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageSelector.swift; sourceTree = "<group>"; };
 		B5C1622A274742C300CC2B08 /* StageProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageProperty.swift; sourceTree = "<group>"; };
+		B5C1622C2747516000CC2B08 /* StageGallery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageGallery.swift; sourceTree = "<group>"; };
 		B5C1CD95273E0DAD00ED2691 /* LaunchesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesViewController.swift; sourceTree = "<group>"; };
 		B5C1CD97273E0DB500ED2691 /* LaunchesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesPresenter.swift; sourceTree = "<group>"; };
 		B5C1CDC6273EAAF600ED2691 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 		B5C162272746FAF800CC2B08 /* Stage */ = {
 			isa = PBXGroup;
 			children = (
+				B5C1622C2747516000CC2B08 /* StageGallery.swift */,
 				B58E2CA327460A4A002D6D10 /* StageView.swift */,
 				B5C1622827470FA100CC2B08 /* StageSelector.swift */,
 				B58E2CA52746700F002D6D10 /* StageRowWithOneValue.swift */,
@@ -459,6 +462,7 @@
 				B58E2CA427460A4A002D6D10 /* StageView.swift in Sources */,
 				B5C1CDDC27406C8800ED2691 /* EquipmentsPresenter.swift in Sources */,
 				B510153727467FFF008084F5 /* MeasurementUnit.swift in Sources */,
+				B5C1622D2747516000CC2B08 /* StageGallery.swift in Sources */,
 				B5D3609A2722FFED00F033DA /* PickerViewController.swift in Sources */,
 				B5C1CD96273E0DAD00ED2691 /* LaunchesViewController.swift in Sources */,
 				B5201ECF2741A64300C6194E /* EquipmentsType.swift in Sources */,

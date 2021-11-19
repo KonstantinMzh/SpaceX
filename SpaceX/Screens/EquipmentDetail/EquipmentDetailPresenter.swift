@@ -24,8 +24,8 @@ class EquipmentDetailPresenter: EquipmentDetailPresenterProtocol {
             case .failure(let error):
                 self?.viewController?.showSimpleAlert(withTitle: "Ошибка", message: error.localizedDescription)
             case .success(let rockets):
-                guard let stage = rockets.first?.getStages().first else { return }
-                self?.viewController?.addStage(stage)
+                guard let stages = rockets.first?.getStages() else { return }
+                self?.viewController?.addStage(stages)
             }
         }
     }

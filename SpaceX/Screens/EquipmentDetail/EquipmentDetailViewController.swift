@@ -23,20 +23,29 @@ class EquipmentDetailViewController: UIViewController {
     func configure() {
         view.backgroundColor = Colors.background
         
-        
-        
-    }
-        
-    func addStage(_ stage: Stage) {
-        let stageView = StageView()
-        stageView.prepareForStage(stage)
+        let stageView = StageGallery()
         stageView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(stageView)
         
+
         NSLayoutConstraint.activate([
+            stageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            stageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             stageView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            stageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            stageView.widthAnchor.constraint(equalToConstant: 325)
+        ])
+        
+    }
+        
+    func addStage(_ stages: [Stage]) {
+        let stageView = StageGallery()
+        stageView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(stageView)
+        stageView.stages = stages
+
+        NSLayoutConstraint.activate([
+            stageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            stageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            stageView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
         ])
     }
     
