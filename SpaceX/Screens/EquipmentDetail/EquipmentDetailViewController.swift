@@ -93,17 +93,7 @@ class EquipmentDetailViewController: UIViewController {
         
         configureStackView()
         
-        for _ in 0...10 {
-            let view = UIView()
-            view.backgroundColor = Colors.gray6
-
-            stackView.addArrangedSubview(view)
-            
-            view.translatesAutoresizingMaskIntoConstraints = false
-            NSLayoutConstraint.activate([
-                view.heightAnchor.constraint(equalToConstant: 100)
-            ])
-        }
+        stackView.addArrangedSubview(UIView())
         
     }
     
