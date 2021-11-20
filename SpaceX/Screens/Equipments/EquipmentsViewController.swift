@@ -67,7 +67,7 @@ extension EquipmentsViewController: UITableViewDataSource {
 extension EquipmentsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        presenter?.pushRocketsScreen()
+        presenter?.showEquipmentViewController(indexPath.row)
     }
     
 }

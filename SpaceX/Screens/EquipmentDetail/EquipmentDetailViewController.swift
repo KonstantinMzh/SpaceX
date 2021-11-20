@@ -48,8 +48,9 @@ class EquipmentDetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        presenter?.fetchRockets()
-        picker?.title = "Rockets"
+        picker?.title = presenter?.getTitle()
+        presenter?.fetch()
+        configureStackView()
     }
     
     
@@ -92,31 +93,62 @@ class EquipmentDetailViewController: UIViewController {
         centerYAnchor.priority = .init(rawValue: 100)
         centerYAnchor.isActive = true
         
-        configureStackView()
-        
         stackView.addArrangedSubview(UIView())
         
     }
     
     func configureStackView() {
-        stackView.addArrangedSubview(headerRow)
-        stackView.addArrangedSubview(descriptionRow)
-        stackView.addArrangedSubview(stageGallery)
-        stackView.addArrangedSubview(gallery)
+        
+        guard let type = presenter?.getType() else { return }
+        for view in stackView.arrangedSubviews {
+            view.removeFromSuperview()
+        }
+        
+        switch type {
+        case .rocket:
+            stackView.addArrangedSubview(headerRow)
+            stackView.addArrangedSubview(descriptionRow)
+            stackView.addArrangedSubview(stageGallery)
+            stackView.addArrangedSubview(gallery)
+            
+        case .capsule:
+            stackView.addArrangedSubview(headerRow)
+            stackView.addArrangedSubview(descriptionRow)
+            stackView.addArrangedSubview(gallery)
+        }
     }
     
     func updatePicker(_ options: [String]) {
         picker?.setCollection(options)
     }
     
-    func updateUIForEntity(_ entity: Rocket) {
+    func updateUIForRocket(_ rocket: Rocket) {
+
+        stackView.addArrangedSubview(headerRow)
+        stackView.addArrangedSubview(descriptionRow)
+        stackView.addArrangedSubview(stageGallery)
+        stackView.addArrangedSubview(gallery)
         self.scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
         
-        headerRow.nameLabel.text = entity.name
-        headerRow.activeState.isActive = entity.active
-        descriptionRow.descriptionLabel.text = entity.rocketDescription
-        gallery.images = entity.images
-        stageGallery.stages = entity.getStages()
+        headerRow.nameLabel.text = rocket.name
+        headerRow.activeState.isActive = rocket.active
+        descriptionRow.descriptionLabel.text = rocket.rocketDescription
+        gallery.images = rocket.images
+        stageGallery.stages = rocket.getStages()
+        
+    }
+
+    func updateUIForDragon(_ dragon: Dragon) {
+        self.scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
+        stackView.addArrangedSubview(headerRow)
+        stackView.addArrangedSubview(descriptionRow)
+        stackView.addArrangedSubview(gallery)
+        self.scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
+        
+        headerRow.nameLabel.text = dragon.name
+        headerRow.activeState.isActive = dragon.active
+        descriptionRow.descriptionLabel.text = dragon.dragonDescription
+        gallery.images = dragon.images
         
     }
     

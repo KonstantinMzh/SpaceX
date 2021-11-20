@@ -9,46 +9,95 @@ import Foundation
 import SpaceSDK
 
 protocol EquipmentDetailPresenterProtocol {
-    func fetchRockets()
+    func fetch()
+    func getTitle() -> String
+    func getType() -> EquipmentsType
 }
 
 
 class EquipmentDetailPresenter: EquipmentDetailPresenterProtocol {
     
+    let equipmentType: EquipmentsType
     weak var viewController: EquipmentDetailViewController?
     let spaceService: SpaceServiceProtocol
     
-    private var equipments: [Rocket] = [] {
+    private var rockets: [Rocket] = [] {
         didSet {
-            let titles = equipments.map { $0.name }
+            let titles = rockets.map { $0.name }
+            viewController?.updatePicker(titles)
+        }
+    }
+    
+    private var dragons: [Dragon] = [] {
+        didSet {
+            let titles = dragons.map { $0.name }
             viewController?.updatePicker(titles)
         }
     }
 
-    func fetchRockets() {
+    private func fetchRockets() {
         spaceService.fetchRockets { [weak self] result in
             switch result {
             case .failure(let error):
                 self?.viewController?.showSimpleAlert(withTitle: "Ошибка", message: error.localizedDescription)
             case .success(let rockets):
-                self?.equipments = rockets
+                self?.rockets = rockets
             }
         }
     }
     
-    private func getEquipmentByIndex(_ index: Int) {
+    private func fetchDragons() {
+        spaceService.fetchDragons { [weak self] result in
+            switch result {
+            case .failure(let error):
+                self?.viewController?.showSimpleAlert(withTitle: "Ошибка", message: error.localizedDescription)
+            case .success(let dragons):
+                self?.dragons = dragons
+            }
+        }
+    }
+    
+    func fetch() {
+        switch equipmentType {
+        case .rocket:
+            fetchRockets()
+        case .capsule:
+            fetchDragons()
+        }
+    }
+    
+    func getTitle() -> String {
+        return equipmentType.getEquipment().name
+    }
+    
+    private func getRocketByIndex(_ index: Int) {
         
-        if let rocket = equipments[safe: index] {
-            viewController?.updateUIForEntity(rocket)
+        if let rocket = rockets[safe: index] {
+            viewController?.updateUIForRocket(rocket)
+        } else {
+            viewController?.showSimpleAlert(withTitle: "Ошибка", message: "Не удалось загрузить данные")
+        }
+
+    }
+    
+    private func getDragonByIndex(_ index: Int) {
+        
+        if let dragon = dragons[safe: index] {
+            viewController?.updateUIForDragon(dragon)
         } else {
             viewController?.showSimpleAlert(withTitle: "Ошибка", message: "Не удалось загрузить данные")
         }
 
     }
 
+    func getType() -> EquipmentsType {
+        return equipmentType
+    }
 
-    init(viewController: EquipmentDetailViewController,
+    init(equipmentType: EquipmentsType ,
+         viewController: EquipmentDetailViewController,
          rocketService: SpaceServiceProtocol) {
+        self.equipmentType = equipmentType
         self.viewController = viewController
         self.spaceService = rocketService
     }
@@ -59,6 +108,12 @@ class EquipmentDetailPresenter: EquipmentDetailPresenterProtocol {
 //MARK: - Picker Delegate
 extension EquipmentDetailPresenter: PickerDelegate {
     func didSelectAtIndex(_ index: Int) {
-        getEquipmentByIndex(index)
+        switch equipmentType {
+        case .rocket:
+            getRocketByIndex(index)
+
+        case .capsule:
+            getDragonByIndex(index)
+        }
     }
 }

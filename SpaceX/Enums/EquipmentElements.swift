@@ -10,8 +10,7 @@ import Foundation
 
 enum EquipmentElements {
     
-    case title
-    case active
+    case titleWithActive
     case description
     case gallery
     case info
