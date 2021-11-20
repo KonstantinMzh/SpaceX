@@ -50,11 +50,12 @@ class EquipmentDetailViewController: UIViewController {
         super.viewWillAppear(animated)
         picker?.title = presenter?.getTitle()
         presenter?.fetch()
+        configureStackView()
     }
     
     
     //MARK: - Configuration
-    func configure() {
+    private func configure() {
         view.backgroundColor = Colors.background
         
         view.addSubview(scrollView)
@@ -101,18 +102,11 @@ class EquipmentDetailViewController: UIViewController {
     }
     
     func updateUIForRocket(_ rocket: Rocket) {
-
-        stackView.addArrangedSubview(headerRow)
-        stackView.addArrangedSubview(descriptionRow)
-        stackView.addArrangedSubview(stageGallery)
-        stackView.addArrangedSubview(gallery)
-        stackView.addArrangedSubview(UIView())
-
         self.scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
         
         headerRow.nameLabel.text = rocket.name
         headerRow.activeState.isActive = rocket.active
-        descriptionRow.descriptionLabel.text = rocket.rocketDescription
+        descriptionRow.setText(rocket.rocketDescription)
         gallery.images = rocket.images
         stageGallery.stages = rocket.getStages()
         
@@ -120,18 +114,41 @@ class EquipmentDetailViewController: UIViewController {
 
     func updateUIForDragon(_ dragon: Dragon) {
         self.scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
-        stackView.addArrangedSubview(headerRow)
-        stackView.addArrangedSubview(descriptionRow)
-        stackView.addArrangedSubview(gallery)
-        stackView.addArrangedSubview(UIView())
-        
-        self.scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
-        
+
         headerRow.nameLabel.text = dragon.name
         headerRow.activeState.isActive = dragon.active
-        descriptionRow.descriptionLabel.text = dragon.dragonDescription
+        descriptionRow.setText(dragon.dragonDescription)
         gallery.images = dragon.images
         
+    }
+    
+    private func configureStackView() {
+        removeRowsFromStackView()
+        
+        guard let equipmentType = presenter?.getType() else { return }
+        
+        switch equipmentType {
+        case .rocket:
+            stackView.addArrangedSubview(headerRow)
+            stackView.addArrangedSubview(descriptionRow)
+            stackView.addArrangedSubview(stageGallery)
+            stackView.addArrangedSubview(gallery)
+            
+        case .capsule:
+            stackView.addArrangedSubview(headerRow)
+            stackView.addArrangedSubview(descriptionRow)
+            stackView.addArrangedSubview(gallery)
+        }
+        
+        stackView.addArrangedSubview(UIView())
+
+        
+    }
+    
+    private func removeRowsFromStackView() {
+        for view in stackView.arrangedSubviews {
+            view.removeFromSuperview()
+        }
     }
     
 }

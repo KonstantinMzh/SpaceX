@@ -10,7 +10,7 @@ import UIKit
 
 class DescriptionRow: UIView {
     
-    let descriptionLabel: UILabel = {
+    private let descriptionLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
@@ -39,6 +39,19 @@ class DescriptionRow: UIView {
             descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16)
         ])
         
+    }
+    
+    func setText(_ text: String) {
+        let attributedString = NSMutableAttributedString(string: text)
+        
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = 10
+        
+        attributedString.addAttribute(.paragraphStyle,
+                                      value:paragraphStyle,
+                                      range:NSMakeRange(0, attributedString.length))
+        
+        descriptionLabel.attributedText = attributedString
     }
     
 }

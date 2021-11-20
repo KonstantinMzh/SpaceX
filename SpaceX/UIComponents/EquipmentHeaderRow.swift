@@ -45,7 +45,7 @@ class EquipmentHeaderRow: UIView {
         ])
         
         NSLayoutConstraint.activate([
-            activeState.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 5),
+            activeState.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 6),
             activeState.bottomAnchor.constraint(equalTo: bottomAnchor),
             activeState.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
         ])
