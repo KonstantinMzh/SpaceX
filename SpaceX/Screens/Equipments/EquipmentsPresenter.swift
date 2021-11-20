@@ -12,7 +12,7 @@ protocol EquipmentsPresenterProtocol {
     func getNumberOfEquipments() -> Int
     func getEquipmentAtRow(_ row: Int) -> Equipment?
     
-    func pushRocketsScreen()
+    func showEquipmentViewController(_ row: Int)
 }
 
 
@@ -40,8 +40,9 @@ class EquipmentsPresenter: EquipmentsPresenterProtocol {
     
     
     //MARK: - Navigation
-    func pushRocketsScreen() {
-        let rocketsViewController = factory.createRocketsScreen()
+    func showEquipmentViewController(_ row: Int) {
+        guard let equipmentType = equipments[safe: row] else { return }
+        let rocketsViewController = factory.createEquipmentDetailScreen(equipmentType: equipmentType)
         viewController?.navigationController?.pushViewController(rocketsViewController, animated: true)
     }
     

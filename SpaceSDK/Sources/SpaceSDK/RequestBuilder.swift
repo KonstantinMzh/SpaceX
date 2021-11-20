@@ -11,6 +11,7 @@ enum RequestBuilder {
 
     case rockets
     case rocket(String)
+    case dragons
     case launches
     case launch(String)
     
@@ -28,6 +29,9 @@ enum RequestBuilder {
             
         case .rocket(let id):
             urlComponent.path = "/\(apiVersion)/rockets/\(id)"
+            
+        case .dragons:
+            urlComponent.path = "/\(apiVersion)/dragons"
             
         case .launches:
             urlComponent.path = "/\(apiVersion)/launches/"

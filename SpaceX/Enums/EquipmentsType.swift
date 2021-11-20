@@ -22,4 +22,13 @@ enum EquipmentsType {
         }
     }
     
+    func getElements() -> [EquipmentElements] {
+        switch self {
+        case .rocket:
+            return [.titleWithActive, .description, .stages, .gallery]
+        case .capsule:
+            return [.titleWithActive, .description, .gallery]
+        }
+    }
+    
 }

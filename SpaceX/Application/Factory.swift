@@ -52,24 +52,30 @@ final class ScreenFactory {
         navigationController.pushViewController(viewController, animated: false)
         return navigationController
     }
-    
-    func createRocketsScreen() -> PickerViewController {
-        let pickerViewController = PickerViewController()
-        let rocketViewController = RocketInfoViewController()
-        let rocketPresenter: RocketInfoPresenterProtocol = RocketInfoPresenter(viewController: rocketViewController,
-                                                                               rocketService: applicationFactory.spaceService)
-        rocketViewController.presenter = rocketPresenter
-        pickerViewController.addContentController(rocketViewController)
-        rocketViewController.picker = pickerViewController
-        pickerViewController.delegate = rocketPresenter
-        return pickerViewController
-    }
-    
+
     func createLaunchesScreen() -> LaunchesViewController {
         let viewController = LaunchesViewController()
-        let launchesPresenter: LaunchesPresenterProtocol = LaunchesPresenter(viewController: viewController, rocketService: applicationFactory.spaceService)
+        let launchesPresenter: LaunchesPresenterProtocol = LaunchesPresenter(viewController: viewController,
+                                                                             rocketService: applicationFactory.spaceService)
         viewController.presenter = launchesPresenter
         return viewController
+    }
+    
+    func createEquipmentDetailScreen(equipmentType: EquipmentsType) -> PickerViewController {
+        let pickerViewController = PickerViewController()
+        let equipmentViewController = EquipmentDetailViewController()
+
+        let presenter = EquipmentDetailPresenter(equipmentType: equipmentType,
+                                                 viewController: equipmentViewController,
+                                                 rocketService: applicationFactory.spaceService)
+
+        equipmentViewController.presenter = presenter
+        pickerViewController.addContentController(equipmentViewController)
+        equipmentViewController.picker = pickerViewController
+        pickerViewController.delegate = presenter
+        
+        
+        return pickerViewController
     }
     
 }

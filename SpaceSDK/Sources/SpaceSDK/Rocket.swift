@@ -15,6 +15,10 @@ public struct Rocket: Codable {
     public let rocketDescription: String
     public let firstFlight: String
     public let images: [String]
+    public let stages: Int
+    public let active: Bool
+    let firstStage: Stage
+    let secondStage: Stage
     
     public var firstFlightDate: Date? {
         let formatter = DateFormatter()
@@ -26,17 +30,51 @@ public struct Rocket: Codable {
     enum CodingKeys: String, CodingKey {
         case id
         case name
+        case active
         case rocketDescription = "description"
         case firstFlight = "first_flight"
         case images = "flickr_images"
+        case stages
+        case firstStage = "first_stage"
+        case secondStage = "second_stage"
+    }
+    
+    public func getStages() -> [Stage] {
+        [firstStage, secondStage]
     }
 
 }
 
 
-extension Rocket: CustomStringConvertible {
+public struct Stage: Codable {
     
-    public var description: String {
-        return rocketDescription
+    public let reusable: Bool?
+    public let engines: Int?
+    public let fuelAmountTons: Double?
+    public let burnTimeSec: Int?
+    let thrustVacuum: Thrust?
+    let thrustSeaLevel: Thrust?
+    let thrust: Thrust?
+
+    enum CodingKeys: String, CodingKey {
+        case reusable = "reusable"
+        case engines = "engines"
+        case fuelAmountTons = "fuel_amount_tons"
+        case burnTimeSec = "burn_time_sec"
+        case thrustVacuum = "thrust_vacuum"
+        case thrustSeaLevel = "thrust_sea_level"
+        case thrust = "thrust"
     }
+    
+    public func getThrusts() -> [Thrust] {
+        return [thrust, thrustVacuum, thrustSeaLevel].compactMap { $0 }
+    }
+    
+}
+
+public struct Thrust: Codable {
+    
+    public let kN: Int
+    public let lbf: Int
+
 }
