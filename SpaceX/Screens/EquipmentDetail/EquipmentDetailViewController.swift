@@ -50,7 +50,6 @@ class EquipmentDetailViewController: UIViewController {
         super.viewWillAppear(animated)
         picker?.title = presenter?.getTitle()
         presenter?.fetch()
-        configureStackView()
     }
     
     
@@ -93,30 +92,9 @@ class EquipmentDetailViewController: UIViewController {
         centerYAnchor.priority = .init(rawValue: 100)
         centerYAnchor.isActive = true
         
-        stackView.addArrangedSubview(UIView())
         
     }
-    
-    func configureStackView() {
-        
-        guard let type = presenter?.getType() else { return }
-        for view in stackView.arrangedSubviews {
-            view.removeFromSuperview()
-        }
-        
-        switch type {
-        case .rocket:
-            stackView.addArrangedSubview(headerRow)
-            stackView.addArrangedSubview(descriptionRow)
-            stackView.addArrangedSubview(stageGallery)
-            stackView.addArrangedSubview(gallery)
-            
-        case .capsule:
-            stackView.addArrangedSubview(headerRow)
-            stackView.addArrangedSubview(descriptionRow)
-            stackView.addArrangedSubview(gallery)
-        }
-    }
+
     
     func updatePicker(_ options: [String]) {
         picker?.setCollection(options)
@@ -128,6 +106,8 @@ class EquipmentDetailViewController: UIViewController {
         stackView.addArrangedSubview(descriptionRow)
         stackView.addArrangedSubview(stageGallery)
         stackView.addArrangedSubview(gallery)
+        stackView.addArrangedSubview(UIView())
+
         self.scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
         
         headerRow.nameLabel.text = rocket.name
@@ -143,6 +123,8 @@ class EquipmentDetailViewController: UIViewController {
         stackView.addArrangedSubview(headerRow)
         stackView.addArrangedSubview(descriptionRow)
         stackView.addArrangedSubview(gallery)
+        stackView.addArrangedSubview(UIView())
+        
         self.scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
         
         headerRow.nameLabel.text = dragon.name
