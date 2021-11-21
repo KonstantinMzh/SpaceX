@@ -17,6 +17,7 @@ class LaunchesViewController: UIViewController {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.tableFooterView = UIView()
+        tableView.separatorStyle = .none
         tableView.register(FutureLaunchCell.self, forCellReuseIdentifier: FutureLaunchCell.id)
         tableView.register(OldLaunchCell.self, forCellReuseIdentifier: OldLaunchCell.id)
         tableView.estimatedRowHeight = 50
@@ -43,6 +44,7 @@ class LaunchesViewController: UIViewController {
     
     func configure() {
         tableView.dataSource = self
+        tableView.delegate = self
         view.backgroundColor = Colors.background
         view.addSubview(tableView)
         
@@ -101,18 +103,56 @@ extension LaunchesViewController: UITableViewDataSource {
         case 0:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: FutureLaunchCell.id, for: indexPath) as? FutureLaunchCell else { return UITableViewCell() }
             cell.prepareForLaunch(launch)
+            
+            presenter?.getTitleForRocketWithId(launch.rocketId, completion: { result in
+                switch result {
+                case .success(let rocketName):
+                    cell.setRocketName(rocketName)
+                case .failure(_):
+                    break
+                }
+            })
+            
             cell.delegate = self
             return cell
             
         case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: OldLaunchCell.id, for: indexPath) as? OldLaunchCell else { return UITableViewCell() }
             cell.prepareForLaunch(launch)
+            
+            presenter?.getTitleForRocketWithId(launch.rocketId, completion: { result in
+                switch result {
+                case .success(let rocketName):
+                    cell.setRocketName(rocketName)
+                case .failure(_):
+                    break
+                }
+            })
+            
             return cell
             
         default:
             return UITableViewCell()
 
         }
+    }
+    
+}
+
+extension LaunchesViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = LaunchHeaderView()
+        switch section {
+        case 0:
+            headerView.titleLabel.text = "Future"
+        case 1:
+            headerView.titleLabel.text = "Past"
+        default:
+            break
+        }
+        
+        return headerView
     }
     
 }
