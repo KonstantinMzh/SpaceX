@@ -23,6 +23,9 @@ class ActiveStateView: UIView {
         return label
     }()
     
+    var negativeTitle = "Inactive"
+    var positiveTitle = "Active"
+    
     init() {
         super.init(frame: .zero)
         configure()
@@ -55,8 +58,13 @@ class ActiveStateView: UIView {
     
     private func stateChanged(_ newState: Bool) {
         stateLabel.textColor = newState ? .systemGreen : .systemRed
-        stateLabel.text = newState ? "Active" : "Inactive"
+        stateLabel.text = newState ? positiveTitle : negativeTitle
         layer.borderColor = newState ? UIColor.systemGreen.cgColor : UIColor.systemRed.cgColor
+    }
+    
+    func changeTitles(negativeTitle: String, positiveTitle: String) {
+        self.negativeTitle = negativeTitle
+        self.positiveTitle = positiveTitle
     }
     
 }

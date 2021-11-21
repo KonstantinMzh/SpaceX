@@ -17,6 +17,7 @@ class LaunchesViewController: UIViewController {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.tableFooterView = UIView()
+        tableView.separatorStyle = .none
         tableView.register(FutureLaunchCell.self, forCellReuseIdentifier: FutureLaunchCell.id)
         tableView.register(OldLaunchCell.self, forCellReuseIdentifier: OldLaunchCell.id)
         tableView.estimatedRowHeight = 50
@@ -101,12 +102,25 @@ extension LaunchesViewController: UITableViewDataSource {
         case 0:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: FutureLaunchCell.id, for: indexPath) as? FutureLaunchCell else { return UITableViewCell() }
             cell.prepareForLaunch(launch)
+            
+            presenter?.getTitleForRocketWithId(launch.rocketId, completion: { result in
+                switch result {
+                case .success(let rocketName):
+                    cell.setRocketName(rocketName)
+                case .failure(_):
+                    break
+                }
+            })
+            
             cell.delegate = self
             return cell
             
         case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: OldLaunchCell.id, for: indexPath) as? OldLaunchCell else { return UITableViewCell() }
             cell.prepareForLaunch(launch)
+            
+
+            
             return cell
             
         default:

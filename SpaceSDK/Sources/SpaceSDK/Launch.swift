@@ -14,12 +14,14 @@ public struct Launch: Codable {
     public let upcoming: Bool
     public let details: String?
     public let date: TimeInterval
+    public let rocketId: String
 
     enum CodingKeys: String, CodingKey {
         case name
         case upcoming
         case details
         case date = "date_unix"
+        case rocketId = "rocket"
     }
 }
 

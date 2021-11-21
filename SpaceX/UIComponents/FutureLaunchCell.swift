@@ -16,18 +16,63 @@ class FutureLaunchCell: UITableViewCell {
     
     var launchDate: TimeInterval?
     
+    let substrateView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = Colors.gray6
+        if #available(iOS 13.0, *) {
+            view.layer.cornerCurve = .continuous
+        }
+        view.layer.cornerRadius = 14
+        view.clipsToBounds = true
+        return view
+    }()
+    
     let launchNameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.setContentHuggingPriority(.defaultHigh + 1, for: .vertical)
+        label.setContentHuggingPriority(.defaultHigh + 1, for: .horizontal)
+        label.font = UIFont.systemFont(ofSize: 19, weight: .semibold)
         return label
     }()
     
     let timerLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.monospacedDigitSystemFont(ofSize: 16, weight: .semibold)
+        label.font = UIFont.monospacedDigitSystemFont(ofSize: 19, weight: .semibold)
+        label.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         label.setContentHuggingPriority(.defaultHigh, for: .vertical)
+        label.textAlignment = .right
+        return label
+    }()
+    
+    let dateLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.monospacedDigitSystemFont(ofSize: 11, weight: .regular)
+        label.setContentHuggingPriority(.defaultHigh + 1, for: .horizontal)
+        label.setContentHuggingPriority(.defaultHigh + 1, for: .vertical)
+        label.textColor = Colors.secondaryLabel
+        label.textAlignment = .right
+        return label
+    }()
+    
+    let hoursLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.monospacedDigitSystemFont(ofSize: 11, weight: .semibold)
+        label.setContentHuggingPriority(.defaultHigh + 2, for: .vertical)
+        label.textColor = Colors.secondaryLabel
+        label.textAlignment = .right
+        return label
+    }()
+    
+    let rocketNameLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.monospacedDigitSystemFont(ofSize: 11, weight: .regular)
+        label.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+        label.textColor = Colors.secondaryLabel
         return label
     }()
     
@@ -43,20 +88,46 @@ class FutureLaunchCell: UITableViewCell {
     func setCell() {
         selectionStyle = .none
         
-        contentView.addSubview(launchNameLabel)
-        contentView.addSubview(timerLabel)
+        contentView.addSubview(substrateView)
+        substrateView.addSubview(launchNameLabel)
+        substrateView.addSubview(timerLabel)
+        substrateView.addSubview(dateLabel)
+        substrateView.addSubview(hoursLabel)
+        substrateView.addSubview(rocketNameLabel)
         
         NSLayoutConstraint.activate([
-            launchNameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-            launchNameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16)
+            substrateView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
+            substrateView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            substrateView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            substrateView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)
         ])
         
         NSLayoutConstraint.activate([
-            timerLabel.topAnchor.constraint(equalTo: launchNameLabel.bottomAnchor, constant: 10),
-            timerLabel.leadingAnchor.constraint(equalTo: launchNameLabel.leadingAnchor)
+            launchNameLabel.topAnchor.constraint(equalTo: substrateView.topAnchor, constant: 15),
+            launchNameLabel.leadingAnchor.constraint(equalTo: substrateView.leadingAnchor, constant: 15)
         ])
         
-        let bottomConstraint = timerLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10)
+        NSLayoutConstraint.activate([
+            timerLabel.topAnchor.constraint(equalTo: substrateView.topAnchor, constant: 15),
+            timerLabel.trailingAnchor.constraint(equalTo: substrateView.trailingAnchor, constant: -15)
+        ])
+        
+        NSLayoutConstraint.activate([
+            dateLabel.topAnchor.constraint(equalTo: timerLabel.bottomAnchor, constant: 7),
+            dateLabel.trailingAnchor.constraint(equalTo: substrateView.trailingAnchor, constant: -15)
+        ])
+        
+        NSLayoutConstraint.activate([
+            hoursLabel.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 3),
+            hoursLabel.trailingAnchor.constraint(equalTo: substrateView.trailingAnchor, constant: -15)
+        ])
+        
+        NSLayoutConstraint.activate([
+            rocketNameLabel.topAnchor.constraint(equalTo: launchNameLabel.bottomAnchor, constant: 7),
+            rocketNameLabel.leadingAnchor.constraint(equalTo: substrateView.leadingAnchor, constant: 15)
+        ])
+        
+        let bottomConstraint = hoursLabel.bottomAnchor.constraint(equalTo: substrateView.bottomAnchor, constant: -15)
         bottomConstraint.isActive = true
     }
     
@@ -67,10 +138,20 @@ class FutureLaunchCell: UITableViewCell {
     }
     
     func prepareForLaunch(_ launch: Launch) {
-        print(Date(timeIntervalSince1970: launch.date))
         launchNameLabel.text = launch.name
         launchDate = launch.date
+        
+        if let launchDate = launchDate {
+            dateLabel.text = DateFormatters.monthDayAndYear.getDescription(launchDate)
+            hoursLabel.text = DateFormatters.hourseAndMinutes.getDescription(launchDate)
+
+        }
+        
         updateTimer()
+    }
+    
+    func setRocketName(_ rocketName: String) {
+        rocketNameLabel.text = rocketName
     }
     
     func updateTimer() {
@@ -78,11 +159,12 @@ class FutureLaunchCell: UITableViewCell {
 
         let diffTimeInterval = launchDate - Date().timeIntervalSince1970
          
-//        print(diffTimeInterval)
         if diffTimeInterval <= 0 {
             delegate?.launchHappened()
             return
         }
+        
+        
         
         let dateDescription = DateFormatters.dayBeforeLaunch.getDescription(diffTimeInterval)
         timerLabel.text = dateDescription

@@ -13,10 +13,13 @@ protocol LaunchesPresenterProtocol {
     func fetchLaunches()
     func getNumberOfElementsForSection(_ section: Int) -> Int
     func getLaunchAtIndexPath(_ indexPath: IndexPath) -> Launch?
+    func getTitleForRocketWithId(_ id: String, completion: @escaping (Result<String, SpaceError>) -> Void)
 }
 
 
 class LaunchesPresenter: LaunchesPresenterProtocol {
+
+    
     
     let spaceService: SpaceServiceProtocol
     weak var viewController: LaunchesViewController?
@@ -40,6 +43,17 @@ class LaunchesPresenter: LaunchesPresenterProtocol {
                     .filter { $0.date < Date()
                     .timeIntervalSince1970 }.sorted { $0.date < $1.date }
                 self?.viewController?.updateUI()
+            }
+        }
+    }
+    
+    func getTitleForRocketWithId(_ id: String, completion: @escaping (Result<String, SpaceError>) -> Void) {
+        spaceService.fetchRocketById(id) { result in
+            switch result {
+            case .success(let rocket):
+                completion(.success(rocket.name))
+            case .failure(let error):
+                print(error.localizedDescription)
             }
         }
     }
