@@ -47,6 +47,7 @@
 		B5FB3B272747E29E008BD440 /* DescriptionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FB3B262747E29E008BD440 /* DescriptionRow.swift */; };
 		B5FB3B2B2747E4F7008BD440 /* ActiveStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FB3B2A2747E4F7008BD440 /* ActiveStateView.swift */; };
 		B5FB3B2D2747E671008BD440 /* EquipmentHeaderRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FB3B2C2747E671008BD440 /* EquipmentHeaderRow.swift */; };
+		B5FD83532749ECE0005B15BD /* LaunchHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FD83522749ECE0005B15BD /* LaunchHeaderView.swift */; };
 		B5FF045D272BA74200C1D103 /* Collection+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FF045C272BA74200C1D103 /* Collection+Extension.swift */; };
 		B5FF045F272BA77800C1D103 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FF045E272BA77800C1D103 /* UIViewController+Extension.swift */; };
 /* End PBXBuildFile section */
@@ -118,6 +119,7 @@
 		B5FB3B262747E29E008BD440 /* DescriptionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionRow.swift; sourceTree = "<group>"; };
 		B5FB3B2A2747E4F7008BD440 /* ActiveStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveStateView.swift; sourceTree = "<group>"; };
 		B5FB3B2C2747E671008BD440 /* EquipmentHeaderRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentHeaderRow.swift; sourceTree = "<group>"; };
+		B5FD83522749ECE0005B15BD /* LaunchHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchHeaderView.swift; sourceTree = "<group>"; };
 		B5FF045C272BA74200C1D103 /* Collection+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extension.swift"; sourceTree = "<group>"; };
 		B5FF045E272BA77800C1D103 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -276,6 +278,7 @@
 				B5C162272746FAF800CC2B08 /* Stage */,
 				B5C1CDC9273EE81B00ED2691 /* FutureLaunchCell.swift */,
 				B5C1CDD42740606800ED2691 /* OldLaunchCell.swift */,
+				B5FD83522749ECE0005B15BD /* LaunchHeaderView.swift */,
 				B5C1CDDD2740835E00ED2691 /* EquipmentCell.swift */,
 				B5D3609D2723065200F033DA /* PickerContainer */,
 				B5FB3B262747E29E008BD440 /* DescriptionRow.swift */,
@@ -455,6 +458,7 @@
 			files = (
 				B5C1CDD32740433C00ED2691 /* LaunchDelegate.swift in Sources */,
 				B58E2CA427460A4A002D6D10 /* StageView.swift in Sources */,
+				B5FD83532749ECE0005B15BD /* LaunchHeaderView.swift in Sources */,
 				B5C1CDDC27406C8800ED2691 /* EquipmentsPresenter.swift in Sources */,
 				B510153727467FFF008084F5 /* MeasurementUnit.swift in Sources */,
 				B5C1622D2747516000CC2B08 /* StageGallery.swift in Sources */,

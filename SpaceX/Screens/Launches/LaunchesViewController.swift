@@ -44,6 +44,7 @@ class LaunchesViewController: UIViewController {
     
     func configure() {
         tableView.dataSource = self
+        tableView.delegate = self
         view.backgroundColor = Colors.background
         view.addSubview(tableView)
         
@@ -134,6 +135,24 @@ extension LaunchesViewController: UITableViewDataSource {
             return UITableViewCell()
 
         }
+    }
+    
+}
+
+extension LaunchesViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = LaunchHeaderView()
+        switch section {
+        case 0:
+            headerView.titleLabel.text = "Future"
+        case 1:
+            headerView.titleLabel.text = "Past"
+        default:
+            break
+        }
+        
+        return headerView
     }
     
 }

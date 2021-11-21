@@ -38,7 +38,7 @@ class OldLaunchCell: UITableViewCell {
     let dateLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.monospacedDigitSystemFont(ofSize: 11, weight: .regular)
+        label.font = UIFont.monospacedDigitSystemFont(ofSize: 11, weight: .semibold)
         label.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
         label.setContentHuggingPriority(.defaultHigh + 1, for: .vertical)
         label.setContentHuggingPriority(.defaultHigh + 1, for: .horizontal)
@@ -50,7 +50,7 @@ class OldLaunchCell: UITableViewCell {
     let hoursLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.monospacedDigitSystemFont(ofSize: 11, weight: .semibold)
+        label.font = UIFont.monospacedDigitSystemFont(ofSize: 11, weight: .regular)
         label.setContentHuggingPriority(.defaultHigh + 2, for: .vertical)
         label.textColor = Colors.label
         label.textAlignment = .right
