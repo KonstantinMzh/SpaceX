@@ -15,6 +15,7 @@ public struct Launch: Codable {
     public let details: String?
     public let date: TimeInterval
     public let rocketId: String
+    public let success: Bool?
 
     enum CodingKeys: String, CodingKey {
         case name
@@ -22,6 +23,7 @@ public struct Launch: Codable {
         case details
         case date = "date_unix"
         case rocketId = "rocket"
+        case success
     }
 }
 

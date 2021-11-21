@@ -119,7 +119,14 @@ extension LaunchesViewController: UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: OldLaunchCell.id, for: indexPath) as? OldLaunchCell else { return UITableViewCell() }
             cell.prepareForLaunch(launch)
             
-
+            presenter?.getTitleForRocketWithId(launch.rocketId, completion: { result in
+                switch result {
+                case .success(let rocketName):
+                    cell.setRocketName(rocketName)
+                case .failure(_):
+                    break
+                }
+            })
             
             return cell
             

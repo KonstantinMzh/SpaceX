@@ -33,6 +33,7 @@ class FutureLaunchCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.setContentHuggingPriority(.defaultHigh + 1, for: .horizontal)
         label.font = UIFont.systemFont(ofSize: 19, weight: .semibold)
+        label.textColor = Colors.label
         return label
     }()
     
@@ -42,6 +43,7 @@ class FutureLaunchCell: UITableViewCell {
         label.font = UIFont.monospacedDigitSystemFont(ofSize: 19, weight: .semibold)
         label.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         label.setContentHuggingPriority(.defaultHigh, for: .vertical)
+        label.textColor = Colors.label
         label.textAlignment = .right
         return label
     }()
@@ -144,7 +146,6 @@ class FutureLaunchCell: UITableViewCell {
         if let launchDate = launchDate {
             dateLabel.text = DateFormatters.monthDayAndYear.getDescription(launchDate)
             hoursLabel.text = DateFormatters.hourseAndMinutes.getDescription(launchDate)
-
         }
         
         updateTimer()
@@ -163,8 +164,6 @@ class FutureLaunchCell: UITableViewCell {
             delegate?.launchHappened()
             return
         }
-        
-        
         
         let dateDescription = DateFormatters.dayBeforeLaunch.getDescription(diffTimeInterval)
         timerLabel.text = dateDescription
