@@ -68,7 +68,8 @@ final class ScreenFactory {
         let viewController = LaunchDetailViewController(title: title)
         let presenter: LaunchDetailPresenterProtocol = LaunchDetailPresenter(id: id,
                                                                              spaceService: applicationFactory.spaceService,
-                                                                             viewController: viewController)
+                                                                             viewController: viewController,
+                                                                             factory: self)
         viewController.presenter = presenter
         return viewController
     }
@@ -88,6 +89,13 @@ final class ScreenFactory {
         
         
         return pickerViewController
+    }
+    
+    func showRocketScreen(rocket: Rocket) -> EquipmentDetailViewController {
+        let viewControler = EquipmentDetailViewController(rocket: rocket)
+        let presenter = EquipmentDetailPresenter(equipmentType: .rocket, viewController: viewControler, rocketService: applicationFactory.spaceService)
+        viewControler.presenter = presenter
+        return viewControler
     }
     
 }

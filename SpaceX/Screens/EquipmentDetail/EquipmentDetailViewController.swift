@@ -153,4 +153,17 @@ class EquipmentDetailViewController: UIViewController {
         }
     }
     
+    init() {
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    init(rocket: Rocket) {
+        super.init(nibName: nil, bundle: nil)
+        updateUIForRocket(rocket)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError()
+    }
+    
 }

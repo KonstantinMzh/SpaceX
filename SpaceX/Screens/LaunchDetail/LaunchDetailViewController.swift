@@ -100,7 +100,12 @@ class LaunchDetailViewController: UIViewController {
         stackView.addArrangedSubview(launchRocketAndTimeRow)
         stackView.addArrangedSubview(descriptionRow)
 
+        launchRocketAndTimeRow.rocketButton.addTarget(self, action: #selector(rocketButtonTapped), for: .touchUpInside)
 
+    }
+    
+    @objc func rocketButtonTapped() {
+        presenter?.showRocketScreen()
     }
     
     func updateUIForLaunch(_ launch: Launch) {
@@ -140,6 +145,16 @@ class LaunchDetailViewController: UIViewController {
         }
         
         stackView.addArrangedSubview(UIView())
+        
+        presenter?.getTitleForRocketWithId(launch.rocketId, completion: { [weak self] result in
+            switch result {
+            case .success(let rocketName):
+                self?.launchRocketAndTimeRow.rocketButton.setTitle(rocketName, for: .normal)
+            case .failure(_):
+                self?.launchRocketAndTimeRow.rocketButton.setTitle("Unknown Rocket", for: .normal)
+                
+            }
+        })
 
     }
     
