@@ -38,7 +38,7 @@ enum Colors {
         if #available(iOS 13.0, *) {
             return UIColor.systemIndigo
         } else {
-            return UIColor.systemBlue
+            return UIColor(red: 0.35, green: 0.34, blue: 0.84, alpha: 1.00)
         }
     }()
     
@@ -65,7 +65,7 @@ enum Colors {
         if #available(iOS 13.0, *) {
             return UIColor.label
         } else {
-            return UIColor.white
+            return UIColor.black
         }
     }()
     

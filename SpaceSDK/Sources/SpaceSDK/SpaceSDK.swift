@@ -13,6 +13,7 @@ public protocol SpaceServiceProtocol {
     func fetchRocketById(_ id: String, completion: @escaping (Result<Rocket, SpaceError>) -> Void)
     
     func fetchLaunches(completion: @escaping (Result<[Launch], SpaceError>) -> Void)
+    func fetchLaunchById(_ id: String, completion: @escaping (Result<Launch, SpaceError>) -> Void)
     
     func fetchDragons(completion: @escaping (Result<[Dragon], SpaceError>) -> Void)
 
@@ -32,6 +33,12 @@ public class SpaceService: SpaceServiceProtocol {
     
     public func fetchLaunches(completion: @escaping (Result<[Launch], SpaceError>) -> Void) {
         networkManager.fetch(endpoint: .launches) { result in
+            completion(result)
+        }
+    }
+    
+    public func fetchLaunchById(_ id: String, completion: @escaping (Result<Launch, SpaceError>) -> Void) {
+        networkManager.fetch(endpoint: .launch(id)) { result in
             completion(result)
         }
     }

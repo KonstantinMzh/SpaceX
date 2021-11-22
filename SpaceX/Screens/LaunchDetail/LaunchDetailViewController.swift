@@ -1,19 +1,20 @@
 //
-//  EquipmentDetailViewController.swift
+//  LaunchDetailViewController.swift
 //  SpaceX
 //
-//  Created by Константин Маламуж on 17.11.2021.
+//  Created by Константин Маламуж on 22.11.2021.
 //
 
 import UIKit
 import SpaceSDK
 import Gallery
 
-class EquipmentDetailViewController: UIViewController {
-    
-    var presenter: EquipmentDetailPresenterProtocol?
-    weak var picker: PickerViewController?
 
+class LaunchDetailViewController: UIViewController {
+    
+    //MARK: - Propeties
+    var presenter: LaunchDetailPresenterProtocol?
+    
     let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -35,29 +36,21 @@ class EquipmentDetailViewController: UIViewController {
     }()
     
     //MARK: - Rows
-    let headerRow = EquipmentHeaderRow()
     let descriptionRow = DescriptionRow()
     let gallery = Gallery()
-    let stageGallery = StageGallery()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
-        configureNavigationBar(title: "", preferredLargeTitle: false)
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        picker?.title = presenter?.getTitle()
-        presenter?.fetch()
-        configureStackView()
+        presenter?.fetchLaunch()
     }
     
-    
-    //MARK: - Configuration
-    private func configure() {
+    //MARK: - Configure
+    func configure() {
         view.backgroundColor = Colors.background
         
         view.addSubview(scrollView)
@@ -95,62 +88,25 @@ class EquipmentDetailViewController: UIViewController {
         centerYAnchor.priority = .init(rawValue: 100)
         centerYAnchor.isActive = true
         
-        
-    }
-
-    
-    func updatePicker(_ options: [String]) {
-        picker?.setCollection(options)
-    }
-    
-    func updateUIForRocket(_ rocket: Rocket) {
-        self.scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
-        
-        headerRow.nameLabel.text = rocket.name
-        headerRow.activeState.isActive = rocket.active
-        descriptionRow.setText(rocket.rocketDescription)
-        gallery.images = rocket.images
-        stageGallery.stages = rocket.getStages()
-        
-    }
-
-    func updateUIForDragon(_ dragon: Dragon) {
-        self.scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
-
-        headerRow.nameLabel.text = dragon.name
-        headerRow.activeState.isActive = dragon.active
-        descriptionRow.setText(dragon.dragonDescription)
-        gallery.images = dragon.images
-        
-    }
-    
-    private func configureStackView() {
-        removeRowsFromStackView()
-        
-        guard let equipmentType = presenter?.getType() else { return }
-        
-        switch equipmentType {
-        case .rocket:
-            stackView.addArrangedSubview(headerRow)
-            stackView.addArrangedSubview(descriptionRow)
-            stackView.addArrangedSubview(stageGallery)
-            stackView.addArrangedSubview(gallery)
-            
-        case .capsule:
-            stackView.addArrangedSubview(headerRow)
-            stackView.addArrangedSubview(descriptionRow)
-            stackView.addArrangedSubview(gallery)
-        }
-        
+        stackView.addArrangedSubview(descriptionRow)
+        stackView.addArrangedSubview(gallery)
         stackView.addArrangedSubview(UIView())
 
-        
     }
     
-    private func removeRowsFromStackView() {
-        for view in stackView.arrangedSubviews {
-            view.removeFromSuperview()
-        }
+    func updateUIForLaunch(_ launch: Launch) {
+        descriptionRow.setText(launch.details)
+    }
+    
+    
+    //MARK: - Init
+    init(title: String) {
+        super.init(nibName: nil, bundle: nil)
+        self.title = title
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError()
     }
     
 }

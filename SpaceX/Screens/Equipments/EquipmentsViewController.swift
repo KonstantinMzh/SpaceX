@@ -25,9 +25,24 @@ class EquipmentsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
+        configureNavigationBar(title: "Equipments", preferredLargeTitle: true)
+
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+
+
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
     }
     
     func configure() {
+        title = "Equipments"
+        
         view.backgroundColor = Colors.background
         tableView.dataSource = self
         tableView.delegate = self
@@ -71,3 +86,8 @@ extension EquipmentsViewController: UITableViewDelegate {
     }
     
 }
+
+
+
+
+

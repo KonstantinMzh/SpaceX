@@ -53,11 +53,23 @@ final class ScreenFactory {
         return navigationController
     }
 
-    func createLaunchesScreen() -> LaunchesViewController {
+    func createLaunchesScreen() -> UINavigationController {
+        let navigationController = UINavigationController()
         let viewController = LaunchesViewController()
         let launchesPresenter: LaunchesPresenterProtocol = LaunchesPresenter(viewController: viewController,
-                                                                             rocketService: applicationFactory.spaceService)
+                                                                             rocketService: applicationFactory.spaceService,
+                                                                             factory: self)
         viewController.presenter = launchesPresenter
+        navigationController.pushViewController(viewController, animated: false)
+        return navigationController
+    }
+    
+    func createLaunchDetailScreenForId(_ id: String, title: String) -> LaunchDetailViewController {
+        let viewController = LaunchDetailViewController(title: title)
+        let presenter: LaunchDetailPresenterProtocol = LaunchDetailPresenter(id: id,
+                                                                             spaceService: applicationFactory.spaceService,
+                                                                             viewController: viewController)
+        viewController.presenter = presenter
         return viewController
     }
     

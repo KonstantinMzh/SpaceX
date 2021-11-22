@@ -41,8 +41,8 @@ class DescriptionRow: UIView {
         
     }
     
-    func setText(_ text: String) {
-        let attributedString = NSMutableAttributedString(string: text)
+    func setText(_ text: String?) {
+        let attributedString = NSMutableAttributedString(string: text ?? "")
         
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = 10
