@@ -17,6 +17,7 @@ public struct Launch: Codable {
     public let date: TimeInterval
     public let rocketId: String
     public let success: Bool?
+    public let links: LaunchLinks?
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -26,6 +27,21 @@ public struct Launch: Codable {
         case date = "date_unix"
         case rocketId = "rocket"
         case success
+        case links
     }
 }
 
+
+
+public struct LaunchLinks: Codable {
+    
+    public let flickr: LaunchFlickr?
+    
+}
+
+
+public struct LaunchFlickr: Codable {
+    
+    public let original: [String]
+    
+}

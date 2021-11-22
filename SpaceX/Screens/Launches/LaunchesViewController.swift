@@ -82,7 +82,6 @@ class LaunchesViewController: UIViewController {
                 cell.updateTimer()
             }
         }
-        
     }
     
 }

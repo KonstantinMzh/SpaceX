@@ -11,7 +11,7 @@ import Foundation
 enum DateFormatters: String {
     
     case simpleDayMonthYear = "MM.DD.YYYY"
-    case dayBeforeLaunch = "D HH:mm:ss"
+    case dayBeforeLaunch = "HH:mm:ss"
     case monthDayAndYear = "MMMM d YYYY"
     case hourseAndMinutes = "hh:mm a"
 

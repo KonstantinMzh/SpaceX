@@ -165,36 +165,8 @@ class FutureLaunchCell: UITableViewCell {
             return
         }
 
-        let calendar = Calendar.current
-        let dateComponent = calendar.dateComponents([.second, .minute, .hour, .day, .month, .year], from: Date(timeIntervalSince1970: diffTimeInterval))
-        
-        if let day = dateComponent.day, day <= 2 {
-            timerLabel.text =  DateFormatters.dayBeforeLaunch.getDescription(diffTimeInterval)
-        }
-        
-        if let day = dateComponent.day, day == 2 {
-            timerLabel.text = "\(day) day"
-        }
+        timerLabel.text =  Date().getRemainTimeBeforeEvent(eventDate: launchDate)
 
-        if let days = dateComponent.day, days >= 2 {
-            timerLabel.text = "\(days) days"
-        }
-
-        if let month = dateComponent.month, month == 2 {
-            timerLabel.text = "\(month) month"
-        }
-
-        if let months = dateComponent.month, months >= 2 {
-            timerLabel.text = "\(months) months"
-        }
-        
-        if let year = dateComponent.year, year == 2 {
-            timerLabel.text = "\(year) year"
-        }
-        
-        if let years = dateComponent.year, years == 2 {
-            timerLabel.text = "\(years) years"
-        }
     }
     
 }

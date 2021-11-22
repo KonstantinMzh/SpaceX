@@ -14,3 +14,51 @@ extension Date {
     }
 
 }
+
+
+extension Date {
+    
+    func getRemainTimeBeforeEvent(eventDate: TimeInterval) -> String {
+        
+        let currentDate = self.timeIntervalSince1970
+        let diff = eventDate - currentDate
+        
+        let calendar = Calendar.current
+        let dateComponent = calendar.dateComponents([.second, .minute, .hour, .day, .month, .year], from: Date(timeIntervalSince1970: diff))
+        
+        var result = ""
+        
+        if let day = dateComponent.day, day <= 2 {
+            result = DateFormatters.dayBeforeLaunch.getDescription(diff)
+        }
+
+        if let day = dateComponent.day, day == 2 {
+            result = "\(day) day"
+        }
+
+        if let days = dateComponent.day, days >= 2 {
+            result = "\(days) days"
+        }
+
+        if let month = dateComponent.month, month == 2 {
+            result = "\(month) month"
+        }
+
+        if let months = dateComponent.month, months >= 2 {
+            result = "\(months) months"
+        }
+
+        if let year = dateComponent.year, year == 2 {
+            result = "\(year) year"
+        }
+
+        if let years = dateComponent.year, years == 2 {
+            result = "\(years) years"
+        }
+        
+        return result
+
+    }
+    
+    
+}

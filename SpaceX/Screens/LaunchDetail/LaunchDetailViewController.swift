@@ -14,7 +14,9 @@ class LaunchDetailViewController: UIViewController {
     
     //MARK: - Propeties
     var presenter: LaunchDetailPresenterProtocol?
-    
+    var displayLink: CADisplayLink?
+
+    //MARK: - UI Components
     let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -38,6 +40,7 @@ class LaunchDetailViewController: UIViewController {
     //MARK: - Rows
     let descriptionRow = DescriptionRow()
     let gallery = Gallery()
+    let launchRocketAndTimeRow = LaunchRocketAndTimeRow()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +51,12 @@ class LaunchDetailViewController: UIViewController {
         super.viewWillAppear(animated)
         presenter?.fetchLaunch()
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        removeTimer()
+    }
+    
     
     //MARK: - Configure
     func configure() {
@@ -88,14 +97,79 @@ class LaunchDetailViewController: UIViewController {
         centerYAnchor.priority = .init(rawValue: 100)
         centerYAnchor.isActive = true
         
+        stackView.addArrangedSubview(launchRocketAndTimeRow)
         stackView.addArrangedSubview(descriptionRow)
-        stackView.addArrangedSubview(gallery)
-        stackView.addArrangedSubview(UIView())
+
 
     }
     
     func updateUIForLaunch(_ launch: Launch) {
-        descriptionRow.setText(launch.details)
+        gallery.removeFromSuperview()
+        
+        launchDate = launch.date
+
+        launchRocketAndTimeRow.timerLabel.text = Date().getRemainTimeBeforeEvent(eventDate: launch.date)
+        
+        let dateDiff = launch.date - Date().timeIntervalSince1970 >= 0
+        var launchState: LaunchState = .unknown
+        
+        switch (dateDiff, launch.success) {
+        case (true, _):
+            launchState = .unknown
+            descriptionRow.setText(launch.details ?? "Description will appear after launch")
+
+        case (false, false):
+            launchState = .failure
+            descriptionRow.setText(launch.details ?? "No description")
+
+        case (false, true):
+            launchState = .success
+            descriptionRow.setText(launch.details ?? "No description")
+
+        default:
+            launchState = .unknown
+            descriptionRow.setText(launch.details ?? "No description")
+            launchRocketAndTimeRow.timerLabel.text = "00:00:00"
+        }
+
+        launchRocketAndTimeRow.prepareForLaunch(launch, rocketName: "Empty Rocket", state: launchState)
+        
+        if let images = launch.links?.flickr?.original, images.count > 0 {
+            stackView.addArrangedSubview(gallery)
+            gallery.images = launch.links?.flickr?.original ?? []
+        }
+        
+        stackView.addArrangedSubview(UIView())
+
+    }
+    
+    func createTimer() {
+        displayLink = CADisplayLink(target: self, selector: #selector(updateLink))
+        displayLink?.preferredFramesPerSecond = 10
+        displayLink?.add(to: .main, forMode: .common)
+    }
+    
+    var launchDate: TimeInterval?
+
+    func removeTimer() {
+        displayLink?.invalidate()
+        displayLink = nil
+    }
+    
+    @objc func updateLink() {
+        guard let launchDate = launchDate else { return }
+
+        
+        let remainTimeDescription = Date().getRemainTimeBeforeEvent(eventDate: launchDate)
+        launchRocketAndTimeRow.timerLabel.text = remainTimeDescription
+        let diffTimeInterval = launchDate - Date().timeIntervalSince1970
+
+        if diffTimeInterval <= 0 {
+//            delegate?.launchHappened()
+            return
+        }
+
+
     }
     
     

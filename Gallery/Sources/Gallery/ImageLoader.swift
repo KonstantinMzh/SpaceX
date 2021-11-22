@@ -11,7 +11,7 @@ public class ImageLoader: ImageLoaderProtocol {
         
         let request = URLRequest(url: imageURL)
         let configuration = URLSessionConfiguration.ephemeral
-        configuration.urlCache = URLCache(memoryCapacity: 5 * 1024 * 1024, diskCapacity: 5 * 1024 * 1024, diskPath: nil)
+        configuration.urlCache = URLCache(memoryCapacity: 500 * 1024 * 1024, diskCapacity: 500 * 1024 * 1024, diskPath: nil)
         let urlSession = URLSession(configuration: configuration)
         let dataTask = urlSession.dataTask(with: request) { data, response, error in
             guard let data = data else { return }
