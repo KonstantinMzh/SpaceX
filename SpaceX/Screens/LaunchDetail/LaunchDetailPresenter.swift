@@ -54,7 +54,7 @@ class LaunchDetailPresenter: LaunchDetailPresenterProtocol {
     
     func showRocketScreen() {
         guard let rocket = rocket else { return }
-        let rocketViewController = factory.showRocketScreen(rocket: rocket)
+        let rocketViewController = factory.createScreenForAppearingRocket(rocket: rocket)
         viewController?.present(rocketViewController, animated: true, completion: nil)
     }
     

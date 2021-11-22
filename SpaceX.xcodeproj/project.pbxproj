@@ -18,7 +18,6 @@
 		B56B5DEE2721C0CC006A5524 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56B5DED2721C0CC006A5524 /* SceneDelegate.swift */; };
 		B56B5DF52721C0D7006A5524 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B56B5DF42721C0D7006A5524 /* Assets.xcassets */; };
 		B56B5DF82721C0D7006A5524 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B56B5DF62721C0D7006A5524 /* LaunchScreen.storyboard */; };
-		B57274132741D29E00CD534F /* dragon.json in Resources */ = {isa = PBXBuildFile; fileRef = B57274122741D29E00CD534F /* dragon.json */; };
 		B572741927452F9000CD534F /* EquipmentDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B572741827452F9000CD534F /* EquipmentDetailViewController.swift */; };
 		B572741B27452FB200CD534F /* EquipmentDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B572741A27452FB200CD534F /* EquipmentDetailPresenter.swift */; };
 		B58E2CA027460947002D6D10 /* EquipmentElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58E2C9F27460947002D6D10 /* EquipmentElements.swift */; };
@@ -52,6 +51,9 @@
 		B5FD8358274AF8AE005B15BD /* LaunchDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FD8357274AF8AE005B15BD /* LaunchDetailPresenter.swift */; };
 		B5FD835A274B347A005B15BD /* LaunchRocketAndTimeRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FD8359274B347A005B15BD /* LaunchRocketAndTimeRow.swift */; };
 		B5FD835C274BD528005B15BD /* LaunchState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FD835B274BD528005B15BD /* LaunchState.swift */; };
+		B5FD835F274C4A2E005B15BD /* CompanyInfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FD835E274C4A2E005B15BD /* CompanyInfoPresenter.swift */; };
+		B5FD8361274C4A38005B15BD /* CompanyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FD8360274C4A38005B15BD /* CompanyInfoViewController.swift */; };
+		B5FD8363274C54E4005B15BD /* LogoRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FD8362274C54E4005B15BD /* LogoRow.swift */; };
 		B5FF045D272BA74200C1D103 /* Collection+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FF045C272BA74200C1D103 /* Collection+Extension.swift */; };
 		B5FF045F272BA77800C1D103 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FF045E272BA77800C1D103 /* UIViewController+Extension.swift */; };
 /* End PBXBuildFile section */
@@ -93,8 +95,6 @@
 		B56B5DF42721C0D7006A5524 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B56B5DF72721C0D7006A5524 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B56B5DF92721C0D7006A5524 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B57274122741D29E00CD534F /* dragon.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = dragon.json; sourceTree = "<group>"; };
-		B57274142741D2C300CD534F /* rocket.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = rocket.json; sourceTree = "<group>"; };
 		B572741827452F9000CD534F /* EquipmentDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentDetailViewController.swift; sourceTree = "<group>"; };
 		B572741A27452FB200CD534F /* EquipmentDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentDetailPresenter.swift; sourceTree = "<group>"; };
 		B58E2C9F27460947002D6D10 /* EquipmentElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentElements.swift; sourceTree = "<group>"; };
@@ -128,6 +128,9 @@
 		B5FD8357274AF8AE005B15BD /* LaunchDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchDetailPresenter.swift; sourceTree = "<group>"; };
 		B5FD8359274B347A005B15BD /* LaunchRocketAndTimeRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchRocketAndTimeRow.swift; sourceTree = "<group>"; };
 		B5FD835B274BD528005B15BD /* LaunchState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchState.swift; sourceTree = "<group>"; };
+		B5FD835E274C4A2E005B15BD /* CompanyInfoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyInfoPresenter.swift; sourceTree = "<group>"; };
+		B5FD8360274C4A38005B15BD /* CompanyInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyInfoViewController.swift; sourceTree = "<group>"; };
+		B5FD8362274C54E4005B15BD /* LogoRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoRow.swift; sourceTree = "<group>"; };
 		B5FF045C272BA74200C1D103 /* Collection+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extension.swift"; sourceTree = "<group>"; };
 		B5FF045E272BA77800C1D103 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -231,6 +234,7 @@
 				B572741727452F7600CD534F /* EquipmentDetail */,
 				B5C1CD94273E0DA000ED2691 /* Launches */,
 				B5FD8354274AF88A005B15BD /* LaunchDetail */,
+				B5FD835D274C4A1C005B15BD /* CompanyInfo */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -250,8 +254,6 @@
 				B5AB5A34272390800015CEA4 /* Colors.swift */,
 				B58F9F4A2728FA53007B8849 /* DateFormatters.swift */,
 				B5201ECE2741A64300C6194E /* EquipmentsType.swift */,
-				B57274142741D2C300CD534F /* rocket.json */,
-				B57274122741D29E00CD534F /* dragon.json */,
 				B58E2C9F27460947002D6D10 /* EquipmentElements.swift */,
 				B510153627467FFF008084F5 /* MeasurementUnit.swift */,
 				B5C1622A274742C300CC2B08 /* StageProperty.swift */,
@@ -295,6 +297,7 @@
 				B5FB3B2A2747E4F7008BD440 /* ActiveStateView.swift */,
 				B5FB3B2C2747E671008BD440 /* EquipmentHeaderRow.swift */,
 				B5FD8359274B347A005B15BD /* LaunchRocketAndTimeRow.swift */,
+				B5FD8362274C54E4005B15BD /* LogoRow.swift */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -340,6 +343,15 @@
 				B5FD8357274AF8AE005B15BD /* LaunchDetailPresenter.swift */,
 			);
 			path = LaunchDetail;
+			sourceTree = "<group>";
+		};
+		B5FD835D274C4A1C005B15BD /* CompanyInfo */ = {
+			isa = PBXGroup;
+			children = (
+				B5FD8360274C4A38005B15BD /* CompanyInfoViewController.swift */,
+				B5FD835E274C4A2E005B15BD /* CompanyInfoPresenter.swift */,
+			);
+			path = CompanyInfo;
 			sourceTree = "<group>";
 		};
 		B5FF045B272BA6E300C1D103 /* Extensions */ = {
@@ -456,7 +468,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B57274132741D29E00CD534F /* dragon.json in Resources */,
 				B56B5DF82721C0D7006A5524 /* LaunchScreen.storyboard in Resources */,
 				B56B5DF52721C0D7006A5524 /* Assets.xcassets in Resources */,
 			);
@@ -481,6 +492,7 @@
 				B5FD83532749ECE0005B15BD /* LaunchHeaderView.swift in Sources */,
 				B5C1CDDC27406C8800ED2691 /* EquipmentsPresenter.swift in Sources */,
 				B5FD8356274AF8A9005B15BD /* LaunchDetailViewController.swift in Sources */,
+				B5FD8361274C4A38005B15BD /* CompanyInfoViewController.swift in Sources */,
 				B510153727467FFF008084F5 /* MeasurementUnit.swift in Sources */,
 				B5C1622D2747516000CC2B08 /* StageGallery.swift in Sources */,
 				B5D3609A2722FFED00F033DA /* PickerViewController.swift in Sources */,
@@ -496,6 +508,7 @@
 				B5AB5A3227238E520015CEA4 /* PickerCollectionCell.swift in Sources */,
 				B5C1622927470FA100CC2B08 /* StageSelector.swift in Sources */,
 				B58F9F4B2728FA53007B8849 /* DateFormatters.swift in Sources */,
+				B5FD8363274C54E4005B15BD /* LogoRow.swift in Sources */,
 				B5D360A82723141500F033DA /* Factory.swift in Sources */,
 				B5C1CDCA273EE81B00ED2691 /* FutureLaunchCell.swift in Sources */,
 				B5FB3B2B2747E4F7008BD440 /* ActiveStateView.swift in Sources */,
@@ -508,6 +521,7 @@
 				B58E2CA027460947002D6D10 /* EquipmentElements.swift in Sources */,
 				B5C1CDC7273EAAF600ED2691 /* Date+Extension.swift in Sources */,
 				B5C1CD98273E0DB500ED2691 /* LaunchesPresenter.swift in Sources */,
+				B5FD835F274C4A2E005B15BD /* CompanyInfoPresenter.swift in Sources */,
 				B572741B27452FB200CD534F /* EquipmentDetailPresenter.swift in Sources */,
 				B5FF045D272BA74200C1D103 /* Collection+Extension.swift in Sources */,
 				B5FD835C274BD528005B15BD /* LaunchState.swift in Sources */,

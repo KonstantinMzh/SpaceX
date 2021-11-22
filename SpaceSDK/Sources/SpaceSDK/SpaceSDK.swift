@@ -17,6 +17,7 @@ public protocol SpaceServiceProtocol {
     
     func fetchDragons(completion: @escaping (Result<[Dragon], SpaceError>) -> Void)
 
+    func fetchCompanyInfo(completion: @escaping (Result<Company, SpaceError>) -> Void)
 }
 
 
@@ -44,7 +45,6 @@ public class SpaceService: SpaceServiceProtocol {
     }
     
     public func fetchRocketById(_ id: String, completion: @escaping (Result<Rocket, SpaceError>) -> Void) {
-        
         if let rocket = rocketCache[id] {
             completion(.success(rocket))
         } else {
@@ -52,11 +52,23 @@ public class SpaceService: SpaceServiceProtocol {
                 self?.pushRocketWithIdIntoCache(id, rocketResults: res, completion)
             }
         }
-
-            
     }
-        
     
+    
+    public func fetchDragons(completion: @escaping (Result<[Dragon], SpaceError>) -> Void) {
+        networkManager.fetch(endpoint: .dragons) { result in
+            completion(result)
+        }
+    }
+    
+    public func fetchCompanyInfo(completion: @escaping (Result<Company, SpaceError>) -> Void) {
+        networkManager.fetch(endpoint: .companyInfo) { result in
+            completion(result)
+        }
+    }
+    
+    
+
     private func pushRocketWithIdIntoCache(_ id: String,
                                            rocketResults: Result<Rocket, SpaceError>,
                                            _ completion: @escaping (Result<Rocket, SpaceError>) -> Void) {
@@ -69,8 +81,8 @@ public class SpaceService: SpaceServiceProtocol {
         completion(rocketResults)
         
     }
-    
-    
+
+
     private func pushRocketsIntoCache(rocketResults: Result<[Rocket], SpaceError>,
                                       _ completion: @escaping (Result<[Rocket], SpaceError>) -> Void) {
         switch rocketResults {
@@ -84,14 +96,7 @@ public class SpaceService: SpaceServiceProtocol {
         completion(rocketResults)
 
     }
-        
     
-    
-    public func fetchDragons(completion: @escaping (Result<[Dragon], SpaceError>) -> Void) {
-        networkManager.fetch(endpoint: .dragons) { result in
-            completion(result)
-        }
-    }
 
 
     public init() {
