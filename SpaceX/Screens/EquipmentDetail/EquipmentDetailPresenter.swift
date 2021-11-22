@@ -57,6 +57,7 @@ class EquipmentDetailPresenter: EquipmentDetailPresenterProtocol {
         }
     }
     
+
     func fetch() {
         switch equipmentType {
         case .rocket:
@@ -94,7 +95,7 @@ class EquipmentDetailPresenter: EquipmentDetailPresenterProtocol {
         return equipmentType
     }
 
-    init(equipmentType: EquipmentsType ,
+    init(equipmentType: EquipmentsType,
          viewController: EquipmentDetailViewController,
          rocketService: SpaceServiceProtocol) {
         self.equipmentType = equipmentType

@@ -43,6 +43,8 @@ class EquipmentsPresenter: EquipmentsPresenterProtocol {
     func showEquipmentViewController(_ row: Int) {
         guard let equipmentType = equipments[safe: row] else { return }
         let rocketsViewController = factory.createEquipmentDetailScreen(equipmentType: equipmentType)
+        rocketsViewController.navigationItem.largeTitleDisplayMode = .never
+
         viewController?.navigationController?.pushViewController(rocketsViewController, animated: true)
     }
     

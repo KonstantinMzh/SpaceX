@@ -44,6 +44,8 @@ class EquipmentDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
+        configureNavigationBar(title: "", preferredLargeTitle: false)
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -149,6 +151,19 @@ class EquipmentDetailViewController: UIViewController {
         for view in stackView.arrangedSubviews {
             view.removeFromSuperview()
         }
+    }
+    
+    init() {
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    init(rocket: Rocket) {
+        super.init(nibName: nil, bundle: nil)
+        updateUIForRocket(rocket)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError()
     }
     
 }

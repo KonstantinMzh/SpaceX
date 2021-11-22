@@ -48,6 +48,10 @@
 		B5FB3B2B2747E4F7008BD440 /* ActiveStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FB3B2A2747E4F7008BD440 /* ActiveStateView.swift */; };
 		B5FB3B2D2747E671008BD440 /* EquipmentHeaderRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FB3B2C2747E671008BD440 /* EquipmentHeaderRow.swift */; };
 		B5FD83532749ECE0005B15BD /* LaunchHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FD83522749ECE0005B15BD /* LaunchHeaderView.swift */; };
+		B5FD8356274AF8A9005B15BD /* LaunchDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FD8355274AF8A9005B15BD /* LaunchDetailViewController.swift */; };
+		B5FD8358274AF8AE005B15BD /* LaunchDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FD8357274AF8AE005B15BD /* LaunchDetailPresenter.swift */; };
+		B5FD835A274B347A005B15BD /* LaunchRocketAndTimeRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FD8359274B347A005B15BD /* LaunchRocketAndTimeRow.swift */; };
+		B5FD835C274BD528005B15BD /* LaunchState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FD835B274BD528005B15BD /* LaunchState.swift */; };
 		B5FF045D272BA74200C1D103 /* Collection+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FF045C272BA74200C1D103 /* Collection+Extension.swift */; };
 		B5FF045F272BA77800C1D103 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FF045E272BA77800C1D103 /* UIViewController+Extension.swift */; };
 /* End PBXBuildFile section */
@@ -120,6 +124,10 @@
 		B5FB3B2A2747E4F7008BD440 /* ActiveStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveStateView.swift; sourceTree = "<group>"; };
 		B5FB3B2C2747E671008BD440 /* EquipmentHeaderRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentHeaderRow.swift; sourceTree = "<group>"; };
 		B5FD83522749ECE0005B15BD /* LaunchHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchHeaderView.swift; sourceTree = "<group>"; };
+		B5FD8355274AF8A9005B15BD /* LaunchDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchDetailViewController.swift; sourceTree = "<group>"; };
+		B5FD8357274AF8AE005B15BD /* LaunchDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchDetailPresenter.swift; sourceTree = "<group>"; };
+		B5FD8359274B347A005B15BD /* LaunchRocketAndTimeRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchRocketAndTimeRow.swift; sourceTree = "<group>"; };
+		B5FD835B274BD528005B15BD /* LaunchState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchState.swift; sourceTree = "<group>"; };
 		B5FF045C272BA74200C1D103 /* Collection+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extension.swift"; sourceTree = "<group>"; };
 		B5FF045E272BA77800C1D103 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -222,6 +230,7 @@
 				B5C1CDD627406C2700ED2691 /* Equipments */,
 				B572741727452F7600CD534F /* EquipmentDetail */,
 				B5C1CD94273E0DA000ED2691 /* Launches */,
+				B5FD8354274AF88A005B15BD /* LaunchDetail */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -246,6 +255,7 @@
 				B58E2C9F27460947002D6D10 /* EquipmentElements.swift */,
 				B510153627467FFF008084F5 /* MeasurementUnit.swift */,
 				B5C1622A274742C300CC2B08 /* StageProperty.swift */,
+				B5FD835B274BD528005B15BD /* LaunchState.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -284,6 +294,7 @@
 				B5FB3B262747E29E008BD440 /* DescriptionRow.swift */,
 				B5FB3B2A2747E4F7008BD440 /* ActiveStateView.swift */,
 				B5FB3B2C2747E671008BD440 /* EquipmentHeaderRow.swift */,
+				B5FD8359274B347A005B15BD /* LaunchRocketAndTimeRow.swift */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -320,6 +331,15 @@
 				B5AB5A3127238E520015CEA4 /* PickerCollectionCell.swift */,
 			);
 			path = PickerContainer;
+			sourceTree = "<group>";
+		};
+		B5FD8354274AF88A005B15BD /* LaunchDetail */ = {
+			isa = PBXGroup;
+			children = (
+				B5FD8355274AF8A9005B15BD /* LaunchDetailViewController.swift */,
+				B5FD8357274AF8AE005B15BD /* LaunchDetailPresenter.swift */,
+			);
+			path = LaunchDetail;
 			sourceTree = "<group>";
 		};
 		B5FF045B272BA6E300C1D103 /* Extensions */ = {
@@ -460,6 +480,7 @@
 				B58E2CA427460A4A002D6D10 /* StageView.swift in Sources */,
 				B5FD83532749ECE0005B15BD /* LaunchHeaderView.swift in Sources */,
 				B5C1CDDC27406C8800ED2691 /* EquipmentsPresenter.swift in Sources */,
+				B5FD8356274AF8A9005B15BD /* LaunchDetailViewController.swift in Sources */,
 				B510153727467FFF008084F5 /* MeasurementUnit.swift in Sources */,
 				B5C1622D2747516000CC2B08 /* StageGallery.swift in Sources */,
 				B5D3609A2722FFED00F033DA /* PickerViewController.swift in Sources */,
@@ -479,6 +500,7 @@
 				B5C1CDCA273EE81B00ED2691 /* FutureLaunchCell.swift in Sources */,
 				B5FB3B2B2747E4F7008BD440 /* ActiveStateView.swift in Sources */,
 				B5C162262746CFE100CC2B08 /* StageRowWithTwoValues.swift in Sources */,
+				B5FD835A274B347A005B15BD /* LaunchRocketAndTimeRow.swift in Sources */,
 				B56B5DEC2721C0CB006A5524 /* AppDelegate.swift in Sources */,
 				B5C1CDDE2740835E00ED2691 /* EquipmentCell.swift in Sources */,
 				B510153327467F09008084F5 /* ValueView.swift in Sources */,
@@ -488,9 +510,11 @@
 				B5C1CD98273E0DB500ED2691 /* LaunchesPresenter.swift in Sources */,
 				B572741B27452FB200CD534F /* EquipmentDetailPresenter.swift in Sources */,
 				B5FF045D272BA74200C1D103 /* Collection+Extension.swift in Sources */,
+				B5FD835C274BD528005B15BD /* LaunchState.swift in Sources */,
 				B572741927452F9000CD534F /* EquipmentDetailViewController.swift in Sources */,
 				B5C1CDDA27406C7D00ED2691 /* EquipmentsViewController.swift in Sources */,
 				B58E2CA62746700F002D6D10 /* StageRowWithOneValue.swift in Sources */,
+				B5FD8358274AF8AE005B15BD /* LaunchDetailPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

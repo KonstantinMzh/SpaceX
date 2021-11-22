@@ -43,6 +43,9 @@ class LaunchesViewController: UIViewController {
     }
     
     func configure() {
+        title = "Launches"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
         tableView.dataSource = self
         tableView.delegate = self
         view.backgroundColor = Colors.background
@@ -79,7 +82,6 @@ class LaunchesViewController: UIViewController {
                 cell.updateTimer()
             }
         }
-        
     }
     
 }
@@ -140,6 +142,12 @@ extension LaunchesViewController: UITableViewDataSource {
 }
 
 extension LaunchesViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let id = presenter?.getLaunchIdByIndexPath(indexPath),
+              let title = presenter?.getLaunchNameByIndexPath(indexPath) else { return }
+        presenter?.showLaunchDetailScreen(id, title: title)
+    }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = LaunchHeaderView()

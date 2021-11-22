@@ -14,12 +14,15 @@ protocol LaunchesPresenterProtocol {
     func getNumberOfElementsForSection(_ section: Int) -> Int
     func getLaunchAtIndexPath(_ indexPath: IndexPath) -> Launch?
     func getTitleForRocketWithId(_ id: String, completion: @escaping (Result<String, SpaceError>) -> Void)
+    func getLaunchIdByIndexPath(_ indexPath: IndexPath) -> String?
+    func getLaunchNameByIndexPath(_ indexPath: IndexPath) -> String?
+    func showLaunchDetailScreen(_ id: String, title: String)
 }
 
 
 class LaunchesPresenter: LaunchesPresenterProtocol {
 
-    
+    let factory: ScreenFactory
     
     let spaceService: SpaceServiceProtocol
     weak var viewController: LaunchesViewController?
@@ -80,12 +83,44 @@ class LaunchesPresenter: LaunchesPresenterProtocol {
         }
     }
     
+    func getLaunchIdByIndexPath(_ indexPath: IndexPath) -> String? {
+        switch indexPath.section {
+        case 0:
+            return futureLaunches[indexPath.row].id
+        case 1:
+            return oldLaunches[indexPath.row].id
+        default:
+            return nil
+        }
+    }
+    
+    func getLaunchNameByIndexPath(_ indexPath: IndexPath) -> String? {
+        switch indexPath.section {
+        case 0:
+            return futureLaunches[indexPath.row].name
+        case 1:
+            return oldLaunches[indexPath.row].name
+        default:
+            return nil
+        }
+    }
+    
+    
+    
+    //MARK: - Navigation
+    func showLaunchDetailScreen(_ id: String, title: String) {
+        let launchDetailViewController = factory.createLaunchDetailScreenForId(id, title: title)
+        self.viewController?.navigationController?.pushViewController(launchDetailViewController, animated: true)
+    }
+    
     
     //MARK: - Init
     init(viewController: LaunchesViewController,
-         rocketService: SpaceServiceProtocol) {
+         rocketService: SpaceServiceProtocol,
+         factory: ScreenFactory) {
         self.viewController = viewController
         self.spaceService = rocketService
+        self.factory = factory
     }
     
 }
