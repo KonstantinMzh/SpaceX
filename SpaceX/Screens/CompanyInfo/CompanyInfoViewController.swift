@@ -34,6 +34,14 @@ class CompanyInfoViewController: UIViewController {
         return stackView
     }()
     
+    let innerStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.spacing = 10
+        stackView.axis = .vertical
+        return stackView
+    }()
+    
     //MARK: - Rows
     let logoRow = LogoRow()
     
@@ -51,7 +59,7 @@ class CompanyInfoViewController: UIViewController {
     
     func configure() {
         view.backgroundColor = Colors.background
-        
+                
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
         contentView.addSubview(stackView)
@@ -78,6 +86,7 @@ class CompanyInfoViewController: UIViewController {
             stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
         ])
+
         
         let centerYAnchor = contentView.centerYAnchor.constraint(equalTo: scrollView.centerYAnchor)
         centerYAnchor.priority = .init(rawValue: 100)
@@ -85,11 +94,27 @@ class CompanyInfoViewController: UIViewController {
         
         stackView.addArrangedSubview(logoRow)
         stackView.addArrangedSubview(descriptionRow)
+        stackView.addArrangedSubview(innerStackView)
         stackView.addArrangedSubview(UIView())
+
     }
     
-    func updateUI(company: Company) {
-        descriptionRow.setText(company.summary)
+    func updateUI(summary: String, fields: [(key: String, value: String)]) {
+        
+        for view in innerStackView.arrangedSubviews {
+            view.removeFromSuperview()
+        }
+        
+        descriptionRow.setText(summary)
+        
+        for field in fields {
+            let keyValueRow = KeyValueCell()
+            keyValueRow.setKeyAndValue(key: field.key, value: field.value)
+            innerStackView.addArrangedSubview(keyValueRow)
+        }
+        
     }
+    
+    
     
 }

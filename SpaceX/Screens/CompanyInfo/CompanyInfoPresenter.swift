@@ -27,7 +27,12 @@ class CompanyInfoPresenter: CompanyInfoPresenterProtocol {
             case .failure(let error):
                 self?.viewController?.showSimpleAlert(withTitle: "Error", message: error.localizedDescription)
             case .success(let company):
-                self?.viewController?.updateUI(company: company)
+                let fields: [(key: String, value: String)] = [("Founder", company.founder),
+                                                              ("CEO", company.ceo),
+                                                              ("CTO", company.cto),
+                                                              ("COO", company.coo),
+                                                              ("Number of employees", "\(company.employees)")]
+                self?.viewController?.updateUI(summary: company.summary, fields: fields)
             }
         }
     }
