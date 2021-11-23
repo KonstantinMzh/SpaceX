@@ -14,6 +14,7 @@ enum RequestBuilder {
     case dragons
     case launches
     case launch(String)
+    case companyInfo
     
     func build() throws -> URLRequest {
         
@@ -39,6 +40,9 @@ enum RequestBuilder {
         case .launch(let id):
             urlComponent.path = "/\(apiVersion)/launches/\(id)"
 
+        case .companyInfo:
+            urlComponent.path = "/\(apiVersion)/company/"
+            
         }
         
         guard let url = urlComponent.url else { throw SpaceError.urlError }

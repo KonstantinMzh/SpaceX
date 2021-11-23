@@ -19,11 +19,11 @@ extension SpaceError: LocalizedError {
     public var errorDescription: String? {
         switch self {
         case .urlError:
-            return "Ошибка генерации URL"
+            return "URL generation error"
         case .missingData:
-            return "Ошибка при получении данных"
+            return "Data receiving error"
         case .decodeError:
-            return "Ошибка преобразования данных"
+            return "Data conversion error"
         }
     }
     

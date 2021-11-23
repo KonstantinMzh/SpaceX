@@ -16,15 +16,14 @@ final class ScreenFactory {
     
     func createTabBar() -> UITabBarController {
         let tabBarController = UITabBarController()
-        let rocketsViewController = createEquipmentScreen()
+        let equipmentViewController = createEquipmentScreen()
         
-        let dummyViewController2 = createLaunchesScreen()
+        let launchesViewController = createLaunchesScreen()
         
-        let dummyViewController3 = UIViewController()
-        dummyViewController3.view.backgroundColor = .systemYellow
+        let companyInfoViewController = createCompanyInfoScreen()
         
 
-        tabBarController.viewControllers = [rocketsViewController, dummyViewController2, dummyViewController3]
+        tabBarController.viewControllers = [equipmentViewController, launchesViewController, companyInfoViewController]
         
         let item1 = tabBarController.tabBar.items?[safe: 0]
         item1?.image = UIImage(named: "rocket")
@@ -51,6 +50,13 @@ final class ScreenFactory {
         viewController.presenter = presenter
         navigationController.pushViewController(viewController, animated: false)
         return navigationController
+    }
+    
+    func createCompanyInfoScreen() -> CompanyInfoViewController {
+        let viewController = CompanyInfoViewController()
+        let presenter: CompanyInfoPresenterProtocol = CompanyInfoPresenter(service: applicationFactory.spaceService, viewController: viewController)
+        viewController.presenter = presenter
+        return viewController
     }
 
     func createLaunchesScreen() -> UINavigationController {
@@ -91,12 +97,14 @@ final class ScreenFactory {
         return pickerViewController
     }
     
-    func showRocketScreen(rocket: Rocket) -> EquipmentDetailViewController {
+    func createScreenForAppearingRocket(rocket: Rocket) -> EquipmentDetailViewController {
         let viewControler = EquipmentDetailViewController(rocket: rocket)
         let presenter = EquipmentDetailPresenter(equipmentType: .rocket, viewController: viewControler, rocketService: applicationFactory.spaceService)
         viewControler.presenter = presenter
         return viewControler
     }
+    
+    
     
 }
 
