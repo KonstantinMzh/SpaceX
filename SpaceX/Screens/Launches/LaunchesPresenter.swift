@@ -35,7 +35,7 @@ class LaunchesPresenter: LaunchesPresenterProtocol {
     var futureLaunches: [Launch] = []
     var oldLaunches: [Launch] = []
 
-    let monitorCellular = NWPathMonitor()
+    var monitorCellular: NWPathMonitor?
     
     //MARK: - Fetching
     func fetchLaunches() {
@@ -113,9 +113,9 @@ class LaunchesPresenter: LaunchesPresenterProtocol {
     
     
     func startCheckingConnection() {
-        monitorCellular.start(queue: .global())
-
-        monitorCellular.pathUpdateHandler = { path in
+        monitorCellular = NWPathMonitor()
+        monitorCellular?.start(queue: .global())
+        monitorCellular?.pathUpdateHandler = { path in
             DispatchQueue.main.async {
                 self.viewController?.isConnected = path.status == .satisfied
             }
@@ -124,7 +124,8 @@ class LaunchesPresenter: LaunchesPresenterProtocol {
     }
     
     func stopCheckingConnection() {
-        monitorCellular.cancel()
+        monitorCellular?.cancel()
+        monitorCellular = nil
     }
 
 

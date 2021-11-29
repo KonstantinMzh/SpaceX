@@ -59,6 +59,8 @@ class LaunchesViewController: ViewController {
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor)
         ])
+        
+        configureViewController()
 
     }
     
