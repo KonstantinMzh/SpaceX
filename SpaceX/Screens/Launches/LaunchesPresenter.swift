@@ -7,6 +7,8 @@
 
 import Foundation
 import SpaceSDK
+import Network
+import UIKit
 
 
 protocol LaunchesPresenterProtocol {
@@ -17,6 +19,9 @@ protocol LaunchesPresenterProtocol {
     func getLaunchIdByIndexPath(_ indexPath: IndexPath) -> String?
     func getLaunchNameByIndexPath(_ indexPath: IndexPath) -> String?
     func showLaunchDetailScreen(_ id: String, title: String)
+    
+    func startCheckingConnection()
+    func stopCheckingConnection()
 }
 
 
@@ -29,7 +34,8 @@ class LaunchesPresenter: LaunchesPresenterProtocol {
     
     var futureLaunches: [Launch] = []
     var oldLaunches: [Launch] = []
-    
+
+    let monitorCellular = NWPathMonitor()
     
     //MARK: - Fetching
     func fetchLaunches() {
@@ -105,6 +111,25 @@ class LaunchesPresenter: LaunchesPresenterProtocol {
         }
     }
     
+    
+    func startCheckingConnection() {
+        monitorCellular.start(queue: .global())
+
+        monitorCellular.pathUpdateHandler = { path in
+            DispatchQueue.main.async {
+                self.viewController?.isConnected = path.status == .satisfied
+            }
+            
+        }
+    }
+    
+    func stopCheckingConnection() {
+        monitorCellular.cancel()
+    }
+
+
+    
+
     
     
     //MARK: - Navigation

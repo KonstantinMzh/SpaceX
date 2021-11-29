@@ -8,7 +8,7 @@
 import UIKit
 
 
-class LaunchesViewController: UIViewController {
+class LaunchesViewController: ViewController {
     
     var presenter: LaunchesPresenterProtocol?
 
@@ -35,11 +35,13 @@ class LaunchesViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         presenter?.fetchLaunches()
+        presenter?.startCheckingConnection()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         removeTimer()
+        presenter?.stopCheckingConnection()
     }
     
     func configure() {
@@ -57,6 +59,7 @@ class LaunchesViewController: UIViewController {
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor)
         ])
+
     }
     
     func updateUI() {

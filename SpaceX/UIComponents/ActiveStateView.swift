@@ -57,9 +57,9 @@ class ActiveStateView: UIView {
 
     
     private func stateChanged(_ newState: Bool) {
-        stateLabel.textColor = newState ? .systemGreen : .systemRed
+        stateLabel.textColor = newState ? Colors.green : Colors.red
         stateLabel.text = newState ? positiveTitle : negativeTitle
-        layer.borderColor = newState ? UIColor.systemGreen.cgColor : UIColor.systemRed.cgColor
+        layer.borderColor = newState ? Colors.green.cgColor : Colors.red.cgColor
     }
     
     func changeTitles(negativeTitle: String, positiveTitle: String) {
