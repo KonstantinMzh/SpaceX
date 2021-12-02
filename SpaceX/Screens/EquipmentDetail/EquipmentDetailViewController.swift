@@ -45,7 +45,6 @@ class EquipmentDetailViewController: UIViewController {
         super.viewDidLoad()
         configure()
         configureNavigationBar(title: "", preferredLargeTitle: false)
-
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -85,4 +85,12 @@ enum Colors {
         }
     }()
     
+    static let red: UIColor = {
+        return UIColor.systemRed
+    }()
+    
+    static let green: UIColor = {
+        return UIColor.systemGreen
+    }()
+    
 }

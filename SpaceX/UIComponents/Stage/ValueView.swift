@@ -75,7 +75,7 @@ class ValueView: UIView {
     }
     
     func setValue(_ value: Bool) {
-        valueLabel.textColor = value ? .systemGreen : .systemRed
+        valueLabel.textColor = value ? Colors.green : Colors.red
         valueLabel.text = value ? "Yes" : "No"
     }
     

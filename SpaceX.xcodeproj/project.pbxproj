@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B50952FB2753B6A300DF5491 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50952FA2753B6A300DF5491 /* ViewController.swift */; };
+		B50952FD2753B72A00DF5491 /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50952FC2753B72A00DF5491 /* BannerView.swift */; };
 		B510153327467F09008084F5 /* ValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B510153227467F09008084F5 /* ValueView.swift */; };
 		B510153727467FFF008084F5 /* MeasurementUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B510153627467FFF008084F5 /* MeasurementUnit.swift */; };
 		B516EB03272A1283007E1F65 /* SpaceSDK in Frameworks */ = {isa = PBXBuildFile; productRef = B516EB02272A1283007E1F65 /* SpaceSDK */; };
@@ -85,6 +87,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B50952FA2753B6A300DF5491 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B50952FC2753B72A00DF5491 /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
 		B510153227467F09008084F5 /* ValueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueView.swift; sourceTree = "<group>"; };
 		B510153627467FFF008084F5 /* MeasurementUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementUnit.swift; sourceTree = "<group>"; };
 		B516EB00272A1180007E1F65 /* SpaceSDK */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SpaceSDK; sourceTree = "<group>"; };
@@ -303,6 +307,8 @@
 				B5FD8359274B347A005B15BD /* LaunchRocketAndTimeRow.swift */,
 				B5FD8362274C54E4005B15BD /* LogoRow.swift */,
 				B5FD8364274C6239005B15BD /* KeyValueCell.swift */,
+				B50952FA2753B6A300DF5491 /* ViewController.swift */,
+				B50952FC2753B72A00DF5491 /* BannerView.swift */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -523,11 +529,13 @@
 				B56B5DEC2721C0CB006A5524 /* AppDelegate.swift in Sources */,
 				B5C1CDDE2740835E00ED2691 /* EquipmentCell.swift in Sources */,
 				B510153327467F09008084F5 /* ValueView.swift in Sources */,
+				B50952FB2753B6A300DF5491 /* ViewController.swift in Sources */,
 				B5FD8365274C6239005B15BD /* KeyValueCell.swift in Sources */,
 				B56B5DEE2721C0CC006A5524 /* SceneDelegate.swift in Sources */,
 				B58E2CA027460947002D6D10 /* EquipmentElements.swift in Sources */,
 				B5C1CDC7273EAAF600ED2691 /* Date+Extension.swift in Sources */,
 				B5C1CD98273E0DB500ED2691 /* LaunchesPresenter.swift in Sources */,
+				B50952FD2753B72A00DF5491 /* BannerView.swift in Sources */,
 				B5FD8367274C7673005B15BD /* TopAlignedLabel.swift in Sources */,
 				B5FD835F274C4A2E005B15BD /* CompanyInfoPresenter.swift in Sources */,
 				B572741B27452FB200CD534F /* EquipmentDetailPresenter.swift in Sources */,

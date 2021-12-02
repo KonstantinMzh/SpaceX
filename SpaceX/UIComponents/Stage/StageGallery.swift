@@ -119,6 +119,8 @@ class StageGallery: UIView {
             stagesViews.append(stageView)
         }
         
+        stackView.addArrangedSubview(UIView())
+        
         setForOffset()
     }
     

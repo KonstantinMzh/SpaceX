@@ -54,7 +54,9 @@ final class ScreenFactory {
     
     func createCompanyInfoScreen() -> CompanyInfoViewController {
         let viewController = CompanyInfoViewController()
-        let presenter: CompanyInfoPresenterProtocol = CompanyInfoPresenter(service: applicationFactory.spaceService, viewController: viewController)
+        let presenter: CompanyInfoPresenterProtocol = CompanyInfoPresenter(service:
+                                                                            applicationFactory.spaceService,
+                                                                           viewController: viewController)
         viewController.presenter = presenter
         return viewController
     }
@@ -92,14 +94,14 @@ final class ScreenFactory {
         pickerViewController.addContentController(equipmentViewController)
         equipmentViewController.picker = pickerViewController
         pickerViewController.delegate = presenter
-        
-        
         return pickerViewController
     }
     
     func createScreenForAppearingRocket(rocket: Rocket) -> EquipmentDetailViewController {
         let viewControler = EquipmentDetailViewController(rocket: rocket)
-        let presenter = EquipmentDetailPresenter(equipmentType: .rocket, viewController: viewControler, rocketService: applicationFactory.spaceService)
+        let presenter = EquipmentDetailPresenter(equipmentType: .rocket,
+                                                 viewController: viewControler,
+                                                 rocketService: applicationFactory.spaceService)
         viewControler.presenter = presenter
         return viewControler
     }
