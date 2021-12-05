@@ -55,7 +55,7 @@ final class ScreenFactory {
     func createCompanyInfoScreen() -> CompanyInfoViewController {
         let viewController = CompanyInfoViewController()
         let presenter: CompanyInfoPresenterProtocol = CompanyInfoPresenter(service:
-                                                                            applicationFactory.spaceService,
+                                                                            applicationFactory.rocketService,
                                                                            viewController: viewController)
         viewController.presenter = presenter
         return viewController
@@ -114,9 +114,14 @@ final class ScreenFactory {
 fileprivate final class ApplicationFactory {
     
     fileprivate let spaceService: SpaceServiceProtocol
+    fileprivate let rocketService: RocketServiceProtocol
+    private let coreDataService: CoreDataServiceProtocol
+    private let coreDataStack = CoreDataStack(storageName: "SpaceStorage")
     
     fileprivate init() {
         spaceService = SpaceService()
+        coreDataService = CoreDataService(coreDataStack: coreDataStack)
+        rocketService = RocketService(spaceService: spaceService, coreDataService: coreDataService)
     }
     
 }

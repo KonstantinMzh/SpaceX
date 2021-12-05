@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19206" systemVersion="21A559" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="MOCompany" representedClassName="MOCompany" syncable="YES">
+        <attribute name="ceo" optional="YES" attributeType="String"/>
+        <attribute name="coo" optional="YES" attributeType="String"/>
+        <attribute name="cto" optional="YES" attributeType="String"/>
+        <attribute name="ctoPropulsion" optional="YES" attributeType="String"/>
+        <attribute name="employees" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="founded" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="founder" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="summary" optional="YES" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="MOCompany" positionX="-63" positionY="-18" width="128" height="164"/>
+    </elements>
+</model>

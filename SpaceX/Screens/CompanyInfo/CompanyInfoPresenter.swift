@@ -16,7 +16,7 @@ protocol CompanyInfoPresenterProtocol {
 
 class CompanyInfoPresenter: CompanyInfoPresenterProtocol {
     
-    let service: SpaceServiceProtocol
+    let service: RocketServiceProtocol
     weak var viewController: CompanyInfoViewController?
     
     
@@ -38,7 +38,7 @@ class CompanyInfoPresenter: CompanyInfoPresenterProtocol {
     }
     
     //MARK: - Init
-    init(service: SpaceServiceProtocol, viewController: CompanyInfoViewController) {
+    init(service: RocketServiceProtocol, viewController: CompanyInfoViewController) {
         self.service = service
         self.viewController = viewController
     }

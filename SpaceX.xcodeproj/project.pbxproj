@@ -16,6 +16,9 @@
 		B516EB32272A302A007E1F65 /* XCSpaceXSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B516EB2C272A302A007E1F65 /* XCSpaceXSDK.framework */; };
 		B516EB33272A302A007E1F65 /* XCSpaceXSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B516EB2C272A302A007E1F65 /* XCSpaceXSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B5201ECF2741A64300C6194E /* EquipmentsType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5201ECE2741A64300C6194E /* EquipmentsType.swift */; };
+		B543C7B1275BC47600A376A9 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B543C7B0275BC47600A376A9 /* CoreDataService.swift */; };
+		B543C7B4275C149900A376A9 /* MOCompany+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B543C7B2275C149900A376A9 /* MOCompany+CoreDataClass.swift */; };
+		B543C7B5275C149900A376A9 /* MOCompany+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B543C7B3275C149900A376A9 /* MOCompany+CoreDataProperties.swift */; };
 		B56B5DEC2721C0CB006A5524 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56B5DEB2721C0CB006A5524 /* AppDelegate.swift */; };
 		B56B5DEE2721C0CC006A5524 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56B5DED2721C0CC006A5524 /* SceneDelegate.swift */; };
 		B56B5DF52721C0D7006A5524 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B56B5DF42721C0D7006A5524 /* Assets.xcassets */; };
@@ -26,6 +29,9 @@
 		B58E2CA427460A4A002D6D10 /* StageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58E2CA327460A4A002D6D10 /* StageView.swift */; };
 		B58E2CA62746700F002D6D10 /* StageRowWithOneValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58E2CA52746700F002D6D10 /* StageRowWithOneValue.swift */; };
 		B58F9F4B2728FA53007B8849 /* DateFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58F9F4A2728FA53007B8849 /* DateFormatters.swift */; };
+		B590E13427590C1D0034BA78 /* RocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B590E13327590C1D0034BA78 /* RocketService.swift */; };
+		B590E138275919760034BA78 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B590E137275919760034BA78 /* CoreDataStack.swift */; };
+		B590E13B275919AC0034BA78 /* SpaceStorage.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B590E139275919AC0034BA78 /* SpaceStorage.xcdatamodeld */; };
 		B5AB5A3227238E520015CEA4 /* PickerCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AB5A3127238E520015CEA4 /* PickerCollectionCell.swift */; };
 		B5AB5A35272390800015CEA4 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AB5A34272390800015CEA4 /* Colors.swift */; };
 		B5BF66D9273CB8290024E2F4 /* Gallery in Frameworks */ = {isa = PBXBuildFile; productRef = B5BF66D8273CB8290024E2F4 /* Gallery */; };
@@ -95,6 +101,9 @@
 		B516EB2C272A302A007E1F65 /* XCSpaceXSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XCSpaceXSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B516EB2E272A302A007E1F65 /* XCSpaceXSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XCSpaceXSDK.h; sourceTree = "<group>"; };
 		B5201ECE2741A64300C6194E /* EquipmentsType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentsType.swift; sourceTree = "<group>"; };
+		B543C7B0275BC47600A376A9 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
+		B543C7B2275C149900A376A9 /* MOCompany+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MOCompany+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B543C7B3275C149900A376A9 /* MOCompany+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MOCompany+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B56B5DE82721C0CB006A5524 /* SpaceX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B56B5DEB2721C0CB006A5524 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B56B5DED2721C0CC006A5524 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -107,6 +116,9 @@
 		B58E2CA327460A4A002D6D10 /* StageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageView.swift; sourceTree = "<group>"; };
 		B58E2CA52746700F002D6D10 /* StageRowWithOneValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageRowWithOneValue.swift; sourceTree = "<group>"; };
 		B58F9F4A2728FA53007B8849 /* DateFormatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatters.swift; sourceTree = "<group>"; };
+		B590E13327590C1D0034BA78 /* RocketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketService.swift; sourceTree = "<group>"; };
+		B590E137275919760034BA78 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		B590E13A275919AC0034BA78 /* SpaceStorage.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SpaceStorage.xcdatamodel; sourceTree = "<group>"; };
 		B5AB5A3127238E520015CEA4 /* PickerCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerCollectionCell.swift; sourceTree = "<group>"; };
 		B5AB5A34272390800015CEA4 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		B5BF66D7273CAAD90024E2F4 /* Gallery */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Gallery; sourceTree = "<group>"; };
@@ -203,8 +215,10 @@
 		B56B5DEA2721C0CB006A5524 /* SpaceX */ = {
 			isa = PBXGroup;
 			children = (
+				B590E135275916E50034BA78 /* New Group */,
 				B56B5E23272205C7006A5524 /* Application */,
 				B5FF045B272BA6E300C1D103 /* Extensions */,
+				B590E13227590BF50034BA78 /* Services */,
 				B5C1CDD12740433100ED2691 /* Protocols */,
 				B56B5E25272205DA006A5524 /* Screens */,
 				B5C1CDC8273EE80D00ED2691 /* UIComponents */,
@@ -254,6 +268,34 @@
 				B572741A27452FB200CD534F /* EquipmentDetailPresenter.swift */,
 			);
 			path = EquipmentDetail;
+			sourceTree = "<group>";
+		};
+		B590E13227590BF50034BA78 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B590E1362759196E0034BA78 /* CoreData */,
+				B590E13327590C1D0034BA78 /* RocketService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		B590E135275916E50034BA78 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		B590E1362759196E0034BA78 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				B543C7B2275C149900A376A9 /* MOCompany+CoreDataClass.swift */,
+				B543C7B3275C149900A376A9 /* MOCompany+CoreDataProperties.swift */,
+				B590E137275919760034BA78 /* CoreDataStack.swift */,
+				B543C7B0275BC47600A376A9 /* CoreDataService.swift */,
+				B590E139275919AC0034BA78 /* SpaceStorage.xcdatamodeld */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		B5AB5A33272390780015CEA4 /* Enums */ = {
@@ -504,11 +546,13 @@
 				B5FD83532749ECE0005B15BD /* LaunchHeaderView.swift in Sources */,
 				B5C1CDDC27406C8800ED2691 /* EquipmentsPresenter.swift in Sources */,
 				B5FD8356274AF8A9005B15BD /* LaunchDetailViewController.swift in Sources */,
+				B590E13427590C1D0034BA78 /* RocketService.swift in Sources */,
 				B5FD8361274C4A38005B15BD /* CompanyInfoViewController.swift in Sources */,
 				B510153727467FFF008084F5 /* MeasurementUnit.swift in Sources */,
 				B5C1622D2747516000CC2B08 /* StageGallery.swift in Sources */,
 				B5D3609A2722FFED00F033DA /* PickerViewController.swift in Sources */,
 				B5C1CD96273E0DAD00ED2691 /* LaunchesViewController.swift in Sources */,
+				B543C7B5275C149900A376A9 /* MOCompany+CoreDataProperties.swift in Sources */,
 				B5201ECF2741A64300C6194E /* EquipmentsType.swift in Sources */,
 				B5FB3B2D2747E671008BD440 /* EquipmentHeaderRow.swift in Sources */,
 				B5C1622B274742C300CC2B08 /* StageProperty.swift in Sources */,
@@ -534,15 +578,19 @@
 				B56B5DEE2721C0CC006A5524 /* SceneDelegate.swift in Sources */,
 				B58E2CA027460947002D6D10 /* EquipmentElements.swift in Sources */,
 				B5C1CDC7273EAAF600ED2691 /* Date+Extension.swift in Sources */,
+				B543C7B4275C149900A376A9 /* MOCompany+CoreDataClass.swift in Sources */,
 				B5C1CD98273E0DB500ED2691 /* LaunchesPresenter.swift in Sources */,
 				B50952FD2753B72A00DF5491 /* BannerView.swift in Sources */,
+				B543C7B1275BC47600A376A9 /* CoreDataService.swift in Sources */,
 				B5FD8367274C7673005B15BD /* TopAlignedLabel.swift in Sources */,
+				B590E138275919760034BA78 /* CoreDataStack.swift in Sources */,
 				B5FD835F274C4A2E005B15BD /* CompanyInfoPresenter.swift in Sources */,
 				B572741B27452FB200CD534F /* EquipmentDetailPresenter.swift in Sources */,
 				B5FF045D272BA74200C1D103 /* Collection+Extension.swift in Sources */,
 				B5FD835C274BD528005B15BD /* LaunchState.swift in Sources */,
 				B572741927452F9000CD534F /* EquipmentDetailViewController.swift in Sources */,
 				B5C1CDDA27406C7D00ED2691 /* EquipmentsViewController.swift in Sources */,
+				B590E13B275919AC0034BA78 /* SpaceStorage.xcdatamodeld in Sources */,
 				B58E2CA62746700F002D6D10 /* StageRowWithOneValue.swift in Sources */,
 				B5FD8358274AF8AE005B15BD /* LaunchDetailPresenter.swift in Sources */,
 			);
@@ -846,6 +894,19 @@
 			productName = Gallery;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		B590E139275919AC0034BA78 /* SpaceStorage.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B590E13A275919AC0034BA78 /* SpaceStorage.xcdatamodel */,
+			);
+			currentVersion = B590E13A275919AC0034BA78 /* SpaceStorage.xcdatamodel */;
+			path = SpaceStorage.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B56B5DE02721C0CB006A5524 /* Project object */;
 }
