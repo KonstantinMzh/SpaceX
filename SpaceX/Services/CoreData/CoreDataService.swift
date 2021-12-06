@@ -15,6 +15,8 @@ protocol CoreDataServiceProtocol {
     func saveRockets(_ rockets: [Rocket])
     func getCompanyInfo(completion: @escaping (Result<Company, Error>) -> Void)
     func saveCompanyInfo(_ company: Company)
+    func getDragons(completion: @escaping (Result<[Dragon], Error>) -> Void)
+    func saveDragons(_ dragons: [Dragon])
 }
 
 
@@ -25,6 +27,40 @@ class CoreDataService: CoreDataServiceProtocol {
     
     init(coreDataStack: CoreDataStackProtocol) {
         self.coreDataStack = coreDataStack
+    }
+    
+    
+    //MARK: - Dragons
+    func getDragons(completion: @escaping (Result<[Dragon], Error>) -> Void) {
+        let request = MODragon.fetchRequest()
+        coreDataStack.performRequest(request) { result in
+            switch result {
+            case .failure(let error):
+                print(error.localizedDescription)
+                completion(.failure(error))
+            case .success(let dragons):
+                guard dragons.count > 0 else {
+                    completion(.failure(SpaceError.missingData))
+                    return
+                }
+                let resultDragons = dragons.map { $0.getDragon() }
+                completion(.success(resultDragons))
+            }
+        }
+    }
+    
+    func saveDragons(_ dragons: [Dragon]) {
+        coreDataStack.save { context in
+            for dragon in dragons {
+                let dragonMO = MODragon(context: context)
+                dragonMO.id = dragon.id
+                dragonMO.name = dragon.name
+                dragonMO.dragonDescription = dragon.dragonDescription
+                dragonMO.firstFight = dragon.firstFlight
+                dragonMO.images = dragon.images
+                dragonMO.active = dragon.active
+            }
+        }
     }
     
     //MARK: - Rockets
@@ -82,9 +118,6 @@ class CoreDataService: CoreDataServiceProtocol {
             thrustMO.lbf = Int64(thrust.lbf)
             return thrustMO
         }
-        
-        
-        
     }
     
     func tryToGetThrustMO(_ thrust: Thrust?, context: NSManagedObjectContext) -> MOThrust? {

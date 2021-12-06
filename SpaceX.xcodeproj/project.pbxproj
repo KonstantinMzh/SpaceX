@@ -38,6 +38,8 @@
 		B5A258AE275DA39A00F48E64 /* MOStage+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A258AA275DA39A00F48E64 /* MOStage+CoreDataProperties.swift */; };
 		B5A258AF275DA39A00F48E64 /* MOThrust+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A258AB275DA39A00F48E64 /* MOThrust+CoreDataClass.swift */; };
 		B5A258B0275DA39A00F48E64 /* MOThrust+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A258AC275DA39A00F48E64 /* MOThrust+CoreDataProperties.swift */; };
+		B5A258B3275E751500F48E64 /* MODragon+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A258B1275E751500F48E64 /* MODragon+CoreDataClass.swift */; };
+		B5A258B4275E751500F48E64 /* MODragon+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A258B2275E751500F48E64 /* MODragon+CoreDataProperties.swift */; };
 		B5AB5A3227238E520015CEA4 /* PickerCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AB5A3127238E520015CEA4 /* PickerCollectionCell.swift */; };
 		B5AB5A35272390800015CEA4 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AB5A34272390800015CEA4 /* Colors.swift */; };
 		B5BF66D9273CB8290024E2F4 /* Gallery in Frameworks */ = {isa = PBXBuildFile; productRef = B5BF66D8273CB8290024E2F4 /* Gallery */; };
@@ -131,6 +133,8 @@
 		B5A258AA275DA39A00F48E64 /* MOStage+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MOStage+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B5A258AB275DA39A00F48E64 /* MOThrust+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MOThrust+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B5A258AC275DA39A00F48E64 /* MOThrust+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MOThrust+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B5A258B1275E751500F48E64 /* MODragon+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MODragon+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B5A258B2275E751500F48E64 /* MODragon+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MODragon+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B5AB5A3127238E520015CEA4 /* PickerCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerCollectionCell.swift; sourceTree = "<group>"; };
 		B5AB5A34272390800015CEA4 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		B5BF66D7273CAAD90024E2F4 /* Gallery */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Gallery; sourceTree = "<group>"; };
@@ -227,7 +231,6 @@
 		B56B5DEA2721C0CB006A5524 /* SpaceX */ = {
 			isa = PBXGroup;
 			children = (
-				B590E135275916E50034BA78 /* New Group */,
 				B56B5E23272205C7006A5524 /* Application */,
 				B5FF045B272BA6E300C1D103 /* Extensions */,
 				B590E13227590BF50034BA78 /* Services */,
@@ -291,16 +294,11 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
-		B590E135275916E50034BA78 /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "New Group";
-			sourceTree = "<group>";
-		};
 		B590E1362759196E0034BA78 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				B5A258B1275E751500F48E64 /* MODragon+CoreDataClass.swift */,
+				B5A258B2275E751500F48E64 /* MODragon+CoreDataProperties.swift */,
 				B5A258A5275D97BC00F48E64 /* MORocket+CoreDataClass.swift */,
 				B5A258A6275D97BC00F48E64 /* MORocket+CoreDataProperties.swift */,
 				B5A258A9275DA39A00F48E64 /* MOStage+CoreDataClass.swift */,
@@ -585,6 +583,7 @@
 				B5AB5A3227238E520015CEA4 /* PickerCollectionCell.swift in Sources */,
 				B5C1622927470FA100CC2B08 /* StageSelector.swift in Sources */,
 				B58F9F4B2728FA53007B8849 /* DateFormatters.swift in Sources */,
+				B5A258B4275E751500F48E64 /* MODragon+CoreDataProperties.swift in Sources */,
 				B5A258AD275DA39A00F48E64 /* MOStage+CoreDataClass.swift in Sources */,
 				B5FD8363274C54E4005B15BD /* LogoRow.swift in Sources */,
 				B5D360A82723141500F033DA /* Factory.swift in Sources */,
@@ -616,6 +615,7 @@
 				B5C1CDDA27406C7D00ED2691 /* EquipmentsViewController.swift in Sources */,
 				B590E13B275919AC0034BA78 /* SpaceStorage.xcdatamodeld in Sources */,
 				B58E2CA62746700F002D6D10 /* StageRowWithOneValue.swift in Sources */,
+				B5A258B3275E751500F48E64 /* MODragon+CoreDataClass.swift in Sources */,
 				B5FD8358274AF8AE005B15BD /* LaunchDetailPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

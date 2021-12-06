@@ -16,6 +16,7 @@ final class ScreenFactory {
     
     func createTabBar() -> UITabBarController {
         let tabBarController = UITabBarController()
+        tabBarController.view.backgroundColor = Colors.background
         let equipmentViewController = createEquipmentScreen()
         
         let launchesViewController = createLaunchesScreen()

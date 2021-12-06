@@ -8,6 +8,7 @@
 import Foundation
 import SpaceSDK
 import UIKit
+import Network
 
 
 protocol RocketServiceProtocol {
@@ -62,14 +63,23 @@ class RocketService: RocketServiceProtocol {
     }
     
     func fetchDragons(completion: @escaping (Result<[Dragon], SpaceError>) -> Void) {
-        spaceService.fetchDragons { result in
+        coreDataService.getDragons { [weak self] result in
             switch result {
-            case .failure(let error):
-                completion(.failure(error))
             case .success(let dragons):
                 completion(.success(dragons))
+            case .failure(_):
+                self?.spaceService.fetchDragons { result in
+                    switch result {
+                    case .failure(let error):
+                        completion(.failure(error))
+                    case .success(let dragons):
+                        self?.coreDataService.saveDragons(dragons)
+                        completion(.success(dragons))
+                    }
+                }
             }
         }
+
     }
     
     init(spaceService: SpaceServiceProtocol, coreDataService: CoreDataServiceProtocol) {

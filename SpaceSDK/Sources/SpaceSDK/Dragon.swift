@@ -27,4 +27,18 @@ public struct Dragon: Codable {
         case active
     }
     
+    public init(id: String,
+         name: String,
+         dragonDescription: String,
+         firstFlight: String,
+         images: [String],
+         active: Bool) {
+        self.id = id
+        self.name = name
+        self.dragonDescription = dragonDescription
+        self.firstFlight = firstFlight
+        self.images = images
+        self.active = active
+    }
+    
 }
