@@ -11,7 +11,34 @@
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="summary" optional="YES" attributeType="String"/>
     </entity>
+    <entity name="MORocket" representedClassName="MORocket" syncable="YES">
+        <attribute name="active" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="firstFlight" optional="YES" attributeType="String"/>
+        <attribute name="id" attributeType="String"/>
+        <attribute name="images" optional="YES" attributeType="Transformable"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="rocketDescription" optional="YES" attributeType="String"/>
+        <attribute name="stages" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="firstStage" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MOStage"/>
+        <relationship name="secondStage" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MOStage"/>
+    </entity>
+    <entity name="MOStage" representedClassName="MOStage" syncable="YES">
+        <attribute name="burnTimeSec" optional="YES" attributeType="Integer 64" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="engines" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="fuelAmountTons" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="reusable" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <relationship name="thrust" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MOThrust"/>
+        <relationship name="thrustSeaLevel" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MOThrust"/>
+        <relationship name="thrustVacuum" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MOThrust"/>
+    </entity>
+    <entity name="MOThrust" representedClassName="MOThrust" syncable="YES">
+        <attribute name="kN" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="lbf" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
     <elements>
         <element name="MOCompany" positionX="-63" positionY="-18" width="128" height="164"/>
+        <element name="MORocket" positionX="-63" positionY="54" width="128" height="164"/>
+        <element name="MOStage" positionX="-63" positionY="72" width="128" height="134"/>
+        <element name="MOThrust" positionX="-54" positionY="81" width="128" height="59"/>
     </elements>
 </model>

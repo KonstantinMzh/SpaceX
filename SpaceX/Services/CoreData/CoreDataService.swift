@@ -11,6 +11,8 @@ import CoreData
 
 
 protocol CoreDataServiceProtocol {
+    func getRockets(completion: @escaping (Result<[Rocket], Error>) -> Void)
+    func saveRockets(_ rockets: [Rocket])
     func getCompanyInfo(completion: @escaping (Result<Company, Error>) -> Void)
     func saveCompanyInfo(_ company: Company)
 }
@@ -25,13 +27,82 @@ class CoreDataService: CoreDataServiceProtocol {
         self.coreDataStack = coreDataStack
     }
     
+    //MARK: - Rockets
+    func getRockets(completion: @escaping (Result<[Rocket], Error>) -> Void) {
+        let request = MORocket.fetchRequest()
+        coreDataStack.performRequest(request) { result in
+            switch result {
+            case .failure(let error):
+                print(error.localizedDescription)
+                completion(.failure(error))
+            case .success(let rockets):
+                guard rockets.count > 0 else {
+                    completion(.failure(SpaceError.missingData))
+                    return
+                }
+                let resultRocket = rockets.map { $0.getRocket() }
+                completion(.success(resultRocket))
+            }
+        }
+    }
     
+    func saveRockets(_ rockets: [Rocket]) {
+        coreDataStack.save { context in
+            for rocket in rockets {
+                let newRocket = MORocket(context: context)
+                newRocket.active = rocket.active
+                newRocket.firstFlight = rocket.firstFlight
+                newRocket.id = rocket.id
+                newRocket.images = rocket.images
+                newRocket.name = rocket.name
+                newRocket.rocketDescription = rocket.rocketDescription
+                newRocket.stages = Int16(rocket.stages)
+                newRocket.firstStage = tryToGetStageMO(rocket.firstStage, context: context)
+                newRocket.secondStage = tryToGetStageMO(rocket.secondStage, context: context)
+            }
+        }
+        
+        func tryToGetStageMO(_ stage: Stage?, context: NSManagedObjectContext) -> MOStage? {
+            guard let stage = stage else { return nil }
+            let stageMO = MOStage(context: context)
+            stageMO.reusable = stage.reusable ?? false
+            stageMO.engines = Int32(stage.engines ?? 0)
+            stageMO.fuelAmountTons = stage.fuelAmountTons ?? 0
+            stageMO.burnTimeSec = Int64(stage.burnTimeSec ?? 0)
+            stageMO.thrust = tryToGetThrustMO(stage.thrust, context: context)
+            stageMO.thrustVacuum = tryToGetThrustMO(stage.thrustVacuum, context: context)
+            stageMO.thrustSeaLevel = tryToGetThrustMO(stage.thrustSeaLevel, context: context)
+            return stageMO
+        }
+        
+        func tryToGetThrustMO(_ thrust: Thrust?, context: NSManagedObjectContext) -> MOThrust? {
+            guard let thrust = thrust else { return nil }
+            let thrustMO = MOThrust(context: context)
+            thrustMO.kN = Int64(thrust.kN)
+            thrustMO.lbf = Int64(thrust.lbf)
+            return thrustMO
+        }
+        
+        
+        
+    }
+    
+    func tryToGetThrustMO(_ thrust: Thrust?, context: NSManagedObjectContext) -> MOThrust? {
+        guard let thrust = thrust else { return nil }
+        let thrustMO = MOThrust(context: context)
+        thrustMO.kN = Int64(thrust.kN)
+        thrustMO.lbf = Int64(thrust.lbf)
+        return thrustMO
+    }
+    
+    
+    //MARK: - Company Info
     func getCompanyInfo(completion: @escaping (Result<Company, Error>) -> Void) {
         let request = MOCompany.fetchRequest()
         coreDataStack.performRequest(request) { result in
             switch result {
             case .failure(let error):
-                print(error)
+                print(error.localizedDescription)
                 completion(.failure(error))
             case .success(let companyData):
                 guard let company = companyData.first else {

@@ -88,7 +88,7 @@ final class ScreenFactory {
 
         let presenter = EquipmentDetailPresenter(equipmentType: equipmentType,
                                                  viewController: equipmentViewController,
-                                                 rocketService: applicationFactory.spaceService)
+                                                 rocketService: applicationFactory.rocketService)
 
         equipmentViewController.presenter = presenter
         pickerViewController.addContentController(equipmentViewController)
@@ -101,7 +101,7 @@ final class ScreenFactory {
         let viewControler = EquipmentDetailViewController(rocket: rocket)
         let presenter = EquipmentDetailPresenter(equipmentType: .rocket,
                                                  viewController: viewControler,
-                                                 rocketService: applicationFactory.spaceService)
+                                                 rocketService: applicationFactory.rocketService)
         viewControler.presenter = presenter
         return viewControler
     }

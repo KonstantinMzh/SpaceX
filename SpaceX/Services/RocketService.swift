@@ -7,11 +7,13 @@
 
 import Foundation
 import SpaceSDK
+import UIKit
 
 
 protocol RocketServiceProtocol {
     func fetchRockets(completion: @escaping (Result<[Rocket], SpaceError>) -> Void)
     func fetchCompanyInfo(completion: @escaping (Result<Company, SpaceError>) -> Void)
+    func fetchDragons(completion: @escaping (Result<[Dragon], SpaceError>) -> Void)
 }
 
 class RocketService: RocketServiceProtocol {
@@ -20,14 +22,23 @@ class RocketService: RocketServiceProtocol {
     let coreDataService: CoreDataServiceProtocol
     
     func fetchRockets(completion: @escaping (Result<[Rocket], SpaceError>) -> Void) {
-        spaceService.fetchRockets { result in
+        coreDataService.getRockets { [weak self] result in
             switch result {
-            case .failure(let error):
-                completion(.failure(error))
             case .success(let rockets):
-                break
+                completion(.success(rockets))
+            case .failure(_):
+                self?.spaceService.fetchRockets { result in
+                    switch result {
+                    case .failure(let error):
+                        completion(.failure(error))
+                    case .success(let rockets):
+                        self?.coreDataService.saveRockets(rockets)
+                        completion(.success(rockets))
+                    }
+                }
             }
         }
+
     }
     
     
@@ -46,6 +57,17 @@ class RocketService: RocketServiceProtocol {
                         completion(.success(company))
                     }
                 }
+            }
+        }
+    }
+    
+    func fetchDragons(completion: @escaping (Result<[Dragon], SpaceError>) -> Void) {
+        spaceService.fetchDragons { result in
+            switch result {
+            case .failure(let error):
+                completion(.failure(error))
+            case .success(let dragons):
+                completion(.success(dragons))
             }
         }
     }
