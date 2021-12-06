@@ -31,4 +31,25 @@ public struct Company: Codable {
         case ctoPropulsion = "cto_propulsion"
         case summary
     }
+    
+    public init(name: String,
+                founder: String,
+                founded: Int,
+                employees: Int,
+                ceo: String,
+                cto: String,
+                coo: String,
+                ctoPropulsion: String,
+                summary: String) {
+        self.ceo = ceo
+        self.coo = coo
+        self.cto = cto
+        self.ctoPropulsion = ctoPropulsion
+        self.employees = employees
+        self.founded = founded
+        self.founder = founder
+        self.name = name
+        self.summary = summary
+    }
+    
 }

@@ -19,7 +19,7 @@ class EquipmentDetailPresenter: EquipmentDetailPresenterProtocol {
     
     let equipmentType: EquipmentsType
     weak var viewController: EquipmentDetailViewController?
-    let spaceService: SpaceServiceProtocol
+    let spaceService: RocketServiceProtocol
     
     private var rockets: [Rocket] = [] {
         didSet {
@@ -97,7 +97,7 @@ class EquipmentDetailPresenter: EquipmentDetailPresenterProtocol {
 
     init(equipmentType: EquipmentsType,
          viewController: EquipmentDetailViewController,
-         rocketService: SpaceServiceProtocol) {
+         rocketService: RocketServiceProtocol) {
         self.equipmentType = equipmentType
         self.viewController = viewController
         self.spaceService = rocketService

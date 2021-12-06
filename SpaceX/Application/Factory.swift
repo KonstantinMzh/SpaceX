@@ -16,6 +16,7 @@ final class ScreenFactory {
     
     func createTabBar() -> UITabBarController {
         let tabBarController = UITabBarController()
+        tabBarController.view.backgroundColor = Colors.background
         let equipmentViewController = createEquipmentScreen()
         
         let launchesViewController = createLaunchesScreen()
@@ -55,7 +56,7 @@ final class ScreenFactory {
     func createCompanyInfoScreen() -> CompanyInfoViewController {
         let viewController = CompanyInfoViewController()
         let presenter: CompanyInfoPresenterProtocol = CompanyInfoPresenter(service:
-                                                                            applicationFactory.spaceService,
+                                                                            applicationFactory.rocketService,
                                                                            viewController: viewController)
         viewController.presenter = presenter
         return viewController
@@ -88,7 +89,7 @@ final class ScreenFactory {
 
         let presenter = EquipmentDetailPresenter(equipmentType: equipmentType,
                                                  viewController: equipmentViewController,
-                                                 rocketService: applicationFactory.spaceService)
+                                                 rocketService: applicationFactory.rocketService)
 
         equipmentViewController.presenter = presenter
         pickerViewController.addContentController(equipmentViewController)
@@ -101,7 +102,7 @@ final class ScreenFactory {
         let viewControler = EquipmentDetailViewController(rocket: rocket)
         let presenter = EquipmentDetailPresenter(equipmentType: .rocket,
                                                  viewController: viewControler,
-                                                 rocketService: applicationFactory.spaceService)
+                                                 rocketService: applicationFactory.rocketService)
         viewControler.presenter = presenter
         return viewControler
     }
@@ -114,9 +115,14 @@ final class ScreenFactory {
 fileprivate final class ApplicationFactory {
     
     fileprivate let spaceService: SpaceServiceProtocol
+    fileprivate let rocketService: RocketServiceProtocol
+    private let coreDataService: CoreDataServiceProtocol
+    private let coreDataStack = CoreDataStack(storageName: "SpaceStorage")
     
     fileprivate init() {
         spaceService = SpaceService()
+        coreDataService = CoreDataService(coreDataStack: coreDataStack)
+        rocketService = RocketService(spaceService: spaceService, coreDataService: coreDataService)
     }
     
 }

@@ -106,7 +106,7 @@ class EquipmentDetailViewController: UIViewController {
         self.scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
         
         headerRow.nameLabel.text = rocket.name
-        headerRow.activeState.isActive = rocket.active
+        headerRow.activeState.isActive = rocket.active ?? false
         descriptionRow.setText(rocket.rocketDescription)
         gallery.images = rocket.images
         stageGallery.stages = rocket.getStages()

@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 class EquipmentsViewController: UIViewController {
     
     var presenter: EquipmentsPresenterProtocol?
@@ -29,12 +28,6 @@ class EquipmentsViewController: UIViewController {
 
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-
-
-    }
-    
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         

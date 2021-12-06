@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19206" systemVersion="21A559" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="MOCompany" representedClassName="MOCompany" syncable="YES">
+        <attribute name="ceo" optional="YES" attributeType="String"/>
+        <attribute name="coo" optional="YES" attributeType="String"/>
+        <attribute name="cto" optional="YES" attributeType="String"/>
+        <attribute name="ctoPropulsion" optional="YES" attributeType="String"/>
+        <attribute name="employees" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="founded" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="founder" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="summary" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="MODragon" representedClassName="MODragon" syncable="YES">
+        <attribute name="active" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="dragonDescription" attributeType="String"/>
+        <attribute name="firstFight" attributeType="String"/>
+        <attribute name="id" attributeType="String"/>
+        <attribute name="images" attributeType="Transformable"/>
+        <attribute name="name" attributeType="String"/>
+    </entity>
+    <entity name="MORocket" representedClassName="MORocket" syncable="YES">
+        <attribute name="active" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="firstFlight" optional="YES" attributeType="String"/>
+        <attribute name="id" attributeType="String"/>
+        <attribute name="images" optional="YES" attributeType="Transformable"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="rocketDescription" optional="YES" attributeType="String"/>
+        <attribute name="stages" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="firstStage" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MOStage"/>
+        <relationship name="secondStage" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MOStage"/>
+    </entity>
+    <entity name="MOStage" representedClassName="MOStage" syncable="YES">
+        <attribute name="burnTimeSec" optional="YES" attributeType="Integer 64" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="engines" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="fuelAmountTons" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="reusable" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <relationship name="thrust" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MOThrust"/>
+        <relationship name="thrustSeaLevel" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MOThrust"/>
+        <relationship name="thrustVacuum" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MOThrust"/>
+    </entity>
+    <entity name="MOThrust" representedClassName="MOThrust" syncable="YES">
+        <attribute name="kN" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="lbf" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <elements>
+        <element name="MOCompany" positionX="-63" positionY="-18" width="128" height="164"/>
+        <element name="MORocket" positionX="-63" positionY="54" width="128" height="164"/>
+        <element name="MOStage" positionX="-63" positionY="72" width="128" height="134"/>
+        <element name="MOThrust" positionX="-54" positionY="81" width="128" height="59"/>
+        <element name="MODragon" positionX="-27" positionY="117" width="128" height="14"/>
+    </elements>
+</model>
