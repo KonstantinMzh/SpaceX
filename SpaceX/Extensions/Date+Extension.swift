@@ -21,9 +21,7 @@ extension Date {
     func getRemainTimeBeforeEvent(eventDate: TimeInterval) -> String {
         
         let currentDate = changeToSystemTimeZone(self).timeIntervalSince1970
-        
-        let currentTimeZoneDate = TimeInterval(TimeZone.current.secondsFromGMT(for: self))
-        
+                
         let diff = eventDate - currentDate
         
         let calendar = Calendar.current
