@@ -20,7 +20,10 @@ extension Date {
     
     func getRemainTimeBeforeEvent(eventDate: TimeInterval) -> String {
         
-        let currentDate = self.timeIntervalSince1970
+        let currentDate = changeToSystemTimeZone(self).timeIntervalSince1970
+        
+        let currentTimeZoneDate = TimeInterval(TimeZone.current.secondsFromGMT(for: self))
+        
         let diff = eventDate - currentDate
         
         let calendar = Calendar.current
@@ -58,6 +61,14 @@ extension Date {
         
         return result
 
+    }
+    
+    func changeToSystemTimeZone(_ date: Date) -> Date {
+        guard let fromTimeZone = TimeZone(abbreviation: "UTC") else { return self }
+        let sourceOffset = fromTimeZone.secondsFromGMT(for: date)
+        let destinationOffset = TimeZone.current.secondsFromGMT(for: date)
+        let timeInterval = TimeInterval(destinationOffset - sourceOffset)
+        return Date(timeInterval: timeInterval, since: date)
     }
     
     
