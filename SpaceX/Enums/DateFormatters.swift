@@ -10,14 +10,23 @@ import Foundation
 
 enum DateFormatters: String {
     
-    case simpleDayMonthYear = "DD.MM.YYYY"
+    case simpleDayMonthYear = "MM.DD.YYYY"
+    case dayBeforeLaunch = "HH:mm:ss"
+    case monthDayAndYear = "MMMM d YYYY"
+    case hourseAndMinutes = "hh:mm a"
+
     
-    func getDescriptionFromDate(_ date: Date) -> String {
+    func getDescription(_ date: Date) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = self.rawValue
         return dateFormatter.string(from: date)
     }
     
-    
+    func getDescription(_ timeInterval: TimeInterval) -> String {
+        let date = Date(timeIntervalSince1970: timeInterval)
+        return getDescription(date)
+    }
     
 }
+
+

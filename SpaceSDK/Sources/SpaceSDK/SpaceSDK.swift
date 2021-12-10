@@ -10,19 +10,25 @@ import Foundation
 
 public protocol SpaceServiceProtocol {
     func fetchRockets(completion: @escaping (Result<[Rocket], SpaceError>) -> Void)
-    func fetchLaunches(completion: @escaping (Result<[Launch], SpaceError>) -> Void)
     func fetchRocketById(_ id: String, completion: @escaping (Result<Rocket, SpaceError>) -> Void)
+    
+    func fetchLaunches(completion: @escaping (Result<[Launch], SpaceError>) -> Void)
+    func fetchLaunchById(_ id: String, completion: @escaping (Result<Launch, SpaceError>) -> Void)
+    
+    func fetchDragons(completion: @escaping (Result<[Dragon], SpaceError>) -> Void)
+
+    func fetchCompanyInfo(completion: @escaping (Result<Company, SpaceError>) -> Void)
 }
 
 
 public class SpaceService: SpaceServiceProtocol {
     
     let networkManager: NetworkManagerProtocol
-
+    var rocketCache: [String: Rocket] = [:]
     
     public func fetchRockets(completion: @escaping (Result<[Rocket], SpaceError>) -> Void) {
-        networkManager.fetch(endpoint: .rockets) { result in
-            completion(result)
+        networkManager.fetch(endpoint: .rockets) { [weak self] result in
+            self?.pushRocketsIntoCache(rocketResults: result, completion)
         }
     }
     
@@ -32,11 +38,65 @@ public class SpaceService: SpaceServiceProtocol {
         }
     }
     
-    public func fetchRocketById(_ id: String, completion: @escaping (Result<Rocket, SpaceError>) -> Void) {
-        networkManager.fetch(endpoint: .rocket(id)) { result in
+    public func fetchLaunchById(_ id: String, completion: @escaping (Result<Launch, SpaceError>) -> Void) {
+        networkManager.fetch(endpoint: .launch(id)) { result in
             completion(result)
         }
     }
+    
+    public func fetchRocketById(_ id: String, completion: @escaping (Result<Rocket, SpaceError>) -> Void) {
+        if let rocket = rocketCache[id] {
+            completion(.success(rocket))
+        } else {
+            networkManager.fetch(endpoint: .rocket(id)) { [weak self] res in
+                self?.pushRocketWithIdIntoCache(id, rocketResults: res, completion)
+            }
+        }
+    }
+    
+    
+    public func fetchDragons(completion: @escaping (Result<[Dragon], SpaceError>) -> Void) {
+        networkManager.fetch(endpoint: .dragons) { result in
+            completion(result)
+        }
+    }
+    
+    public func fetchCompanyInfo(completion: @escaping (Result<Company, SpaceError>) -> Void) {
+        networkManager.fetch(endpoint: .companyInfo) { result in
+            completion(result)
+        }
+    }
+    
+    
+
+    private func pushRocketWithIdIntoCache(_ id: String,
+                                           rocketResults: Result<Rocket, SpaceError>,
+                                           _ completion: @escaping (Result<Rocket, SpaceError>) -> Void) {
+        switch rocketResults {
+        case .success(let rocket):
+            rocketCache[id] = rocket
+        default:
+            break
+        }
+        completion(rocketResults)
+        
+    }
+
+
+    private func pushRocketsIntoCache(rocketResults: Result<[Rocket], SpaceError>,
+                                      _ completion: @escaping (Result<[Rocket], SpaceError>) -> Void) {
+        switch rocketResults {
+        case .success(let rockets):
+            rockets.forEach {
+                rocketCache[$0.id] = $0
+            }
+        default:
+            break
+        }
+        completion(rocketResults)
+
+    }
+    
 
 
     public init() {

@@ -16,44 +16,95 @@ final class ScreenFactory {
     
     func createTabBar() -> UITabBarController {
         let tabBarController = UITabBarController()
-        let rocketsViewController = createRocketsScreen()
+        tabBarController.view.backgroundColor = Colors.background
+        let equipmentViewController = createEquipmentScreen()
         
-        let dummyViewController2 = UIViewController()
-        dummyViewController2.view.backgroundColor = .systemBlue
+        let launchesViewController = createLaunchesScreen()
         
-        let dummyViewController3 = UIViewController()
-        dummyViewController3.view.backgroundColor = .systemYellow
+        let companyInfoViewController = createCompanyInfoScreen()
         
 
-        tabBarController.viewControllers = [rocketsViewController, dummyViewController2, dummyViewController3]
+        tabBarController.viewControllers = [equipmentViewController, launchesViewController, companyInfoViewController]
         
         let item1 = tabBarController.tabBar.items?[safe: 0]
         item1?.image = UIImage(named: "rocket")
-        item1?.title = "Ракеты"
+        item1?.title = "Rockets"
         
         let item2 = tabBarController.tabBar.items?[safe: 1]
         item2?.image = UIImage(named: "launch")
-        item2?.title = "Запуски"
+        item2?.title = "Launches"
         
         let item3 = tabBarController.tabBar.items?[safe: 2]
         item3?.image = UIImage(named: "detail")
-        item3?.title = "О SpaceX"
+        item3?.title = "SpaceX"
         
-        tabBarController.tabBar.tintColor = .systemOrange
+        tabBarController.tabBar.tintColor = Colors.mainAccent
         
         return tabBarController
     }
         
-    func createRocketsScreen() -> PickerViewController {
+    func createEquipmentScreen() -> UINavigationController {
+        let navigationController = UINavigationController()
+        let viewController = EquipmentsViewController()
+        let presenter: EquipmentsPresenterProtocol = EquipmentsPresenter(viewController: viewController,
+                                                                         factory: self)
+        viewController.presenter = presenter
+        navigationController.pushViewController(viewController, animated: false)
+        return navigationController
+    }
+    
+    func createCompanyInfoScreen() -> CompanyInfoViewController {
+        let viewController = CompanyInfoViewController()
+        let presenter: CompanyInfoPresenterProtocol = CompanyInfoPresenter(service:
+                                                                            applicationFactory.rocketService,
+                                                                           viewController: viewController)
+        viewController.presenter = presenter
+        return viewController
+    }
+
+    func createLaunchesScreen() -> UINavigationController {
+        let navigationController = UINavigationController()
+        let viewController = LaunchesViewController()
+        let launchesPresenter: LaunchesPresenterProtocol = LaunchesPresenter(viewController: viewController,
+                                                                             rocketService: applicationFactory.spaceService,
+                                                                             factory: self)
+        viewController.presenter = launchesPresenter
+        navigationController.pushViewController(viewController, animated: false)
+        return navigationController
+    }
+    
+    func createLaunchDetailScreenForId(_ id: String, title: String) -> LaunchDetailViewController {
+        let viewController = LaunchDetailViewController(title: title)
+        let presenter: LaunchDetailPresenterProtocol = LaunchDetailPresenter(id: id,
+                                                                             spaceService: applicationFactory.spaceService,
+                                                                             viewController: viewController,
+                                                                             factory: self)
+        viewController.presenter = presenter
+        return viewController
+    }
+    
+    func createEquipmentDetailScreen(equipmentType: EquipmentsType) -> PickerViewController {
         let pickerViewController = PickerViewController()
-        let rocketViewController = RocketInfoViewController()
-        let rocketPresenter: RocketInfoPresenterProtocol = RocketInfoPresenter(viewController: rocketViewController,
-                                                                               rocketService: applicationFactory.spaceService)
-        rocketViewController.presenter = rocketPresenter
-        pickerViewController.addContentController(rocketViewController)
-        rocketViewController.picker = pickerViewController
-        pickerViewController.delegate = rocketPresenter
+        let equipmentViewController = EquipmentDetailViewController()
+
+        let presenter = EquipmentDetailPresenter(equipmentType: equipmentType,
+                                                 viewController: equipmentViewController,
+                                                 rocketService: applicationFactory.rocketService)
+
+        equipmentViewController.presenter = presenter
+        pickerViewController.addContentController(equipmentViewController)
+        equipmentViewController.picker = pickerViewController
+        pickerViewController.delegate = presenter
         return pickerViewController
+    }
+    
+    func createScreenForAppearingRocket(rocket: Rocket) -> EquipmentDetailViewController {
+        let viewControler = EquipmentDetailViewController(rocket: rocket)
+        let presenter = EquipmentDetailPresenter(equipmentType: .rocket,
+                                                 viewController: viewControler,
+                                                 rocketService: applicationFactory.rocketService)
+        viewControler.presenter = presenter
+        return viewControler
     }
     
 }
@@ -62,9 +113,14 @@ final class ScreenFactory {
 fileprivate final class ApplicationFactory {
     
     fileprivate let spaceService: SpaceServiceProtocol
+    fileprivate let rocketService: RocketServiceProtocol
+    private let coreDataService: CoreDataServiceProtocol
+    private let coreDataStack = CoreDataStack(storageName: "SpaceStorage")
     
     fileprivate init() {
         spaceService = SpaceService()
+        coreDataService = CoreDataService(coreDataStack: coreDataStack)
+        rocketService = RocketService(spaceService: spaceService, coreDataService: coreDataService)
     }
     
 }
