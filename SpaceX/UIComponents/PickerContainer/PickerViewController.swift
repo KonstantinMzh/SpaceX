@@ -79,21 +79,14 @@ class PickerViewController: UIViewController {
     }
     
     func configure() {
-        
-        
         view.addSubview(collectionView)
-        
-        
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             collectionView.heightAnchor.constraint(equalToConstant: 60)
         ])
-        
-
     }
-    
     
     //MARK: - Child handling
     func addContentController(_ child: UIViewController) {

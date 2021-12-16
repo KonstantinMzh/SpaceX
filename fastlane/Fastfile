@@ -1,0 +1,8 @@
+desc "Build App For Testing"
+lane :build_app_for_testing do |options|
+  scan(
+    scheme: "Debug",
+    clean: true,
+    build_for_testing: true
+  )
+end
